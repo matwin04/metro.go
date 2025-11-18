@@ -15,7 +15,7 @@ const routeMap = {
 async function renderDepartures() {
     try {
         const stopId = window.STOP_ID;
-        const res = await fetch(`http://127.0.0.1:5050/api/departures/${stopId}`);
+        const res = await fetch(`/api/departures/${stopId}`);
         const departures = await res.json();
 
         if (!departures || departures.length === 0) {
