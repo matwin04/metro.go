@@ -1,0 +1,7 @@
+#map {
+  flex: 1;
+  height: 80vh; /* important: gives map height */
+  min-height: 300px; /* ensure some height on mobile */
+  border-radius: 2px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
