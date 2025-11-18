@@ -26,10 +26,17 @@ def stopDepartures(stopId):
 def vehicles():
     vehicles = metro.getVehicles()
     return jsonify(vehicles)
+
 @app.route("/api/departures/<stopId>")
 def departures(stopId):
     departures = metro.getDepartures(stopId)
     return jsonify(departures)
+
+@app.route("/api/trip/<tripId>")
+def trip(tripId):
+    trip = metro.getTripStops(tripId)
+    return jsonify(trip)
+
 
 @app.route("/api/block/<blockId>")
 def block(blockId):

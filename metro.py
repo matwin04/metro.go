@@ -21,7 +21,11 @@ def getDepartures(stopId):
         print(f"API returned an error for stop {stopId}")
         return []
     return data["data"]["predictionsData"]
-
+def getTripStops(tripId):
+    url = f"https://api.metro.net/LACMTA_Rail/stop_times/trip_id/{tripId}"
+    response = requests.get(url)
+    data = response.json()
+    return data
 def getAllStops():
     """Fetch all stops from the API and return their IDs"""
     url = f"{BASE_URL}/route_overview"
