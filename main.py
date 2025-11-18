@@ -30,5 +30,13 @@ def vehicles():
 def departures(stopId):
     departures = metro.getDepartures(stopId)
     return jsonify(departures)
+
+@app.route("/api/block/<blockId>")
+def block(blockId):
+    vehicles = metro.getVehicles()
+    for v in vehicles.get("data", {}).get("vehicles", []):
+        if v.get("blockId") == blockId:  # use .get() to avoid KeyError
+            return jsonify(v)
+    return jsonify({"error": "Block not found"}), 404
 if __name__ == "__main__":
     app.run(debug=True,port=5050)

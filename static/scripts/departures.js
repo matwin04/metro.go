@@ -26,39 +26,51 @@ async function renderDepartures() {
 
         stopNameEl.textContent = `Departures for Stop ${departures[0].stopName}`;
 
-        // Flatten all predictions
-        const allPredictions = [];
-        departures.forEach(route => {
-            route.destinations.forEach(dest => {
-                dest.predictions.forEach(pred => {
-                    allPredictions.push({
-                        routeId: route.routeId,
-                        routeShortName: route.routeShortName,
-                        headsign: dest.headsign,
-                        min: pred.min,
-                        vehicleId: pred.vehicleId
-                    });
-                });
-            });
-        });
+        // Flatten all predictions using flatMap
+        const allPredictions = departures.flatMap(route =>
+            route.destinations.flatMap(dest =>
+                dest.predictions.map(pred => ({
+                    routeId: route.routeId,
+                    routeShortName: route.routeShortName,
+                    headsign: dest.headsign,
+                    min: pred.min,
+                    time: pred.time,
+                    vehicleId: pred.vehicleId,
+                    block: pred.blockId,
+                    trip: pred.tripId
+                }))
+            )
+        );
 
-        // Sort by minutes
+        // Sort by minutes until arrival
         allPredictions.sort((a, b) => a.min - b.min);
 
         // Render table
         tableBody.innerHTML = "";
         allPredictions.forEach(dep => {
             const routeInfo = routeMap[dep.routeId] || routeMap["unknown"];
+
+            // Convert Unix timestamp (seconds) to AM/PM time
+            const arrivalTime = new Date(dep.time * 1000);
+            const formattedTime = arrivalTime.toLocaleTimeString([], {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            });
+
             const row = document.createElement("tr");
             row.innerHTML = `
                 <td>
                     <span class="route-circle" style="background:${routeInfo.color}">
                         ${routeInfo.letter}
                     </span>
+                    ${dep.routeShortName}
                 </td>
                 <td>${dep.headsign}</td>
                 <td>${dep.min} min</td>
-                <td>${dep.vehicleId}</td>
+                <td>${formattedTime}</td>
+                <td><a href="/api/block/${dep.block}" target="_blank">${dep.block}</a></td>
+                <td><a href="/api/trip/${dep.trip}" target="_blank">${dep.trip}</a></td>
             `;
             tableBody.appendChild(row);
         });
