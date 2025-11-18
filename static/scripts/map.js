@@ -14,7 +14,7 @@ const routeColors = {
     unknown: "#AAAAAA"
 };
 async function loadVehicles() {
-    const response = await fetch("/vehicles");
+    const response = await fetch("/api/vehicles");
     const data = await response.json();
 
     const vehicles = data?.data?.vehicles;
@@ -47,7 +47,12 @@ map.on("load",()=>{
                 features: []
             }
         });
-
+    map.addSource("lacmta-routes",
+        {
+            type: "geojson",
+            data: "/static/data/LACMTA_Rail/routes.geojson"
+        }
+    )
     map.addSource("stations",
         {
             type:"geojson",
@@ -60,6 +65,7 @@ map.on("load",()=>{
             data:"https://bikeshare.metro.net/stations/json/"
         }
     );
+
     map.addLayer({
         id: "bike-station-dots",
         type: "circle",
@@ -94,6 +100,40 @@ map.on("load",()=>{
             "circle-color": ["get", "color"]
         
         }
+    });
+    map.addLayer({
+        id: "lacmta-routes",
+        type: "line",
+        source: "routes",
+        paint: {
+            "line-color": "#002041",
+            "line-width": 3
+        }
+    });
+    map.on("click", "station-dots", (e)=>{
+        const p = e.features[0].properties;
+        console.log(p);
+        new maplibregl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(`
+                <div class="popup">
+                    <b>${p.Station}</b><br>
+                    ${p.StopNumber}<br>
+                </div>
+            `)
+            .addTo(map);
+    });
+    map.on("click", "vehicle-dots", (e) => {
+        const p = e.features[0].properties;
+
+        new maplibregl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(`
+                <b>Route:</b> ${p.shortName}<br>
+                <b>To:</b> ${p.headsign}<br>
+                <b>ID:</b> ${p.id}
+            `)
+            .addTo(map);
     });
     loadVehicles();
 
