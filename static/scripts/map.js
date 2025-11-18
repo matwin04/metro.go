@@ -52,7 +52,7 @@ map.on("load",()=>{
             type: "geojson",
             data: "/static/data/LACMTA_Rail/routes.geojson"
         }
-    )
+    );
     map.addSource("stations",
         {
             type:"geojson",
@@ -65,7 +65,15 @@ map.on("load",()=>{
             data:"https://bikeshare.metro.net/stations/json/"
         }
     );
-
+    map.addLayer({
+        id: "lacmta-routes",
+        type: "line",
+        source: "lacmta-routes",
+        paint: {
+            "line-color": ["get", "color"],
+            "line-width": 3
+        }
+    });
     map.addLayer({
         id: "bike-station-dots",
         type: "circle",
@@ -101,15 +109,7 @@ map.on("load",()=>{
         
         }
     });
-    map.addLayer({
-        id: "lacmta-routes",
-        type: "line",
-        source: "routes",
-        paint: {
-            "line-color": "#002041",
-            "line-width": 3
-        }
-    });
+    
     map.on("click", "station-dots", (e)=>{
         const p = e.features[0].properties;
         console.log(p);
