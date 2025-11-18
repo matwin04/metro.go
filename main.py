@@ -16,7 +16,8 @@ def stopDepartures(stopId):
     departures = metro.getDepartures(stopId)
     return render_template(
         "departures.html",
-        departures=departures
+        departures=departures,
+        stop_id=stopId  # pass stopId to template
     )
 ##JSON ROUTES
 # FOR TESTING PURPOSES

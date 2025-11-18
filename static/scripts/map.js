@@ -70,7 +70,7 @@ map.on("load",()=>{
         type: "line",
         source: "lacmta-routes",
         paint: {
-            "line-color": ["get", "color"],
+            "line-color": ["get", "routeId"],
             "line-width": 3
         }
     });
@@ -119,6 +119,7 @@ map.on("load",()=>{
                 <div class="popup">
                     <b>${p.Station}</b><br>
                     ${p.StopNumber}<br>
+                    <a href="/departures/${p.StopNumber}">View Departures</a>
                 </div>
             `)
             .addTo(map);
@@ -131,12 +132,11 @@ map.on("load",()=>{
             .setHTML(`
                 <b>Route:</b> ${p.shortName}<br>
                 <b>To:</b> ${p.headsign}<br>
-                <b>ID:</b> ${p.id}
+                <b>ID:</b> ${p.id}<br>
+                <a href="/trips/${p.tripId}">View Trip</a>
             `)
             .addTo(map);
     });
     loadVehicles();
-
-    // refresh every 10 sec
     setInterval(loadVehicles, 10000);
 });
