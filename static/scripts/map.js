@@ -13,8 +13,41 @@ const routeColors = {
     807: "#E56DB1",
     unknown: "#AAAAAA"
 };
+async function loadVehicles() {
+    const response = await fetch("/vehicles");
+    const data = await response.json();
 
+    const vehicles = data?.data?.vehicles;
+    if (!vehicles) return;
+
+    map.getSource("vehicles").setData({
+        type: "FeatureCollection",
+        features: vehicles.map(v => ({
+            type: "Feature",
+            geometry: {
+                type: "Point",
+                coordinates: [v.loc.lon, v.loc.lat]
+            },
+            properties: {
+                id: v.id,
+                headsign: v.headsign,
+                route: v.routeId,
+                shortName: v.routeShortName,
+                heading: v.loc.heading,
+                color: routeColors[v.routeId] || routeColors.unknown
+            }
+        }))
+    });
+}
 map.on("load",()=>{
+    map.addSource("vehicles", {
+            type: "geojson",
+            data: {
+                type: "FeatureCollection",
+                features: []
+            }
+        });
+
     map.addSource("stations",
         {
             type:"geojson",
@@ -50,4 +83,20 @@ map.on("load",()=>{
             "circle-color": "#fff"
         }
     });
-})
+    map.addLayer({
+        id: "vehicle-dots",
+        type: "circle",
+        source: "vehicles", 
+        paint: {
+            "circle-radius": 6,
+            "circle-stroke-width": 2,
+            "circle-stroke-color": "#000",
+            "circle-color": ["get", "color"]
+        
+        }
+    });
+    loadVehicles();
+
+    // refresh every 10 sec
+    setInterval(loadVehicles, 10000);
+});
