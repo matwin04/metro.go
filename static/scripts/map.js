@@ -33,7 +33,7 @@ map.on("load",()=>{
         source: "bike-stations",
         paint: {
             "circle-radius": 2,
-            "circle-color": "#d85757ff",
+            "circle-color": "#fff211",
             "circle-stroke-width": 1,
             "circle-stroke-color": "#000",
         }
