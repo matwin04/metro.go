@@ -86,4 +86,4 @@ async function renderDepartures() {
 renderDepartures();
 
 // Update every 10 seconds
-setInterval(renderDepartures, 10000);
+setInterval(renderDepartures, 30000);
