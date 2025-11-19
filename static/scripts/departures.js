@@ -70,6 +70,12 @@ async function renderDepartures() {
                 <td>${formattedTime}</td>
                 <td><a href="/api/trip/${dep.trip}" target="_blank">View Trip</a></td>
             `;
+
+            if (dep.min <= 1) {
+                row.classList.add("flash-yellow");
+                
+            }
+
             tableBody.appendChild(row);
         });
 
@@ -83,5 +89,5 @@ async function renderDepartures() {
 // Initial render
 renderDepartures();
 
-// Update every 10 seconds
+// Update every 30 seconds
 setInterval(renderDepartures, 30000);
