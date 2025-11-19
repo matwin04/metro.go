@@ -61,16 +61,14 @@ async function renderDepartures() {
             const row = document.createElement("tr");
             row.innerHTML = `
                 <td>
-                    <span class="route-circle" style="background:${routeInfo.color}">
-                        ${routeInfo.letter}
-                    </span>
-                    ${dep.routeShortName}
+                    <img class="route-icon" src="/static/icons/routeicons/${dep.routeId}.svg"
+                    alt="${dep.routeId}"
+                    />
                 </td>
                 <td>${dep.headsign}</td>
                 <td>${dep.min} min</td>
                 <td>${formattedTime}</td>
-                <td><a href="/api/block/${dep.block}" target="_blank">${dep.block}</a></td>
-                <td><a href="/api/trip/${dep.trip}" target="_blank">${dep.trip}</a></td>
+                <td><a href="/api/trip/${dep.trip}" target="_blank">View Trip</a></td>
             `;
             tableBody.appendChild(row);
         });

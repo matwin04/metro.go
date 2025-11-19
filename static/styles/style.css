@@ -21,6 +21,10 @@ th {
 tr:nth-child(even) {
   background: #fafafa; 
 }
+.route-icon {
+  width: 28px;
+  height: 28px;
+}
 .route-circle {
     display: inline-flex;
     justify-content: center;

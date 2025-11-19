@@ -26,6 +26,7 @@ def getTripStops(tripId):
     response = requests.get(url)
     data = response.json()
     return data
+
 def getAllStops():
     """Fetch all stops from the API and return their IDs"""
     url = f"{BASE_URL}/route_overview"
