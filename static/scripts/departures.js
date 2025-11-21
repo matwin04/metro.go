@@ -68,7 +68,7 @@ async function renderDepartures() {
                 <td>${dep.headsign}</td>
                 <td>${dep.min} min</td>
                 <td>${formattedTime}</td>
-                <td><a href="/api/trip/${dep.trip}" target="_blank">View Trip</a></td>
+                <td><a href="/trips/${dep.trip}" target="_blank">View Trip</a></td>
             `;
 
             if (dep.min <= 1) {

@@ -9,8 +9,19 @@ def home():
 @app.route("/test")
 def test():
     return render_template("test.html")
-
+@app.route("/about")
+def about():
+    return render_template("about.html")
 #FLASK DYNAMIC ROUTES
+
+@app.route("/trips/<tripId>")
+def tripDestinations(tripId):
+    trip = metro.getTripStops(tripId)
+    print(trip)
+    return render_template(
+        "trips.html",
+        trip=trip
+    )
 @app.route("/departures/<stopId>")
 def stopDepartures(stopId):
     departures = metro.getDepartures(stopId)

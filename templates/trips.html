@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include "navbar.html" with context %}
+<div class="container">
+     <table class="table table-striped table-bordered align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Route</th>
+          <th>Destination</th>
+          <th>Arrives In</th>
+          <th>Train ID</th>
+          <th>Trip</th>
+        </tr>
+      </thead>
+         <tbody>
+            {% for stop in trip%}
+            <tr>
+                <td>{{stop.stop_sequence}}</td>
+                <td>{{stop.arrival_time}}</td>
+                <td>{{stop.id}}</td>
+            </tr>
+            {% endfor %}
+         </tbody>
+    </table>
+</div>
+
+
+<footer>
+    `<script>
+    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+
+    <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>`
+</footer>
+
+</body>
+</html>

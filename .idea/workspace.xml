@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f95453ad-4598-4132-ae72-5884f3cbef0f" name="Changes" comment="Popup works for">
+      <change afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/trips.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/metro.py" beforeDir="false" afterPath="$PROJECT_DIR$/metro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/departures.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/departures.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/departures.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/departures.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/test.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
