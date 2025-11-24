@@ -1,7 +1,10 @@
 from flask import *
 import requests
+
+import amtrak
 import metro
 from metro import *
+from amtrak import *
 app = Flask(__name__)
 @app.route("/")
 def home():
@@ -32,7 +35,10 @@ def stopDepartures(stopId):
     )
 ##JSON ROUTES
 # FOR TESTING PURPOSES
-
+@app.route("/api/amtrak/vehicles")
+def amtrakVehicles():
+    amtrakVehicles = amtrak.getVehicles()
+    return jsonify(amtrakVehicles)
 @app.route("/api/vehicles")
 def vehicles():
     vehicles = metro.getVehicles()
