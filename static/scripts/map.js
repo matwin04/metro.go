@@ -112,8 +112,8 @@ map.on("load", () => {
                 `
                 <div class="popup">
                     <b>${p.name}</b><br>
-                    <b>${p.bikesAvailable}<b><br>
-                    <b>${p.docksAvailable}<b><br>
+                    <b>${p.bikesAvailable}<b> Available<br>
+                    <b>${p.docksAvailable}<b> Docks<br>
                 </div>
                 `
             )

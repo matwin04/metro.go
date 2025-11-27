@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f95453ad-4598-4132-ae72-5884f3cbef0f" name="Changes" comment="Popup works for">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/scripts/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/map.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
