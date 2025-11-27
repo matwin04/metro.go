@@ -73,7 +73,7 @@ map.on("load", () => {
         type: "circle",
         source: "bike-stations",
         paint: {
-            "circle-radius": 2,
+            "circle-radius": 4,
             "circle-color": "#fff211",
             "circle-stroke-width": 1,
             "circle-stroke-color": "#000"
@@ -106,6 +106,19 @@ map.on("load", () => {
     map.on("click", "bike-station-dots", (e) => {
         const p = e.features[0].properties;
         console.log(p);
+        new maplibregl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(
+                `
+                <div class="popup">
+                    <b>${p.name}</b><br>
+                    <b>${p.bikesAvailable}<b><br>
+                    <b>${p.docksAvailable}<b><br>
+                </div>
+                `
+            )
+            .addTo(map)
+
     });
     map.on("click", "station-dots", (e) => {
         const p = e.features[0].properties;
@@ -125,7 +138,7 @@ map.on("load", () => {
     });
     map.on("click", "vehicle-dots", (e) => {
         const p = e.features[0].properties;
-
+        console.log(p);
         new maplibregl.Popup()
             .setLngLat(e.lngLat)
             .setHTML(
