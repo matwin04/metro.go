@@ -91,7 +91,7 @@ map.on("load",()=>{
         type: "circle",
         source: "stations",
         paint: {
-            "circle-radius": 3,
+            "circle-radius": 5,
             "circle-stroke-width": 1,
             "circle-stroke-color": "#000",
             "circle-color": "#fff"
@@ -102,9 +102,10 @@ map.on("load",()=>{
         type: "circle",
         source: "vehicles", 
         paint: {
+            "circle-opacity": .75,
             "circle-radius": 6,
             "circle-stroke-width": 2,
-            "circle-stroke-color": "#000",
+            "circle-stroke-color": "#fff",
             "circle-color": ["get", "color"]
         
         }

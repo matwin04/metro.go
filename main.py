@@ -57,6 +57,7 @@ def trip(tripId):
 @app.route("/api/routes/LACMTA_Rail")
 def LACMTA_Rail():
     return redirect("/")
+
 @app.route("/api/block/<blockId>")
 def block(blockId):
     vehicles = metro.getVehicles()
