@@ -22,7 +22,7 @@ async function loadVehicles() {
 
     map.getSource("vehicles").setData({
         type: "FeatureCollection",
-        features: vehicles.map(v => ({
+        features: vehicles.map((v) => ({
             type: "Feature",
             geometry: {
                 type: "Point",
@@ -39,32 +39,26 @@ async function loadVehicles() {
         }))
     });
 }
-map.on("load",()=>{
+map.on("load", () => {
     map.addSource("vehicles", {
-            type: "geojson",
-            data: {
-                type: "FeatureCollection",
-                features: []
-            }
-        });
-    map.addSource("lacmta-routes",
-        {
-            type: "geojson",
-            data: "/static/data/LACMTA_Rail/routes.geojson"
+        type: "geojson",
+        data: {
+            type: "FeatureCollection",
+            features: []
         }
-    );
-    map.addSource("stations",
-        {
-            type:"geojson",
-            data: "/static/data/LACMTA_Rail/stations.geojson"
-        }
-    );
-    map.addSource("bike-stations",
-        {
-            type:"geojson",
-            data:"https://bikeshare.metro.net/stations/json/"
-        }
-    );
+    });
+    map.addSource("lacmta-routes", {
+        type: "geojson",
+        data: "/static/data/LACMTA_Rail/routes.geojson"
+    });
+    map.addSource("stations", {
+        type: "geojson",
+        data: "/static/data/LACMTA_Rail/stations.geojson"
+    });
+    map.addSource("bike-stations", {
+        type: "geojson",
+        data: "https://bikeshare.metro.net/stations/json/"
+    });
     map.addLayer({
         id: "lacmta-routes",
         type: "line",
@@ -82,10 +76,10 @@ map.on("load",()=>{
             "circle-radius": 2,
             "circle-color": "#fff211",
             "circle-stroke-width": 1,
-            "circle-stroke-color": "#000",
+            "circle-stroke-color": "#000"
         }
     });
-    
+
     map.addLayer({
         id: "station-dots",
         type: "circle",
@@ -100,29 +94,33 @@ map.on("load",()=>{
     map.addLayer({
         id: "vehicle-dots",
         type: "circle",
-        source: "vehicles", 
+        source: "vehicles",
         paint: {
-            "circle-opacity": .75,
+            "circle-opacity": 0.75,
             "circle-radius": 6,
             "circle-stroke-width": 2,
             "circle-stroke-color": "#fff",
             "circle-color": ["get", "color"]
-        
         }
     });
-    
-    map.on("click", "station-dots", (e)=>{
+    map.on("click", "bike-station-dots", (e) => {
+        const p = e.features[0].properties;
+        console.log(p);
+    });
+    map.on("click", "station-dots", (e) => {
         const p = e.features[0].properties;
         console.log(p);
         new maplibregl.Popup()
             .setLngLat(e.lngLat)
-            .setHTML(`
+            .setHTML(
+                `
                 <div class="popup">
                     <b>${p.Station}</b><br>
                     ${p.StopNumber}<br>
                     <a href="/departures/${p.StopNumber}">View Departures</a>
                 </div>
-            `)
+            `
+            )
             .addTo(map);
     });
     map.on("click", "vehicle-dots", (e) => {
@@ -130,12 +128,14 @@ map.on("load",()=>{
 
         new maplibregl.Popup()
             .setLngLat(e.lngLat)
-            .setHTML(`
+            .setHTML(
+                `
                 <b>Route:</b> ${p.shortName}<br>
                 <b>To:</b> ${p.headsign}<br>
                 <b>ID:</b> ${p.id}<br>
                 <a href="/trips/${p.tripId}">View Trip</a>
-            `)
+            `
+            )
             .addTo(map);
     });
     loadVehicles();
