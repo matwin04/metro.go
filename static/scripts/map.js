@@ -3,15 +3,15 @@
 // ------------------------------
 const map = L.map("map").setView([34.05, -118.25], 10);
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
     maxZoom: 19
 }).addTo(map);
 
 // ------------------------------
 // Layers
 // ------------------------------
-const routeLayer = L.layerGroup().addTo(map);
 const stationLayer = L.layerGroup().addTo(map);
+const routeLayer = L.layerGroup().addTo(map);
 const bikeLayer = L.layerGroup().addTo(map);
 const vehicleLayer = L.layerGroup().addTo(map);
 const metrolinkLayer = L.layerGroup().addTo(map);
@@ -99,12 +99,16 @@ async function loadBikeStations() {
                 color: "#000",
                 fillColor: "#fff211",
                 fillOpacity: 1
-            }).bindPopup(`
+            })
+                .bindPopup(
+                    `
                 <b>${p.name}</b><br>
                 Bikes: ${p.bikesAvailable}<br>
                 Docks: ${p.docksAvailable}<br>
                 E-Bikes: ${p.electricBikesAvailable}
-            `).addTo(bikeLayer);
+            `
+                )
+                .addTo(bikeLayer);
         });
     } catch (err) {
         console.error("Error loading bike stations:", err);
@@ -133,12 +137,16 @@ async function loadVehicles() {
                 color: "#fff",
                 fillColor: routeColors[v.routeId] || routeColors.unknown,
                 fillOpacity: 0.75
-            }).bindPopup(`
+            })
+                .bindPopup(
+                    `
                 <b>Route:</b> ${v.routeShortName}<br>
                 <b>To:</b> ${v.headsign}<br>
                 <b>ID:</b> ${v.id}<br>
                 <a href="/trips/${v.tripId}">View Trip</a>
-            `).addTo(vehicleLayer);
+            `
+                )
+                .addTo(vehicleLayer);
         });
     } catch (err) {
         console.error("Error loading vehicles:", err);
@@ -158,7 +166,7 @@ async function loadMetrolinkVehicles() {
 
         metrolinkLayer.clearLayers();
 
-        entities.forEach(e => {
+        entities.forEach((e) => {
             const v = e.vehicle;
             if (!v?.position) return;
 
@@ -171,16 +179,19 @@ async function loadMetrolinkVehicles() {
                 color: "#fff",
                 fillColor: "#0072BC",
                 fillOpacity: 0.75
-            }).bindPopup(`
+            })
+                .bindPopup(
+                    `
                 <b>Route:</b> ${v.trip?.route_id || "Unknown"}<br>
                 <b>Trip ID:</b> ${v.trip?.trip_id || "Unknown"}<br>
                 <b>Vehicle ID:</b> ${v.vehicle?.id || "Unknown"}<br>
                 <b>Label:</b> ${v.vehicle?.label || "Unknown"}
-            `).addTo(metrolinkLayer);
+            `
+                )
+                .addTo(metrolinkLayer);
         });
 
         console.log("Loaded Metrolink vehicles:", entities.length);
-
     } catch (err) {
         console.error("Error loading Metrolink vehicles:", err);
     }
