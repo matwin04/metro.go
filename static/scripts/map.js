@@ -51,6 +51,7 @@ async function loadRoutes() {
     }
 }
 
+<<<<<<< HEAD
 // ------------------------------
 // 2️⃣ Load Rail Stations
 // ------------------------------
@@ -58,6 +59,46 @@ async function loadStations() {
     try {
         const response = await fetch("/static/data/LACMTA_Rail/stations.geojson");
         const data = await response.json();
+=======
+    map.addLayer({
+        id: "station-dots",
+        type: "circle",
+        source: "stations",
+        paint: {
+            "circle-radius": 5,
+            "circle-stroke-width": 1,
+            "circle-stroke-color": "#000",
+            "circle-color": "#fff"
+        }
+    });
+    map.addLayer({
+        id: "vehicle-dots",
+        type: "circle",
+        source: "vehicles",
+        paint: {
+            "circle-opacity": 0.75,
+            "circle-radius": 6,
+            "circle-stroke-width": 2,
+            "circle-stroke-color": "#fff",
+            "circle-color": ["get", "color"]
+        }
+    });
+    map.on("click", "bike-station-dots", (e) => {
+        const p = e.features[0].properties;
+        console.log(p);
+        new maplibregl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(
+                `
+                <div class="popup">
+                    <b>${p.name}</b><br>
+                    <b>${p.bikesAvailable}<b><br>
+                    <b>${p.docksAvailable}<b><br>
+                </div>
+                `
+            )
+            .addTo(map)
+>>>>>>> parent of ba2d2bc (9)
 
         stationLayer.clearLayers();
 
