@@ -1,24 +1,9 @@
-// ------------------------------
-// Initialize map
-// ------------------------------
-const map = L.map("map").setView([34.05, -118.25], 10);
-
-L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-    maxZoom: 19
-}).addTo(map);
-
-// ------------------------------
-// Layers
-// ------------------------------
-const stationLayer = L.layerGroup().addTo(map);
-const routeLayer = L.layerGroup().addTo(map);
-const bikeLayer = L.layerGroup().addTo(map);
-const vehicleLayer = L.layerGroup().addTo(map);
-const busLayer = L.layerGroup().addTo(map);
-
-// ------------------------------
-// Route colors
-// ------------------------------
+const map = new maplibregl.Map({
+    container: "map",
+    style: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
+    center: [-118.25, 34.05],
+    zoom: 10
+});
 const routeColors = {
     801: "#0072BC",
     802: "#EB131B",
@@ -26,40 +11,75 @@ const routeColors = {
     804: "#FDB913",
     805: "#A05DA5",
     807: "#E56DB1",
-    901: "#eb6913",
     unknown: "#AAAAAA"
 };
+async function loadVehicles() {
+    const response = await fetch("/api/vehicles");
+    const data = await response.json();
 
-// ------------------------------
-// 1️⃣ Load Rail Routes
-// ------------------------------
-async function loadRoutes() {
-    try {
-        const response = await fetch("/static/data/LACMTA_Rail/routes.geojson");
-        const data = await response.json();
+    const vehicles = data?.data?.vehicles;
+    if (!vehicles) return;
 
-        routeLayer.clearLayers();
-
-        L.geoJSON(data, {
-            style: (feature) => ({
-                color: routeColors[feature.properties.route_id] || "#444",
-                weight: 3
-            })
-        }).addTo(routeLayer);
-    } catch (err) {
-        console.error("Error loading routes:", err);
-    }
+    map.getSource("vehicles").setData({
+        type: "FeatureCollection",
+        features: vehicles.map((v) => ({
+            type: "Feature",
+            geometry: {
+                type: "Point",
+                coordinates: [v.loc.lon, v.loc.lat]
+            },
+            properties: {
+                id: v.id,
+                headsign: v.headsign,
+                route: v.routeId,
+                shortName: v.routeShortName,
+                heading: v.loc.heading,
+                color: routeColors[v.routeId] || routeColors.unknown
+            }
+        }))
+    });
 }
+map.on("load", () => {
+    map.addSource("vehicles", {
+        type: "geojson",
+        data: {
+            type: "FeatureCollection",
+            features: []
+        }
+    });
+    map.addSource("lacmta-routes", {
+        type: "geojson",
+        data: "/static/data/LACMTA_Rail/routes.geojson"
+    });
+    map.addSource("stations", {
+        type: "geojson",
+        data: "/static/data/LACMTA_Rail/stations.geojson"
+    });
+    map.addSource("bike-stations", {
+        type: "geojson",
+        data: "https://bikeshare.metro.net/stations/json/"
+    });
+    map.addLayer({
+        id: "lacmta-routes",
+        type: "line",
+        source: "lacmta-routes",
+        paint: {
+            "line-color": ["get", "routeId"],
+            "line-width": 3
+        }
+    });
+    map.addLayer({
+        id: "bike-station-dots",
+        type: "circle",
+        source: "bike-stations",
+        paint: {
+            "circle-radius": 4,
+            "circle-color": "#fff211",
+            "circle-stroke-width": 1,
+            "circle-stroke-color": "#000"
+        }
+    });
 
-<<<<<<< HEAD
-// ------------------------------
-// 2️⃣ Load Rail Stations
-// ------------------------------
-async function loadStations() {
-    try {
-        const response = await fetch("/static/data/LACMTA_Rail/stations.geojson");
-        const data = await response.json();
-=======
     map.addLayer({
         id: "station-dots",
         type: "circle",
@@ -92,157 +112,46 @@ async function loadStations() {
                 `
                 <div class="popup">
                     <b>${p.name}</b><br>
-                    <b>${p.bikesAvailable}<b><br>
-                    <b>${p.docksAvailable}<b><br>
+                    <b>${p.bikesAvailable}<b> Available<br>
+                    <b>${p.docksAvailable}<b> Docks<br>
+                    <a href="/bikes/${p.id}>View More</a>
                 </div>
                 `
             )
             .addTo(map)
->>>>>>> parent of ba2d2bc (9)
 
-        stationLayer.clearLayers();
-
-        L.geoJSON(data, {
-            pointToLayer: (feature, latlng) =>
-                L.circleMarker(latlng, {
-                    radius: 5,
-                    weight: 0.5,
-                    color: "#000",
-                    fillColor: "#ffffff",
-                    fillOpacity: 1
-                }).bindPopup(`
-                    <b>${feature.properties.Station}</b><br>
-                    Stop: ${feature.properties.StopNumber}<br>
-                    <a href="/departures/${feature.properties.StopNumber}">View Departures</a>
-                `)
-        }).addTo(stationLayer);
-    } catch (err) {
-        console.error("Error loading stations:", err);
-    }
-}
-
-// ------------------------------
-// 3️⃣ Load Bike Share Stations
-// ------------------------------
-async function loadBikeStations() {
-    try {
-        const response = await fetch("https://bikeshare.metro.net/stations/json/");
-        const data = await response.json();
-
-        bikeLayer.clearLayers();
-
-        data.features.forEach((station) => {
-            const p = station.properties;
-            const [lon, lat] = station.geometry.coordinates;
-
-            L.circleMarker([lat, lon], {
-                radius: 4,
-                weight: 0.5,
-                color: "#000",
-                fillColor: "#fff211",
-                fillOpacity: 1
-            })
-                .bindPopup(
-                    `
-                <b>${p.name}</b><br>
-                Bikes: ${p.bikesAvailable}<br>
-                Docks: ${p.docksAvailable}<br>
-                E-Bikes: ${p.electricBikesAvailable}
+    });
+    map.on("click", "station-dots", (e) => {
+        const p = e.features[0].properties;
+        console.log(p);
+        new maplibregl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(
+                `
+                <div class="popup">
+                    <b>${p.Station}</b><br>
+                    ${p.StopNumber}<br>
+                    <a href="/departures/${p.StopNumber}">View Departures</a>
+                </div>
             `
-                )
-                .addTo(bikeLayer);
-        });
-    } catch (err) {
-        console.error("Error loading bike stations:", err);
-    }
-}
-
-// ------------------------------
-// 4️⃣ Load Vehicles (Main API)
-// ------------------------------
-async function loadVehicles() {
-    try {
-        const response = await fetch("/api/vehicles");
-        const data = await response.json();
-
-        const vehicles = data?.data?.vehicles;
-        if (!vehicles) return;
-
-        vehicleLayer.clearLayers();
-
-        vehicles.forEach((v) => {
-            if (!v.loc?.lat || !v.loc?.lon) return;
-
-            L.circleMarker([v.loc.lat, v.loc.lon], {
-                radius: 6,
-                weight: 2,
-                color: "#fff",
-                fillColor: routeColors[v.routeId] || routeColors.unknown,
-                fillOpacity: 0.75
-            })
-                .bindPopup(
-                    `
-                <b>Route:</b> ${v.routeShortName}<br>
-                <b>To:</b> ${v.headsign}<br>
-                <b>ID:</b> ${v.id}<br>
-                <a href="/trips/${v.tripId}">View Trip</a>
+            )
+            .addTo(map);
+    });
+    map.on("click", "vehicle-dots", (e) => {
+        const p = e.features[0].properties;
+        console.log(p);
+        new maplibregl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(
+                `
+                <b>Route:</b> ${p.shortName}<br>
+                <b>To:</b> ${p.headsign}<br>
+                <b>ID:</b> ${p.id}<br>
+                <a href="/trips/${p.tripId}">View Trip</a>
             `
-                )
-                .addTo(vehicleLayer);
-        });
-    } catch (err) {
-        console.error("Error loading vehicles:", err);
-    }
-}
-async function loadBusses() {
-    try {
-        const response = await fetch("/api/vehicles/bus");
-        const data = await response.json();
-
-        const vehicles = data?.data?.vehicles;
-        if (!vehicles) return;
-
-        busLayer.clearLayers();
-
-        vehicles.forEach((v) => {
-            if (!v.loc?.lat || !v.loc?.lon) return;
-
-            L.circleMarker([v.loc.lat, v.loc.lon], {
-                radius: 4,
-                weight: 2,
-                color: "#ffffff",
-                fillColor: routeColors[v.routeId] || routeColors.unknown,
-                fillOpacity: 0.75
-            })
-                .bindPopup(
-                    `
-                <b>Route:</b> ${v.routeShortName}<br>
-                <b>To:</b> ${v.headsign}<br>
-                <b>ID:</b> ${v.id}<br>
-                <a href="/trips/bus/${v.tripId}">View Trip</a>
-            `
-                )
-                .addTo(busLayer);
-        });
-    } catch (err) {
-        console.error("Error loading vehicles:", err);
-    }
-}
-// ------------------------------
-// Load all static layers once
-// ------------------------------
-loadStations();
-loadRoutes();
-loadBikeStations();
-
-// ------------------------------
-// Load dynamic layers and auto-refresh
-// ------------------------------
-loadVehicles();
-loadBusses();
-
-// Auto-refresh vehicles every 10 seconds
-setInterval(() => {
+            )
+            .addTo(map);
+    });
     loadVehicles();
-    loadBusses();
-}, 10000);
+    setInterval(loadVehicles, 10000);
+});
