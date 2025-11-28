@@ -26,9 +26,25 @@ def tripDestinations(tripId):
         "trips.html",
         trip=trip
     )
+@app.route("/trips/bus/<tripId>")
+def bustrip(tripId):
+    trip = metro.getBusTripStops(tripId)
+    print(trip)
+    return render_template(
+        "trips.html",
+        trip=trip
+    )
 @app.route("/departures/<stopId>")
 def stopDepartures(stopId):
     departures = metro.getDepartures(stopId)
+    return render_template(
+        "departures.html",
+        departures=departures,
+        stop_id=stopId  # pass stopId to template
+    )
+@app.route("/departures/bus/<stopId>")
+def busDepartures(stopId):
+    departures = metro.getBusDepartures(stopId)
     return render_template(
         "departures.html",
         departures=departures,
@@ -45,7 +61,10 @@ def amtrakVehicles():
 def vehicles():
     vehicles = metro.getVehicles()
     return jsonify(vehicles)
-
+@app.route("/api/vehicles/bus")
+def busses():
+    busses = metro.getBusses()
+    return jsonify(busses)
 @app.route("/api/departures/<stopId>")
 def departures(stopId):
     departures = metro.getDepartures(stopId)

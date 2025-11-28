@@ -14,7 +14,7 @@ const stationLayer = L.layerGroup().addTo(map);
 const routeLayer = L.layerGroup().addTo(map);
 const bikeLayer = L.layerGroup().addTo(map);
 const vehicleLayer = L.layerGroup().addTo(map);
-const metrolinkLayer = L.layerGroup().addTo(map);
+const busLayer = L.layerGroup().addTo(map);
 
 // ------------------------------
 // Route colors
@@ -26,6 +26,7 @@ const routeColors = {
     804: "#FDB913",
     805: "#A05DA5",
     807: "#E56DB1",
+    901: "#eb6913",
     unknown: "#AAAAAA"
 };
 
@@ -152,51 +153,40 @@ async function loadVehicles() {
         console.error("Error loading vehicles:", err);
     }
 }
-
-// ------------------------------
-// 5️⃣ Load Metrolink Vehicles
-// ------------------------------
-async function loadMetrolinkVehicles() {
+async function loadBusses() {
     try {
-        const response = await fetch("/api/vehicles/metrolink");
+        const response = await fetch("/api/vehicles/bus");
         const data = await response.json();
 
-        const entities = data?.entity;
-        if (!entities) return;
+        const vehicles = data?.data?.vehicles;
+        if (!vehicles) return;
 
-        metrolinkLayer.clearLayers();
+        busLayer.clearLayers();
 
-        entities.forEach((e) => {
-            const v = e.vehicle;
-            if (!v?.position) return;
+        vehicles.forEach((v) => {
+            if (!v.loc?.lat || !v.loc?.lon) return;
 
-            const lat = v.position.latitude;
-            const lon = v.position.longitude;
-
-            L.circleMarker([lat, lon], {
-                radius: 6,
+            L.circleMarker([v.loc.lat, v.loc.lon], {
+                radius: 4,
                 weight: 2,
-                color: "#fff",
-                fillColor: "#0072BC",
+                color: "#ffffff",
+                fillColor: routeColors[v.routeId] || routeColors.unknown,
                 fillOpacity: 0.75
             })
                 .bindPopup(
                     `
-                <b>Route:</b> ${v.trip?.route_id || "Unknown"}<br>
-                <b>Trip ID:</b> ${v.trip?.trip_id || "Unknown"}<br>
-                <b>Vehicle ID:</b> ${v.vehicle?.id || "Unknown"}<br>
-                <b>Label:</b> ${v.vehicle?.label || "Unknown"}
+                <b>Route:</b> ${v.routeShortName}<br>
+                <b>To:</b> ${v.headsign}<br>
+                <b>ID:</b> ${v.id}<br>
+                <a href="/trips/bus/${v.tripId}">View Trip</a>
             `
                 )
-                .addTo(metrolinkLayer);
+                .addTo(busLayer);
         });
-
-        console.log("Loaded Metrolink vehicles:", entities.length);
     } catch (err) {
-        console.error("Error loading Metrolink vehicles:", err);
+        console.error("Error loading vehicles:", err);
     }
 }
-
 // ------------------------------
 // Load all static layers once
 // ------------------------------
@@ -208,10 +198,10 @@ loadBikeStations();
 // Load dynamic layers and auto-refresh
 // ------------------------------
 loadVehicles();
-loadMetrolinkVehicles();
+loadBusses();
 
 // Auto-refresh vehicles every 10 seconds
 setInterval(() => {
     loadVehicles();
-    loadMetrolinkVehicles();
+    loadBusses();
 }, 10000);

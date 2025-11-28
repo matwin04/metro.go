@@ -1,0 +1,7 @@
+{
+    "livePreviewUseDevServer": true,
+    "livePreviewServerURL": "http://127.0.0.1:5050/",
+    "livePreviewServerProjectPath": "/templates",
+    "livePreviewHotReloadSupported": false,
+    "livePreviewFramework": "Custom"
+}
