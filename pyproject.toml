@@ -5,5 +5,8 @@ requires-python = ">=3.9"
 dependencies = [
   "flask>=3.1,<4.0",
   "requests>=2.31.0",
-  "gunicorn~=23.0.0"
+  "gunicorn~=23.0.0",
+  "protobuf>=4.23",
+  "google-transit>=1.0",
+  "python-dotenv>=1.0"
 ]
