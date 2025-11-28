@@ -3,6 +3,7 @@ import requests
 
 import amtrak
 import metro
+import transit
 from metro import *
 from amtrak import *
 app = Flask(__name__)
@@ -33,6 +34,7 @@ def stopDepartures(stopId):
         departures=departures,
         stop_id=stopId  # pass stopId to template
     )
+
 ##JSON ROUTES
 # FOR TESTING PURPOSES
 @app.route("/api/amtrak/vehicles")
@@ -58,12 +60,9 @@ def trip(tripId):
 def LACMTA_Rail():
     return redirect("/")
 
-@app.route("/api/block/<blockId>")
-def block(blockId):
-    vehicles = metro.getVehicles()
-    for v in vehicles.get("data", {}).get("vehicles", []):
-        if v.get("blockId") == blockId:  # use .get() to avoid KeyError
-            return jsonify(v)
-    return jsonify({"error": "Block not found"}), 404
+@app.route("/api/vehicles/<agencyId>")
+def getAgency(agencyId):
+    data = transit.getVehicles(agencyId)
+    return jsonify(data)
 if __name__ == "__main__":
     app.run(debug=True,port=5050)

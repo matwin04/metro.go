@@ -1,9 +1,24 @@
-const map = new maplibregl.Map({
-    container: "map",
-    style: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
-    center: [-118.25, 34.05],
-    zoom: 10
-});
+// ------------------------------
+// Initialize map
+// ------------------------------
+const map = L.map("map").setView([34.05, -118.25], 10);
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19
+}).addTo(map);
+
+// ------------------------------
+// Layers
+// ------------------------------
+const routeLayer = L.layerGroup().addTo(map);
+const stationLayer = L.layerGroup().addTo(map);
+const bikeLayer = L.layerGroup().addTo(map);
+const vehicleLayer = L.layerGroup().addTo(map);
+const metrolinkLayer = L.layerGroup().addTo(map);
+
+// ------------------------------
+// Route colors
+// ------------------------------
 const routeColors = {
     801: "#0072BC",
     802: "#EB131B",
@@ -13,144 +28,179 @@ const routeColors = {
     807: "#E56DB1",
     unknown: "#AAAAAA"
 };
-async function loadVehicles() {
-    const response = await fetch("/api/vehicles");
-    const data = await response.json();
 
-    const vehicles = data?.data?.vehicles;
-    if (!vehicles) return;
+// ------------------------------
+// 1️⃣ Load Rail Routes
+// ------------------------------
+async function loadRoutes() {
+    try {
+        const response = await fetch("/static/data/LACMTA_Rail/routes.geojson");
+        const data = await response.json();
 
-    map.getSource("vehicles").setData({
-        type: "FeatureCollection",
-        features: vehicles.map((v) => ({
-            type: "Feature",
-            geometry: {
-                type: "Point",
-                coordinates: [v.loc.lon, v.loc.lat]
-            },
-            properties: {
-                id: v.id,
-                headsign: v.headsign,
-                route: v.routeId,
-                shortName: v.routeShortName,
-                heading: v.loc.heading,
-                color: routeColors[v.routeId] || routeColors.unknown
-            }
-        }))
-    });
+        routeLayer.clearLayers();
+
+        L.geoJSON(data, {
+            style: (feature) => ({
+                color: routeColors[feature.properties.route_id] || "#444",
+                weight: 3
+            })
+        }).addTo(routeLayer);
+    } catch (err) {
+        console.error("Error loading routes:", err);
+    }
 }
-map.on("load", () => {
-    map.addSource("vehicles", {
-        type: "geojson",
-        data: {
-            type: "FeatureCollection",
-            features: []
-        }
-    });
-    map.addSource("lacmta-routes", {
-        type: "geojson",
-        data: "/static/data/LACMTA_Rail/routes.geojson"
-    });
-    map.addSource("stations", {
-        type: "geojson",
-        data: "/static/data/LACMTA_Rail/stations.geojson"
-    });
-    map.addSource("bike-stations", {
-        type: "geojson",
-        data: "https://bikeshare.metro.net/stations/json/"
-    });
-    map.addLayer({
-        id: "lacmta-routes",
-        type: "line",
-        source: "lacmta-routes",
-        paint: {
-            "line-color": ["get", "routeId"],
-            "line-width": 3
-        }
-    });
-    map.addLayer({
-        id: "bike-station-dots",
-        type: "circle",
-        source: "bike-stations",
-        paint: {
-            "circle-radius": 4,
-            "circle-color": "#fff211",
-            "circle-stroke-width": 1,
-            "circle-stroke-color": "#000"
-        }
-    });
 
-    map.addLayer({
-        id: "station-dots",
-        type: "circle",
-        source: "stations",
-        paint: {
-            "circle-radius": 5,
-            "circle-stroke-width": 1,
-            "circle-stroke-color": "#000",
-            "circle-color": "#fff"
-        }
-    });
-    map.addLayer({
-        id: "vehicle-dots",
-        type: "circle",
-        source: "vehicles",
-        paint: {
-            "circle-opacity": 0.75,
-            "circle-radius": 6,
-            "circle-stroke-width": 2,
-            "circle-stroke-color": "#fff",
-            "circle-color": ["get", "color"]
-        }
-    });
-    map.on("click", "bike-station-dots", (e) => {
-        const p = e.features[0].properties;
-        console.log(p);
-        new maplibregl.Popup()
-            .setLngLat(e.lngLat)
-            .setHTML(
-                `
-                <div class="popup">
-                    <b>${p.name}</b><br>
-                    <b>${p.bikesAvailable}<b> Available<br>
-                    <b>${p.docksAvailable}<b> Docks<br>
-                </div>
-                `
-            )
-            .addTo(map)
+// ------------------------------
+// 2️⃣ Load Rail Stations
+// ------------------------------
+async function loadStations() {
+    try {
+        const response = await fetch("/static/data/LACMTA_Rail/stations.geojson");
+        const data = await response.json();
 
-    });
-    map.on("click", "station-dots", (e) => {
-        const p = e.features[0].properties;
-        console.log(p);
-        new maplibregl.Popup()
-            .setLngLat(e.lngLat)
-            .setHTML(
-                `
-                <div class="popup">
-                    <b>${p.Station}</b><br>
-                    ${p.StopNumber}<br>
-                    <a href="/departures/${p.StopNumber}">View Departures</a>
-                </div>
-            `
-            )
-            .addTo(map);
-    });
-    map.on("click", "vehicle-dots", (e) => {
-        const p = e.features[0].properties;
-        console.log(p);
-        new maplibregl.Popup()
-            .setLngLat(e.lngLat)
-            .setHTML(
-                `
-                <b>Route:</b> ${p.shortName}<br>
-                <b>To:</b> ${p.headsign}<br>
-                <b>ID:</b> ${p.id}<br>
-                <a href="/trips/${p.tripId}">View Trip</a>
-            `
-            )
-            .addTo(map);
-    });
+        stationLayer.clearLayers();
+
+        L.geoJSON(data, {
+            pointToLayer: (feature, latlng) =>
+                L.circleMarker(latlng, {
+                    radius: 5,
+                    weight: 0.5,
+                    color: "#000",
+                    fillColor: "#ffffff",
+                    fillOpacity: 1
+                }).bindPopup(`
+                    <b>${feature.properties.Station}</b><br>
+                    Stop: ${feature.properties.StopNumber}<br>
+                    <a href="/departures/${feature.properties.StopNumber}">View Departures</a>
+                `)
+        }).addTo(stationLayer);
+    } catch (err) {
+        console.error("Error loading stations:", err);
+    }
+}
+
+// ------------------------------
+// 3️⃣ Load Bike Share Stations
+// ------------------------------
+async function loadBikeStations() {
+    try {
+        const response = await fetch("https://bikeshare.metro.net/stations/json/");
+        const data = await response.json();
+
+        bikeLayer.clearLayers();
+
+        data.features.forEach((station) => {
+            const p = station.properties;
+            const [lon, lat] = station.geometry.coordinates;
+
+            L.circleMarker([lat, lon], {
+                radius: 4,
+                weight: 0.5,
+                color: "#000",
+                fillColor: "#fff211",
+                fillOpacity: 1
+            }).bindPopup(`
+                <b>${p.name}</b><br>
+                Bikes: ${p.bikesAvailable}<br>
+                Docks: ${p.docksAvailable}<br>
+                E-Bikes: ${p.electricBikesAvailable}
+            `).addTo(bikeLayer);
+        });
+    } catch (err) {
+        console.error("Error loading bike stations:", err);
+    }
+}
+
+// ------------------------------
+// 4️⃣ Load Vehicles (Main API)
+// ------------------------------
+async function loadVehicles() {
+    try {
+        const response = await fetch("/api/vehicles");
+        const data = await response.json();
+
+        const vehicles = data?.data?.vehicles;
+        if (!vehicles) return;
+
+        vehicleLayer.clearLayers();
+
+        vehicles.forEach((v) => {
+            if (!v.loc?.lat || !v.loc?.lon) return;
+
+            L.circleMarker([v.loc.lat, v.loc.lon], {
+                radius: 6,
+                weight: 2,
+                color: "#fff",
+                fillColor: routeColors[v.routeId] || routeColors.unknown,
+                fillOpacity: 0.75
+            }).bindPopup(`
+                <b>Route:</b> ${v.routeShortName}<br>
+                <b>To:</b> ${v.headsign}<br>
+                <b>ID:</b> ${v.id}<br>
+                <a href="/trips/${v.tripId}">View Trip</a>
+            `).addTo(vehicleLayer);
+        });
+    } catch (err) {
+        console.error("Error loading vehicles:", err);
+    }
+}
+
+// ------------------------------
+// 5️⃣ Load Metrolink Vehicles
+// ------------------------------
+async function loadMetrolinkVehicles() {
+    try {
+        const response = await fetch("/api/vehicles/metrolink");
+        const data = await response.json();
+
+        const entities = data?.entity;
+        if (!entities) return;
+
+        metrolinkLayer.clearLayers();
+
+        entities.forEach(e => {
+            const v = e.vehicle;
+            if (!v?.position) return;
+
+            const lat = v.position.latitude;
+            const lon = v.position.longitude;
+
+            L.circleMarker([lat, lon], {
+                radius: 6,
+                weight: 2,
+                color: "#fff",
+                fillColor: "#0072BC",
+                fillOpacity: 0.75
+            }).bindPopup(`
+                <b>Route:</b> ${v.trip?.route_id || "Unknown"}<br>
+                <b>Trip ID:</b> ${v.trip?.trip_id || "Unknown"}<br>
+                <b>Vehicle ID:</b> ${v.vehicle?.id || "Unknown"}<br>
+                <b>Label:</b> ${v.vehicle?.label || "Unknown"}
+            `).addTo(metrolinkLayer);
+        });
+
+        console.log("Loaded Metrolink vehicles:", entities.length);
+
+    } catch (err) {
+        console.error("Error loading Metrolink vehicles:", err);
+    }
+}
+
+// ------------------------------
+// Load all static layers once
+// ------------------------------
+loadStations();
+loadRoutes();
+loadBikeStations();
+
+// ------------------------------
+// Load dynamic layers and auto-refresh
+// ------------------------------
+loadVehicles();
+loadMetrolinkVehicles();
+
+// Auto-refresh vehicles every 10 seconds
+setInterval(() => {
     loadVehicles();
-    setInterval(loadVehicles, 10000);
-});
+    loadMetrolinkVehicles();
+}, 10000);
