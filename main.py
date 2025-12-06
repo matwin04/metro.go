@@ -10,6 +10,10 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return render_template("index.html")
+@app.route("/index.html")
+def phoenixcode():
+    return render_template("index.html")
+
 @app.route("/test")
 def test():
     return render_template("test.html")
@@ -57,19 +61,19 @@ def busDepartures(stopId):
 def amtrakVehicles():
     amtrakVehicles = amtrak.getVehicles()
     return jsonify(amtrakVehicles)
-@app.route("/api/vehicles")
-def vehicles():
-    vehicles = metro.getVehicles()
-    return jsonify(vehicles)
+
 @app.route("/api/vehicles/bus")
+def vehicles():
+    vehicles = metro.getBusses()
+    return jsonify(vehicles)
+@app.route("/api/vehicles/rail")
 def busses():
-    busses = metro.getBusses()
+    busses = metro.getTrains()
     return jsonify(busses)
 @app.route("/api/departures/<stopId>")
 def departures(stopId):
     departures = metro.getDepartures(stopId)
     return jsonify(departures)
-
 @app.route("/api/trip/<tripId>")
 def trip(tripId):
     trip = metro.getTripStops(tripId)
@@ -79,9 +83,6 @@ def trip(tripId):
 def LACMTA_Rail():
     return redirect("/")
 
-@app.route("/api/vehicles/<agencyId>")
-def getAgency(agencyId):
-    data = transit.getVehicles(agencyId)
-    return jsonify(data)
+
 if __name__ == "__main__":
     app.run(debug=True,port=5050)

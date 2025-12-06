@@ -13,14 +13,25 @@ const routeColors = {
     807: "#E56DB1",
     unknown: "#AAAAAA"
 };
-async function loadVehicles() {
-    const response = await fetch("/api/vehicles");
+async function loadBusStops() {
+    const response = await fetch("https://transit.land/api/v2/rest/stops.geojson?served_by_onestop_ids=o-9q5-metro~losangeles", {
+      "method": "GET",
+      "headers": {
+            "apikey": "WOo9vL8ECMWN76EcKjsNGfo8YgNZ7c2u"
+        }
+    });
+    const data = await response.json();
+    console.log(data);
+    map.getSource("bus-stops").setData(data);
+}
+async function loadBusses() {
+    const response = await fetch(`/api/vehicles/bus`);
     const data = await response.json();
 
     const vehicles = data?.data?.vehicles;
     if (!vehicles) return;
 
-    map.getSource("vehicles").setData({
+    map.getSource("busses").setData({
         type: "FeatureCollection",
         features: vehicles.map((v) => ({
             type: "Feature",
@@ -39,14 +50,34 @@ async function loadVehicles() {
         }))
     });
 }
-map.on("load", () => {
-    map.addSource("vehicles", {
-        type: "geojson",
-        data: {
-            type: "FeatureCollection",
-            features: []
-        }
+async function loadTrains() {
+    const response = await fetch(`/api/vehicles/rail`);
+    const data = await response.json();
+
+    const vehicles = data?.data?.vehicles;
+    if (!vehicles) return;
+
+    map.getSource("trains").setData({
+        type: "FeatureCollection",
+        features: vehicles.map((v) => ({
+            type: "Feature",
+            geometry: {
+                type: "Point",
+                coordinates: [v.loc.lon, v.loc.lat]
+            },
+            properties: {
+                id: v.id,
+                tripId: v.tripId,
+                headsign: v.headsign,
+                route: v.routeId,
+                shortName: v.routeShortName,
+                heading: v.loc.heading,
+                color: routeColors[v.routeId] || routeColors.unknown
+            }
+        }))
     });
+}
+map.on("load", () => {
     map.addSource("lacmta-routes", {
         type: "geojson",
         data: "/static/data/LACMTA_Rail/routes.geojson"
@@ -79,7 +110,6 @@ map.on("load", () => {
             "circle-stroke-color": "#000"
         }
     });
-
     map.addLayer({
         id: "station-dots",
         type: "circle",
@@ -91,10 +121,36 @@ map.on("load", () => {
             "circle-color": "#fff"
         }
     });
+    map.addSource("trains", {
+        type: "geojson",
+        data: {
+            type: "FeatureCollection",
+            features: []
+        }
+    });
+    map.addSource("busses", {
+        type: "geojson",
+        data: {
+            type: "FeatureCollection",
+            features: []
+        }
+    });
+
     map.addLayer({
-        id: "vehicle-dots",
+        id: "bus-dots",
         type: "circle",
-        source: "vehicles",
+        source: "busses",
+        paint: {
+            "circle-radius": 5,
+            "circle-color": "#ff6600",
+            "circle-stroke-width": 1,
+            "circle-stroke-color": "#000"
+        }
+    });
+    map.addLayer({
+        id: "train-dots",
+        type: "circle",
+        source: "trains",
         paint: {
             "circle-opacity": 0.75,
             "circle-radius": 6,
@@ -137,7 +193,7 @@ map.on("load", () => {
             )
             .addTo(map);
     });
-    map.on("click", "vehicle-dots", (e) => {
+    map.on("click", "bus-dots", (e) => {
         const p = e.features[0].properties;
         console.log(p);
         new maplibregl.Popup()
@@ -152,6 +208,23 @@ map.on("load", () => {
             )
             .addTo(map);
     });
-    loadVehicles();
-    setInterval(loadVehicles, 10000);
+    map.on("click", "train-dots", (e) => {
+        const p = e.features[0].properties;
+        console.log(p);
+        new maplibregl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(
+                `
+                <b>Route:</b> ${p.shortName}<br>
+                <b>To:</b> ${p.headsign}<br>
+                <b>ID:</b> ${p.tripId}<br>
+                <a href="/trips/${p.tripId}">View Trip</a>
+            `
+            )
+            .addTo(map);
+    });
+    loadTrains();
+    loadBusses();
+    setInterval(loadTrains, 10000);
+    setInterval(loadTrains, 10000);
 });
