@@ -1,12 +1,28 @@
 from flask import *
 import requests
-
-import amtrak
 import metro
-import transit
 from metro import *
-from amtrak import *
 app = Flask(__name__)
+from google.transit import gtfs_realtime_pb2
+from google.protobuf.json_format import MessageToDict
+
+with open("agencies.json") as f:
+    AGENCIES = json.load(f)
+
+
+def fetch_gtfs_rt(url, api_key=None):
+    headers = {}
+    if api_key:
+        headers["x-api-key"] = api_key
+
+    r = requests.get(url, headers=headers)
+    r.raise_for_status()
+
+    feed = gtfs_realtime_pb2.FeedMessage()
+    feed.ParseFromString(r.content)
+
+    return MessageToDict(feed, preserving_proto_field_name=True)
+
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -57,11 +73,16 @@ def busDepartures(stopId):
 
 ##JSON ROUTES
 # FOR TESTING PURPOSES
-@app.route("/api/amtrak/vehicles")
-def amtrakVehicles():
-    amtrakVehicles = amtrak.getVehicles()
-    return jsonify(amtrakVehicles)
 
+
+@app.route("/api/v2/vehicles/<agency>")
+def vehiclesrt(agency):
+    if agency not in AGENCIES:
+        return jsonify({"error": "unknown agency"}), 404
+
+    cfg = AGENCIES[agency]
+    return fetch_gtfs_rt(cfg["vehicle_url"], cfg.get("api_key"))
+# OLD API
 @app.route("/api/vehicles/bus")
 def vehicles():
     vehicles = metro.getBusses()

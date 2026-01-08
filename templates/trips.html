@@ -41,6 +41,23 @@
     </script>
     <script defer src="/_vercel/insights/script.js"></script>`
 </footer>
+<script>
+function to12Hour(time24) {
+    if (!time24 || !time24.includes(":")) return time24;
 
+    const [h, m] = time24.split(":");
+    let hour = parseInt(h, 10);
+    const ampm = hour >= 12 ? "PM" : "AM";
+    hour = hour % 12 || 12;
+    return `${hour}:${m} ${ampm}`;
+}
+
+// Convert ONLY the Arrival Time column (2nd column)
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("tbody tr td:nth-child(2)").forEach(td => {
+        td.textContent = to12Hour(td.textContent.trim());
+    });
+});
+</script>
 </body>
 </html>
