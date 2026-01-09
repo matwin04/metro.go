@@ -73,16 +73,9 @@ def busDepartures(stopId):
 
 ##JSON ROUTES
 # FOR TESTING PURPOSES
-
-
-@app.route("/api/v2/vehicles/<agency>")
-def vehiclesrt(agency):
-    if agency not in AGENCIES:
-        return jsonify({"error": "unknown agency"}), 404
-
-    cfg = AGENCIES[agency]
-    return fetch_gtfs_rt(cfg["vehicle_url"], cfg.get("api_key"))
-# OLD API
+@app.route("/api")
+def api():
+    return jsonify("helloworld")
 @app.route("/api/vehicles/bus")
 def vehicles():
     vehicles = metro.getBusses()
@@ -95,7 +88,7 @@ def busses():
 def departures(stopId):
     departures = metro.getDepartures(stopId)
     return jsonify(departures)
-@app.route("/api/trip/<tripId>")
+@app.route("/api/trips/<tripId>")
 def trip(tripId):
     trip = metro.getTripStops(tripId)
     return jsonify(trip)
@@ -103,6 +96,7 @@ def trip(tripId):
 @app.route("/api/routes/LACMTA_Rail")
 def LACMTA_Rail():
     return redirect("/")
+## Modern Api Url
 
 
 if __name__ == "__main__":
