@@ -1,0 +1,29 @@
+{
+  "name": "metro.go",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matwin04/metro.go.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/matwin04/metro.go/issues"
+  },
+  "homepage": "https://github.com/matwin04/metro.go#readme",
+  "dependencies": {
+    "better-sqlite3": "^12.6.2",
+    "express": "^5.2.1",
+    "express-handlebars": "^8.0.5",
+    "gtfs": "^4.18.3",
+    "multer": "^2.0.2"
+  }
+}
