@@ -12,12 +12,13 @@
         <title>{{ title }}</title>
 
         <link rel="stylesheet" href="/public/styles/main.css" />
+        <link rel="stylesheet" href="/public/styles/icons.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.js"></script>
         <link href="/public/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
         <!-- MapLibre GL JS CSS -->
         <link href="https://unpkg.com/maplibre-gl@3.5.2/dist/maplibre-gl.css" rel="stylesheet" />
-
+        
         <script src="https://unpkg.com/maplibre-gl@3.5.2/dist/maplibre-gl.js"></script>
 
         <!-- MapLibre JS -->
@@ -25,12 +26,26 @@
     </head>
     <body>
         {{>navbar}}
-        <div id="map"></div>
-        <div class="row">
-            <div class="cell">
-                Train ID
+        <div class="grid">
+            <h3 class="title">Los Angeles</h3>
+            
+            <button class="button">Choose City</button>
+        </div>
+        <div id="map" class="box"></div>
+        <div class="grid">
+            <div class="cell box" id="train-info">
+                <span class="mdi mdi-subway"></span>
+                <div id="headsign"></div>
+                <div id="route_name"></div>
+                <table>
+                    <thead>
+
+                    </thead>
+                    <tbody id="train-table-body"></tbody>
+                </table>
             </div>
-            <div class="cell"></div>
+        
+            <div class="cell box"></div>
         </div>
         <script src="/public/scripts/map.js" type="module"></script>
         

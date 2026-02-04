@@ -1,0 +1,22 @@
+.metro {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+
+/* Individual icons */
+.bike {
+    background-image: url("https://lacmta.github.io/metro-iconography/Service_Bike.svg");
+}
+
+.icon-train {
+    background-image: url("/img/icons/train.png");
+}
+
+.icon-801 {
+    background-image: url("/public/icons/routeicons/801.svg");
+}

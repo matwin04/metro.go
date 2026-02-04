@@ -18,12 +18,12 @@ function showTrainPopup(e) {
     const f = e.features[0];
     const p = f.properties;
     const train_info = document.getElementById("train-info");
-
     document.getElementById("headsign").textContent = p.headsign;
     document.getElementById("id").textContent = p.id;
     document.getElementById("trip-id").textContent = p.trip_id;
     document.getElementById("route_id").textContent = p.route_id;
     document.getElementById("route_name").textContent = p.route_long_name;
+    train_info.className = p.route_id;
     train_info.style.background = p.route_color;
     train_info.style.color = p.route_text_color;
 }

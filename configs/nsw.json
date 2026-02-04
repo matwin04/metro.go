@@ -1,0 +1,8 @@
+{
+  "agencies": [
+    {
+      "url": "https://s3-ap-southeast-2.amazonaws.com/melbourne-pt-gtfs/google_transit.zip"
+    }
+  ],
+  "ignoreDuplicates": true
+}
