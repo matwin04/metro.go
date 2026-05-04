@@ -74,6 +74,30 @@ function initMap() {
         "line-opacity": 0.9
       }
     });
+    map.addLayer({
+      id: "subway-lines",
+      type: "line",
+      source: "transit-routes",
+      "source-layer": "routes",
+      filter: ["==", ["get", "route_type"], 1],
+      paint: {
+        "line-color": ["get", "route_color"],
+        "line-width": 3,
+        "line-opacity": 0.9
+      }
+    });
+    map.addLayer({
+      id: "lightrail-lines",
+      type: "line",
+      source: "transit-routes",
+      "source-layer": "routes",
+      filter: ["==", ["get", "route_type"], 0],
+      paint: {
+        "line-color": ["get", "route_color"],
+        "line-width": 3,
+        "line-opacity": 0.9
+      }
+    });
 
     // =========================
     // STATIONS
