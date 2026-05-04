@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MW Transit + Bike App | LA Metro Routes</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    {% include "navbar.html" with context %}
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    {{ route[0].route_id }}
+    {{ route[0].route_name}}
+    </body>
+</html>

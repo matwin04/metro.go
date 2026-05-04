@@ -1,50 +1,235 @@
-@import url("https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css");
-#map {
-    height: 700px;
-    grid-row-start: span;
+@import url("https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"); /* --- Base & Typography --- */
+@font-face {
+    font-family: "FF DIN Pro";
+    src: url("/public/fonts/D-DIN-PRO-400-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
 }
-html {
-    font-family: sans-serif;
+@font-face {
+    font-family: "FF DIN Pro";
+    src: url("/public/fonts/D-DIN-PRO-600-SemiBold.otf") format("opentype");
+    font-weight: 600;
+    font-style: normal;
 }
-.container {
-    display: grid;
-    grid-template-columns: 70% 30%;
+
+/* Popup styling */
+.bike-popup {
+    font-family: "FF DIN Pro", sans-serif;
+    font-size: 0.85rem;
+    color: #000; /* black text */
 }
-#sidebar {
-    justify-content: stretch;
+.depart-soon {
+    background-color: #00b934; /* red */
 }
-.mdi {
-    font-size: 20px;
-    text-align: center;
-    vertical-align: middle;
+
+.depart-medium {
+    color: #c89600; /* yellow */
 }
-.container div {
-    text-align: left;
+
+.depart-late {
+    color: #ff0000; /* green */
 }
-.stop_name {
-    font-size: 16px;
-    font-weight: bold;
+.bike-popup strong {
+    color: #007cbf; /* blue station name */
 }
-#headsign {
-    font-size: 16px;
-    font-weight: bold;
+.popup {
+    padding: 3px 6px;
+    color: #000;
+    border-bottom: 1px solid #000000;
 }
-.route_name {
-    font-size: 14px;
+.route-icon {
+    width: 36px;
 }
+body {
+    font-family: "FF DIN Pro", sans-serif;
+    background-color: #181a20;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: #111;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+}
+.logo:hover {
+    color: #63b3ed;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+    font-weight: 500;
+}
+.nav-links a.active {
+    background-color: #63b3ed;
+    color: #181a20;
+    font-weight: 600;
+}
+.nav-links a:hover:not(.active) {
+    background-color: #222;
+}
+
+/* --- Main Content --- */
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* --- Flex Layout for Sidebar + Map --- */
+.content {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+/* Sidebar Table Container */
+.sidebar {
+    width: 350px;
+    max-height: 80vh;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.table-container {
+    background-color: #1e1f26;
+    border-radius: 12px;
+    overflow-x: auto;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease;
+}
+
 table {
     width: 100%;
-    text-align: center;
     border-collapse: collapse;
+    font-size: 0.85rem;
 }
-.status-live {
-    color: green;
-}
+
 th,
 td {
-    border-bottom: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #333;
 }
-.svg-container {
-    width: 100%;
-    height: 100%;
+
+thead tr {
+    background-color: #252731;
+}
+
+th {
+    color: #aaa;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+tbody tr:hover {
+    background-color: #2b2d36;
+    transition: background-color 0.15s;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #212229;
+}
+
+/* Flex layout for sidebar + map */
+.content {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* Map container */
+#map {
+    flex: 1;
+    height: 80vh; /* important: gives map height */
+    min-height: 300px; /* ensure some height on mobile */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+.routeicon {
+    width: 24px;
+    height: 24px;
+}
+/* ==============================
+   TRAIN POPUP GRID
+============================== */
+.popup-route {
+    display: grid;
+    grid-template-columns: 20px 28px 1fr;
+    align-items: center;
+    gap: 8px;
+
+    margin: 8px 0 10px 0;
+    padding: 6px 8px;
+
+    background: #b0b0b0;
+    border-radius: 8px;
+}
+
+/* subway icon */
+.popup-route .mdi {
+    font-size: 18px;
+    color: #aaa;
+}
+.agency-icon {
+    width: 24px;
+    height: 24px;
+}
+/* route icon */
+.routeicon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    align-items: flex-start;
+}
+
+/* route text */
+.route-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: end;
+}
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        max-height: 300px;
+    }
+    #map {
+        height: 60vh; /* map stays visible above table */
+        min-height: 300px; /* optional to guarantee visibility */
+    }
 }

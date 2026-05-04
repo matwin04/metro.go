@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MW Transit + Bike App | Bikes</title>
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="/public/styles/main.css" />
+        <link href="/public/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+        <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />
+        <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
+</head>
+    <body>
+        {{> navbar}}
+        <div id="map"></div>
+        <div class="grid">
+            <div class="row">
+                <div class="col">
+                    <img class="agency-icon" src="/public/icons/agency_logos/LACMTA_Rail.png" alt="agency-icon">
+                    <h4>Metro Status</h4>
+
+                </div>
+                <div class="col">
+                    <h4>Metrolink</h4>
+                    <img class="agency-icon" src="/public/icons/agency_logos/metrolink.png" alt="agency-icon">
+
+                </div>
+            </div>
+        </div>
+        <script src="/public/scripts/map.js"></script>
+    </body>
+</html>

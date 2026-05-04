@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MW Transit + Bike App | Bikes</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/maplibre-gl/maplibre-gl.css">
+
+  <!-- MapLibre JS -->
+  <script src="/static/maplibre-gl/maplibre-gl.js"></script>
+</head>
+<body>
+  {% include "navbar.html" with context %}
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <main>
+    <h1>Bike Stations</h1>
+    <div id="map"></div>
+  </main>
+
+  <!-- Your Map Script -->
+  <script src="/static/scripts/map.js"></script>
+</body>
+</html>

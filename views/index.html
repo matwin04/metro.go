@@ -1,71 +1,44 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>MetroGO</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
-        <meta property="description" content="Track and view location and times for Los Angeles Metro" />
-        <meta property="og:site_name" content="Metro GO" />
-        <meta property="og:image" content="/public/icons/favicon.ico" />
-        <meta property="og:title" content="Live Transit Maps" />
         <meta charset="UTF-8" />
-        <title>{{ title }}</title>
-
-        <link rel="stylesheet" href="/public/styles/main.css" />
-        <link rel="stylesheet" href="/public/styles/icons.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.js"></script>
-        <link href="/public/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
-        <!-- MapLibre GL JS CSS -->
-        <link href="https://unpkg.com/maplibre-gl@3.5.2/dist/maplibre-gl.css" rel="stylesheet" />
-        
-        <script src="https://unpkg.com/maplibre-gl@3.5.2/dist/maplibre-gl.js"></script>
-
-        <!-- MapLibre JS -->
-        <script src="/public/maplibre-gl/maplibre-gl.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vercel + Flask</title>
+        <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+        <link rel="stylesheet" href="public/styles/main.css" />
     </head>
     <body>
-        {{>navbar}}
-        <div class="grid">
-            <h3 class="title">Los Angeles</h3>
-            
-            <button class="button">Choose City</button>
-        </div>
-        <div id="map" class="box"></div>
-        <div class="grid">
-            <div class="cell box" id="train-info">
-                <span class="mdi mdi-subway"></span>
-                <div id="headsign"></div>
-                <div id="route_name"></div>
-                <table>
-                    <thead>
-
-                    </thead>
-                    <tbody id="train-table-body"></tbody>
-                </table>
+        {{> navbar}}
+        <header>
+            {% include "navbar.html" with context %}
+            <script>
+                window.va =
+                    window.va ||
+                    function () {
+                        (window.vaq = window.vaq || []).push(arguments);
+                    };
+            </script>
+            <script defer src="/_vercel/insights/script.js"></script>
+        </header>
+        <main>
+            <div class="hero">
+                <h1>LA Metro Map / Resources</h1>
+                <p>This is not a offical LA Metro map but a transit advocates fun project</p>
             </div>
-        
-            <div class="cell box"></div>
-        </div>
-        <script src="/public/scripts/map.js" type="module"></script>
-        
-        <script>
-            window.si =
-                window.si ||
-                function () {
-                    (window.siq = window.siq || []).push(arguments);
-                };
-        </script>
-        <script defer src="/_vercel/speed-insights/script.js"></script>
-        <script>
-            window.va =
-                window.va ||
-                function () {
-                    (window.vaq = window.vaq || []).push(arguments);
-                };
-        </script>
-        <script defer src="/_vercel/insights/script.js"></script>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Routes</h3>
+                    <p>Access sample JSON data through our REST API. Perfect for testing and development purposes.</p>
+                    <a href="/routes">Routes</a>
+                </div>
+                <div class="card">
+                    <h3>Maps</h3>
+                    <a href="/transit">Transit Map</a>
+                    <span class="mdi mdi-bikes"></span>
+                    <a href="/bikes">Bikeshare Map</a>
+                </div>
+            </div>
+        </main>
     </body>
 </html>
-<!doctype html>
-
