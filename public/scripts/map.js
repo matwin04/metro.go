@@ -261,12 +261,16 @@ function initMap() {
       let vehicleData = JSON.parse(feature.properties.data);
 
       const stopId = vehicleData.vehicle?.stopId;
-      const stopData = await getStopName(stopId);
-
+      const stopRes = await fetch(`/api/metro/stop_data?stopId=${stopId}`);
+      const stopData = await stopRes.json();
       new maplibregl.Popup({ offset: 10 })
           .setLngLat(coords)
           .setHTML(`
                     <div class="popup">
+                        <div class="popup-header">
+                                <img class="agency-icon" src="/public/icons/agency_logos/LACMTA.png" alt="LA Metro">
+                                <img class="routeicon" src="/public/icons/route_icons/LACMTA_Rail/${vehicleData.route_code}.svg" alt="${vehicleData.route_code}">
+                        </div>
                         <b>Metro Train ${vehicleData.vehicle?.vehicle?.id || "—"}</b><br/>
                         Route: ${vehicleData.route_code || "Unknown"}<br/>
                         Next Stop: ${stopData.stop_name}<br/>

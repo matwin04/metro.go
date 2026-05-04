@@ -1,0 +1,19 @@
+info:
+  name: Untitled
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: http://localhost:8088/api/metro/stop_data?stopId=80214
+  params:
+    - name: stopId
+      value: "80214"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

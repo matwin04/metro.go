@@ -33,7 +33,23 @@ app.get("/transit",async (req, res) => {
 })
 app.get("/bikes", async (req, res) => {
     res.render("bikes");
-})
+});
+app.get("/api/metro/stop_data",async (req,res)=> {
+    const {stopId} = req.query;
+    const url = `https://api.metro.net/LACMTA_Rail/stops/${stopId}`;
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        console.log(data[0].properties.stop_name);
+        console.log(data[0].properties.stop_id);
+
+        const stopData = data[0].properties;
+        res.json(data[0].properties);
+    } catch (error) {
+        console.error(error);
+    }
+});
 app.get("/agencies/:agency_id", async (req, res) => {
     const agency_id = req.params.agency_id;
     const agency_data = getAgencies({ agency_id });
