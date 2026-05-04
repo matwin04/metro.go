@@ -40,7 +40,7 @@ function initMap() {
 
     map.addSource("rail-stations", {
       type: "geojson",
-      data: "/maps/stations.geojson"
+      data: "/public/data/LACMTA_Rail/stations.geojson"
     });
 
     map.addSource("transit-routes", {
