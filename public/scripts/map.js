@@ -3,7 +3,7 @@ let map;
 function initMap() {
   map = new maplibregl.Map({
     container: 'map',
-    style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+    style: 'https://tiles.openfreemap.org/styles/liberty',
     center: [-118.2437, 34.0522],
     zoom: 9
   });
@@ -47,6 +47,14 @@ function initMap() {
       type: "vector",
       tiles: [
         "https://transit.land/api/v2/tiles/routes/tiles/{z}/{x}/{y}.pbf?apikey=WOo9vL8ECMWN76EcKjsNGfo8YgNZ7c2u"
+      ],
+      minzoom: 0,
+      maxzoom: 14
+    });
+    map.addSource("transit-stops", {
+      type: "vector",
+      tiles: [
+        "https://transit.land/api/v2/tiles/stops/tiles/{z}/{x}/{y}.pbf?apikey=WOo9vL8ECMWN76EcKjsNGfo8YgNZ7c2u"
       ],
       minzoom: 0,
       maxzoom: 14
@@ -283,7 +291,26 @@ function initMap() {
     // =========================
     // POPUPS (METROLINK)
     // =========================
+    map.on("mouseenter", "metro-train-dots", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
 
+    map.on("mouseleave", "metro-train-dots", () => {
+      map.getCanvas().style.cursor = "";
+    });
+    map.on("click", "all-stops", (e) => {
+      const f = e.features[0];
+      const coords = f.geometry.coordinates;
+      const props = f.properties;
+      const popup = new maplibregl.Popup()
+          .setLngLat(coords)
+          .setHTML(`
+                    <div class="popup">
+                        <b> ${props.stop_name}
+                    </div>
+                `)
+          .addTo(map);
+    });
     map.on("click", "metrolink-train-dots", (e) => {
       const feature = e.features[0];
       const coords = feature.geometry.coordinates.slice();

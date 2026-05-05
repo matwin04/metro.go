@@ -63,7 +63,15 @@ app.get("/agencies/:agency_id", async (req, res) => {
 app.get("/api/overview", (req, res) => {
     res.render("overview", overview);
 });
-
+app.get("/api/transitland/departures", async (req, res) => {
+    const {agencyId, gtfsId} = req.query;
+    const url = `https://transit.land/api/v2/rest/stops/${agencyId}:${gtfsId}/departures?include_alerts=true&next=60000`;
+    try {
+        const response = await fetch(url);
+    } catch (error) {
+        console.error(error);
+    }
+})
 app.get("/about", (req, res) => {
     res.render("about");
 });
