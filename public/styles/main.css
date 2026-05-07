@@ -219,6 +219,7 @@ tbody tr:nth-child(even) {
     font-weight: 600;
     text-align: end;
 }
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
     .content {

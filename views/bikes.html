@@ -6,14 +6,14 @@
   <title>MW Transit + Bike App | Bikes</title>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/public/styles/main.css">
   <link rel="stylesheet" href="/static/maplibre-gl/maplibre-gl.css">
 
   <!-- MapLibre JS -->
   <script src="/static/maplibre-gl/maplibre-gl.js"></script>
 </head>
 <body>
-  {% include "navbar.html" with context %}
+    {{> navbar}}
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -25,15 +25,7 @@
   </main>
 
   <!-- Your Map Script -->
-  <script src="/static/scripts/map.js"></script>
-  <script type="module" src="/public/scripts/metro.js"></script>
-        <script>
-            window.va =
-                window.va ||
-                function () {
-                    (window.vaq = window.vaq || []).push(arguments);
-                };
-        </script>
-        <script defer src="/_vercel/insights/script.js"></script>
+  <script src="/public/scripts/bikemap.js"></script>
+
 </body>
 </html>

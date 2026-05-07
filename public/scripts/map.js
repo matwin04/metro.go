@@ -1,5 +1,5 @@
-
 let map;
+
 function initMap() {
   map = new maplibregl.Map({
     container: 'map',
@@ -26,13 +26,11 @@ function initMap() {
     // SOURCES
     // =========================
 
-    // Metro (existing WebSocket)
     map.addSource("metro-trains", {
       type: "geojson",
       data: { type: "FeatureCollection", features: [] }
     });
 
-    // Metrolink (NEW)
     map.addSource("metrolink-trains", {
       type: "geojson",
       data: { type: "FeatureCollection", features: [] }
@@ -43,6 +41,12 @@ function initMap() {
       data: "/public/data/LACMTA_Rail/stations.geojson"
     });
 
+    // YOUR LOCAL METROLINK STATIONS (kept as-is)
+    map.addSource("metrolink-stations", {
+      type: "geojson",
+      data: "/public/data/Metrolinktrains/stops.geojson"
+    });
+
     map.addSource("transit-routes", {
       type: "vector",
       tiles: [
@@ -51,6 +55,7 @@ function initMap() {
       minzoom: 0,
       maxzoom: 14
     });
+
     map.addSource("transit-stops", {
       type: "vector",
       tiles: [
@@ -59,15 +64,9 @@ function initMap() {
       minzoom: 0,
       maxzoom: 14
     });
-    map.addSource("transit-lines-OSM",{
-      type:"vector",
-      tiles: [
-
-      ]
-    })
 
     // =========================
-    // ROUTE LAYERS
+    // ROUTES
     // =========================
 
     map.addLayer({
@@ -82,6 +81,7 @@ function initMap() {
         "line-opacity": 0.9
       }
     });
+
     map.addLayer({
       id: "subway-lines",
       type: "line",
@@ -94,6 +94,7 @@ function initMap() {
         "line-opacity": 0.9
       }
     });
+
     map.addLayer({
       id: "lightrail-lines",
       type: "line",
@@ -116,10 +117,22 @@ function initMap() {
       type: "circle",
       source: "rail-stations",
       paint: {
-        "circle-radius": 4,
-        "circle-color": "#fff",
+        "circle-radius": 5,
+        "circle-color": "#ffffff",
         "circle-stroke-width": 2,
         "circle-stroke-color": "#333"
+      }
+    });
+
+    map.addLayer({
+      id: "metrolink-station-dots",
+      type: "circle",
+      source: "metrolink-stations",
+      paint: {
+        "circle-radius": 5,
+        "circle-color": "#ffffff",
+        "circle-stroke-width": 2,
+        "circle-stroke-color": "#ff6600"
       }
     });
 
@@ -140,7 +153,7 @@ function initMap() {
     });
 
     // =========================
-    // METROLINK TRAINS (NEW)
+    // METROLINK TRAINS
     // =========================
 
     map.addLayer({
@@ -156,7 +169,7 @@ function initMap() {
     });
 
     // =========================
-    // DMS → DECIMAL
+    // METRO DATA STREAM
     // =========================
 
     function dmsToDecimal(dms) {
@@ -164,15 +177,10 @@ function initMap() {
       const degrees = parts[0];
       const minutes = parts[1];
       const seconds = parts[2];
-
       const sign = degrees < 0 ? -1 : 1;
 
       return sign * (Math.abs(degrees) + minutes / 60 + seconds / 3600);
     }
-
-    // =========================
-    // METROLINK FETCH
-    // =========================
 
     async function loadMetrolink() {
       try {
@@ -209,7 +217,7 @@ function initMap() {
     setInterval(loadMetrolink, 5000);
 
     // =========================
-    // METRO WEBSOCKET
+    // METRO STREAM
     // =========================
 
     const ws = new WebSocket("wss://api.metro.net/ws/LACMTA_Rail/vehicle_positions");
@@ -259,76 +267,141 @@ function initMap() {
     };
 
     // =========================
-    // POPUPS (METRO)
+    // CURSOR STATES
     // =========================
 
-    map.on("click", "metro-train-dots", async (e) => {
+    ["metro-train-dots", "metrolink-train-dots", "station-dots", "metrolink-station-dots"]
+        .forEach(layer => {
+          map.on("mouseenter", layer, () => {
+            map.getCanvas().style.cursor = "pointer";
+          });
+
+          map.on("mouseleave", layer, () => {
+            map.getCanvas().style.cursor = "";
+          });
+        });
+
+    // =========================
+    // METRO POPUP
+    // =========================
+
+    map.on("click", "metro-train-dots", (e) => {
       const feature = e.features[0];
       const coords = feature.geometry.coordinates.slice();
+      const vehicleData = JSON.parse(feature.properties.data);
 
-      let vehicleData = JSON.parse(feature.properties.data);
-
-      const stopId = vehicleData.vehicle?.stopId;
-      const stopRes = await fetch(`/api/metro/stop_data?stopId=${stopId}`);
-      const stopData = await stopRes.json();
       new maplibregl.Popup({ offset: 10 })
           .setLngLat(coords)
           .setHTML(`
-                    <div class="popup">
-                        <div class="popup-header">
-                                <img class="agency-icon" src="/public/icons/agency_logos/LACMTA.png" alt="LA Metro">
-                                <img class="routeicon" src="/public/icons/route_icons/LACMTA_Rail/${vehicleData.route_code}.svg" alt="${vehicleData.route_code}">
-                        </div>
-                        <b>Metro Train ${vehicleData.vehicle?.vehicle?.id || "—"}</b><br/>
-                        Route: ${vehicleData.route_code || "Unknown"}<br/>
-                        Next Stop: ${stopData.stop_name}<br/>
-                        Trip: ${vehicleData.vehicle?.trip?.tripId}
-                    </div>
-                `)
+          <div class="popup">
+            <div class="popup-header">
+              <img class="agency-icon" src="/public/icons/agency_logos/LACMTA.png" />
+              <img class="routeicon" src="/public/icons/route_icons/LACMTA_Rail/${vehicleData.route_code}.svg" />
+            </div>
+            <b>Metro Train ${vehicleData.vehicle?.vehicle?.id || "—"}</b><br/>
+            Route: ${vehicleData.route_code || "Unknown"}<br/>
+            Trip: ${vehicleData.vehicle?.trip?.tripId || "—"}
+          </div>
+        `)
           .addTo(map);
     });
 
     // =========================
-    // POPUPS (METROLINK)
+    // METROLINK TRAIN POPUP
     // =========================
-    map.on("mouseenter", "metro-train-dots", () => {
-      map.getCanvas().style.cursor = "pointer";
-    });
 
-    map.on("mouseleave", "metro-train-dots", () => {
-      map.getCanvas().style.cursor = "";
-    });
-    map.on("click", "all-stops", (e) => {
-      const f = e.features[0];
-      const coords = f.geometry.coordinates;
-      const props = f.properties;
-      const popup = new maplibregl.Popup()
-          .setLngLat(coords)
-          .setHTML(`
-                    <div class="popup">
-                        <b> ${props.stop_name}
-                    </div>
-                `)
-          .addTo(map);
-    });
     map.on("click", "metrolink-train-dots", (e) => {
       const feature = e.features[0];
       const coords = feature.geometry.coordinates.slice();
-
       const train = JSON.parse(feature.properties.data);
 
       new maplibregl.Popup({ offset: 10 })
           .setLngLat(coords)
           .setHTML(`
-                    <div class="popup">
-                        <b>Metrolink ${train.symbol}</b><br/>
-                        Line: ${train.line}<br/>
-                        Direction: ${train.direction}<br/>
-                        Speed: ${train.speed} mph<br/>
-                        Status: ${train.delay_status}<br/>
-                        Updated: ${train.ptc_time}
-                    </div>
-                `)
+          <div class="popup">
+            <div class="popup-header">
+              <i class="mdi mdi-train"></i>
+              <span>Metrolink</span>
+            </div>
+            <div class="popup-body ${train.delay_status}">
+            <b>${train.symbol}</b><br/>
+            Line: ${train.line}<br/>
+            Direction: ${train.direction}<br/>
+            Speed: ${train.speed} mph<br/>
+            Status: ${train.delay_status}<br/>
+            Updated: ${train.ptc_time}
+            </div>
+          </div>
+        `)
+          .addTo(map);
+    });
+
+    // =========================
+    // STATION POPUPS (METRO)
+    // =========================
+
+    map.on("click", "station-dots", (e) => {
+      const feature = e.features[0];
+      const coords = feature.geometry.coordinates.slice();
+      const props = feature.properties;
+
+      const stationName =
+          props.station_name ||
+          props.name ||
+          "Unknown Station";
+
+      const lines =
+          props.lines ||
+          props.line ||
+          "N/A";
+
+      new maplibregl.Popup({ offset: 10 })
+          .setLngLat(coords)
+          .setHTML(`
+          <div class="popup">
+            <div class="popup-header">
+              <i class="mdi mdi-subway-variant"></i>
+              <span>Station</span>
+            </div>
+            <b>${stationName}</b><br/>
+            Lines: ${lines}
+          </div>
+        `)
+          .addTo(map);
+    });
+
+    // =========================
+    // STATION POPUPS (METROLINK)
+    // =========================
+
+    map.on("click", "metrolink-station-dots", (e) => {
+      const feature = e.features[0];
+      const coords = feature.geometry.coordinates.slice();
+      const props = feature.properties;
+
+      const stationName =
+          props.stop_name ||
+          props.name ||
+          props.station_name ||
+          "Unknown Station";
+
+      const lines =
+          props.lines ||
+          props.line ||
+          "N/A";
+
+      new maplibregl.Popup({ offset: 10 })
+          .setLngLat(coords)
+          .setHTML(`
+          <div class="popup">
+            <div class="popup-header">
+              <i class="mdi mdi-train"></i>
+              <span>Metrolink Station</span>
+            </div>
+            <b>${stationName}</b><br/>
+            Lines: ${lines}
+          </div>
+        `)
           .addTo(map);
     });
 
@@ -336,4 +409,5 @@ function initMap() {
 
   return map;
 }
+
 initMap();
