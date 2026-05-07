@@ -71,7 +71,10 @@ app.get("/api/transitland/departures", async (req, res) => {
     } catch (error) {
         console.error(error);
     }
-})
+});
+app.get("/departures", async (req, res) => {
+    res.render("station");
+});
 app.get("/about", (req, res) => {
     res.render("about");
 });

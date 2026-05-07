@@ -195,6 +195,26 @@ tbody tr:nth-child(even) {
     background: #b0b0b0;
     border-radius: 8px;
 }
+.popup-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    gap: 8px;
+    width: 100%;
+}
+
+.popup-header b {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+}
+.agency-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
 
 /* subway icon */
 .popup-route .mdi {
