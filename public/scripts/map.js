@@ -50,6 +50,7 @@ function buildDepartureRows(departures) {
     const schedtime      = formatTime(dep.departure?.scheduled);
     const estimatedtime = formatTime(dep.departure?.estimated);
     const mins      = minsUntil(dep.departure?.scheduled || dep.departure_time);
+
     const routeId     = route?.route_id;
     return `
       <tr>
@@ -58,7 +59,7 @@ function buildDepartureRows(departures) {
         </td>
         <td>${headsign}</td>
         <td>
-            <div class="dep-time">${schedtime}</div>
+          <div class="dep-time">${schedtime}</div>
           <div class="dep-time">${estimatedtime}</div>
           <div class="dep-mins">${minsLabel(mins)}</div>
         </td>
@@ -171,6 +172,10 @@ function initMap() {
       type: "geojson",
       data: "/public/data/f-9q5-metro~losangeles~rail/stations.geojson"
     });
+    map.addSource("amtrak-ca-stations", {
+      type: "geojson",
+      data: "/public/data/f-9-amtrak~amtrakcalifornia~amtrakcharteredvehicle/stops.geojson"
+    });
 
     map.addSource("metrolink-stations", {
       type: "geojson",
@@ -237,7 +242,17 @@ function initMap() {
         "circle-stroke-color": "#ff6600"
       }
     });
-
+    map.addLayer({
+      id:"amtrak-ca-station-dots",
+      type: "circle",
+      source: "amtrak-ca-stations",
+      paint: {
+        "circle-radius": 5,
+        "circle-color": "#ffffff",
+        "circle-stroke-width": 2,
+        "circle-stroke-color": "#000000"
+      }
+    })
     // ── VEHICLE DOTS ─────────────────────────
 
     map.addLayer({
@@ -326,7 +341,7 @@ function initMap() {
 
     // ── CURSOR STATES ─────────────────────────
 
-    ["metro-train-dots", "metrolink-train-dots", "station-dots", "metrolink-station-dots"]
+    ["metro-train-dots", "metrolink-train-dots", "station-dots", "metrolink-station-dots","amtrak-ca-station-dots"]
         .forEach(layer => {
           map.on("mouseenter", layer, () => { map.getCanvas().style.cursor = "pointer"; });
           map.on("mouseleave", layer, () => { map.getCanvas().style.cursor = ""; });
@@ -407,13 +422,36 @@ function initMap() {
 
     map.on("click", "station-dots", (e) => {
       const props = e.features[0].properties;
+      console.log(props);
       renderDepartures("f-9q5-metro~losangeles~rail", props.stop_id);
     });
 
     // ── METROLINK STATION CLICK → sidebar only ────────────────
+    map.on("click", "amtrak-ca-station-dots", (e) => {
+      const props = e.features[0].properties;
+      renderDepartures("f-9-amtrak~amtrakcalifornia~amtrakcharteredvehicle", props.stop_id);
+      // Metrolink uses a different agency feed — show name while we have no departures API
+      const panelEmpty   = document.getElementById("panel-empty");
+      const panelStation = document.getElementById("panel-station");
+      const stopNameEl   = document.getElementById("stop-name");
+      const stopIdEl     = document.getElementById("panel-station-id");
+      const badgesEl     = document.getElementById("panel-route-badges");
+      const tableBody    = document.getElementById("departures-body");
 
+      panelEmpty.hidden   = true;
+      panelStation.hidden = false;
+      stopNameEl.textContent = props.stop_name || props.name || "Metrolink Station";
+      stopIdEl.textContent   = `Stop ID: ${props.stop_id || "—"}`;
+      badgesEl.innerHTML     = `<span class="route-badge" style="background:#ff6600">
+                                    <span class="route-badge-dot">
+                                    
+                                </span>Metrolink
+                                </span>`;
+      tableBody.innerHTML    = `<tr class="empty-row"><td colspan="3">Metrolink departures not available</td></tr>`;
+    })
     map.on("click", "metrolink-station-dots", (e) => {
       const props = e.features[0].properties;
+      renderDepartures("f-9qh-metrolinktrains", props.stop_id);
       // Metrolink uses a different agency feed — show name while we have no departures API
       const panelEmpty   = document.getElementById("panel-empty");
       const panelStation = document.getElementById("panel-station");

@@ -83,7 +83,7 @@ app.get("/api/swiftly/departures", async (req, res) => {
 });
 app.get("/api/transitland/departures", async (req, res) => {
     const {agencyId, gtfsId} = req.query;
-    const url = `https://transit.land/api/v2/rest/stops/${agencyId}:${gtfsId}/departures?include_alerts=true&next=3000`;
+    const url = `https://transit.land/api/v2/rest/stops/${agencyId}:${gtfsId}/departures?include_alerts=true&next=6000`;
     const options = {method: 'GET', headers: {apikey: 'dViq8onyBCISi9OShVwn2jbv2WPysTsn'}};
     try {
         const response = await fetch(url, options);
