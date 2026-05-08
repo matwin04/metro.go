@@ -5,10 +5,13 @@ info:
 
 http:
   method: GET
-  url: http://localhost:8088/api/metro/stop_data?stopId=80214
+  url: http://localhost:8088/api/transitland/departures?agencyId=f-9q5-metro~losangeles~rail&gtfsId=80212
   params:
-    - name: stopId
-      value: "80214"
+    - name: agencyId
+      value: f-9q5-metro~losangeles~rail
+      type: query
+    - name: gtfsId
+      value: "80212"
       type: query
   auth: inherit
 

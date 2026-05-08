@@ -13,41 +13,74 @@
         <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
 </head>
     <body>
-        {{> navbar}}
+
+    {{> navbar}}
+
+    <div class="map-shell">
+
+        <!-- ── LEFT SIDEBAR ── -->
+        <aside class="departures-panel" id="departures-panel">
+
+            <!-- Empty state -->
+            <div class="panel-empty" id="panel-empty">
+
+                <p>Click any station on the map to see upcoming departures.</p>
+            </div>
+
+            <!-- Station info (hidden until a station is selected) -->
+            <div class="panel-station" id="panel-station" hidden>
+
+                <div class="panel-header">
+                    <div class="panel-header-row">
+                        <img
+                                class="panel-agency-logo"
+                                id="panel-agency-logo"
+                                src="/public/icons/agency_logos/LACMTA.png"
+                                alt="Agency"
+                        />
+                        <div>
+                            <div class="panel-station-name" id="stop-name">—</div>
+                            <div class="panel-station-id" id="panel-station-id"></div>
+                        </div>
+                    </div>
+                    <div class="panel-route-badges" id="panel-route-badges"></div>
+                </div>
+
+                <div class="panel-section-label">Upcoming Departures</div>
+
+                <div class="panel-scroll">
+                    <table class="departures-table">
+                        <thead>
+                        <tr>
+                            <th>Line</th>
+                            <th>Direction</th>
+                            <th>Departs</th>
+                        </tr>
+                        </thead>
+                        <tbody id="departures-body">
+                        <tr class="loading-row">
+                            <td colspan="3">
+                                <span class="loading-spinner"></span> Loading…
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- ── MAP ── -->
         <div id="map"></div>
-        <div class="grid">
-            <div class="row">
-                <div class="col">
-                    <img class="agency-icon" src="/public/icons/agency_logos/LACMTA_Rail.png" alt="agency-icon">
-                    <h4>Metro Status</h4>
-                </div>
-                <div class="col">
-                    <h4>Metrolink</h4>
-                    <img class="agency-icon" src="/public/icons/agency_logos/metrolink.png" alt="agency-icon">
 
-                </div>
-            </div>
-            <div class="row">
-                Osaka
-                <div class="row">
-                    <div class="col" id="train-id">Train To </div>
-                    <div class="col">S</div>
-                </div>
-                <div class="row">
-                    <div class="col">A</div>
-                </div>
-            </div>
-        </div>
+    </div>
 
-        <script src="/public/scripts/map.js"></script>
-        <script type="module" src="/public/scripts/metro.js"></script>
-        <script>
-            window.va =
-                window.va ||
-                function () {
-                    (window.vaq = window.vaq || []).push(arguments);
-                };
-        </script>
-        <script defer src="/_vercel/insights/script.js"></script>
+    <script src="/public/scripts/map.js"></script>
+    <script type="module" src="/public/scripts/metro.js"></script>
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
     </body>
+
 </html>

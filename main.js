@@ -61,13 +61,34 @@ app.get("/agencies/:agency_id", async (req, res) => {
     });
 });
 app.get("/api/overview", (req, res) => {
+
     res.render("overview", overview);
+});
+app.get("/api/swiftly/departures", async (req, res) => {
+    const {stopId} = req.query;
+    const url = `https://api.goswift.ly/real-time/lametro-rail/predictions?stop=${stopId}`;
+    const options = {
+        method: 'GET',
+        headers: {authorization: 'a083dc68622b251fd4fa2a63e055c3c9', accept: 'application/json'}
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        console.log(data);
+        res.json(data);
+    } catch (error) {
+        console.error(error);
+    }
 });
 app.get("/api/transitland/departures", async (req, res) => {
     const {agencyId, gtfsId} = req.query;
-    const url = `https://transit.land/api/v2/rest/stops/${agencyId}:${gtfsId}/departures?include_alerts=true&next=60000`;
+    const url = `https://transit.land/api/v2/rest/stops/${agencyId}:${gtfsId}/departures?include_alerts=true&next=3000`;
+    const options = {method: 'GET', headers: {apikey: 'dViq8onyBCISi9OShVwn2jbv2WPysTsn'}};
     try {
-        const response = await fetch(url);
+        const response = await fetch(url, options);
+        const data = await response.json();
+        res.json(data.stops[0]);
     } catch (error) {
         console.error(error);
     }
