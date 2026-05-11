@@ -1,0 +1,1553 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          -117.37835,
+          33.190875
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905451,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musbfpwy5-oceansidetransitcenter",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27000",
+        "stop_desc": null,
+        "stop_id": "27000",
+        "stop_name": "Oceanside Transit Center",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.368851,
+          33.181788
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905452,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musc0w9gt-coasthwystation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27001",
+        "stop_desc": null,
+        "stop_id": "27001",
+        "stop_name": "Coast Hwy Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.353514,
+          33.194612
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905453,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9muscdcu8u-crouchststation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27002",
+        "stop_desc": null,
+        "stop_id": "27002",
+        "stop_name": "Crouch St Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.332478,
+          33.199656
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905454,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musf5c450-elcaminorealstation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27003",
+        "stop_desc": null,
+        "stop_id": "27003",
+        "stop_name": "El Camino Real Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.31147,
+          33.20146
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905455,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musfs0ks8-ranchodelorostation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27004",
+        "stop_desc": null,
+        "stop_id": "27004",
+        "stop_name": "Rancho Del Oro Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.288143,
+          33.204546
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905456,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musgh9qs0-collegeblvdstation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27005",
+        "stop_desc": null,
+        "stop_id": "27005",
+        "stop_name": "College Blvd Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.259087,
+          33.219553
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905457,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musgxqtcj-melrosedrstation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27006",
+        "stop_desc": null,
+        "stop_id": "27006",
+        "stop_name": "Melrose Dr Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.24495,
+          33.20295
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905458,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musuh2v4w-vistatransitcenter",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27007",
+        "stop_desc": null,
+        "stop_id": "27007",
+        "stop_name": "Vista Transit Center",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.237476,
+          33.190535
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905459,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musu4nkbu-civiccenter~vistastation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27008",
+        "stop_desc": null,
+        "stop_id": "27008",
+        "stop_name": "Civic Center - Vista Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.207393,
+          33.1735
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905460,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musszh1tu-buenacreekstation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27009",
+        "stop_desc": null,
+        "stop_id": "27009",
+        "stop_name": "Buena Creek Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.185314,
+          33.146953
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905461,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9must6hqbr-palomarcollegestation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27010",
+        "stop_desc": null,
+        "stop_id": "27010",
+        "stop_name": "Palomar College Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.161995,
+          33.142267
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905462,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9mustcm5xw-sanmarcosciviccenterstation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27011",
+        "stop_desc": null,
+        "stop_id": "27011",
+        "stop_name": "San Marcos Civic Center Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.153585,
+          33.134771
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905463,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musw05259-calstatesanmarcosstation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27012",
+        "stop_desc": null,
+        "stop_id": "27012",
+        "stop_name": "Cal State San Marcos Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.124154,
+          33.131112
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905464,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musqz2f9q-nordahlrdstation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27013",
+        "stop_desc": null,
+        "stop_id": "27013",
+        "stop_name": "Nordahl Rd Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.09216,
+          33.118419
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905465,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musrt00fb-escondidotransitcenter",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27014",
+        "stop_desc": null,
+        "stop_id": "27014",
+        "stop_name": "Escondido Transit Center",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.23697,
+          33.19022
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905467,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musu4neh9-civiccenter~vistastation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27026",
+        "stop_desc": null,
+        "stop_id": "27026",
+        "stop_name": "Civic Center - Vista Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.24495,
+          33.20317
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905468,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musuh2y6x-vistatransitcenter",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27027",
+        "stop_desc": null,
+        "stop_id": "27027",
+        "stop_name": "Vista Transit Center",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.28825,
+          33.20455
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905469,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musgh9q98-collegeblvdstation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27028",
+        "stop_desc": null,
+        "stop_id": "27028",
+        "stop_name": "College Blvd Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.3113,
+          33.20158
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905470,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musfs0t0x-ranchodelorostation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27029",
+        "stop_desc": null,
+        "stop_id": "27029",
+        "stop_name": "Rancho Del Oro Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.3323,
+          33.19972
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905471,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musf5c4rh-elcaminorealstation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "27030",
+        "stop_desc": null,
+        "stop_id": "27030",
+        "stop_name": "El Camino Real Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": null
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.378206,
+          33.190552
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905494,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musbfpucx-oceansidetransitcenterplatform3",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28000",
+        "stop_desc": null,
+        "stop_id": "28000",
+        "stop_name": "Oceanside Transit Center Platform 3",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C1"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.351867,
+          33.161787
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905495,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9mus9sfvrm-carlsbadvillagestation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28001",
+        "stop_desc": null,
+        "stop_id": "28001",
+        "stop_name": "Carlsbad Village Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C1"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.319613,
+          33.109794
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905496,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9mus676qwb-carlsbadpoinsettiastation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28002",
+        "stop_desc": null,
+        "stop_id": "28002",
+        "stop_name": "Carlsbad Poinsettia Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C1"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.293357,
+          33.047927
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905497,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9mus4bjw4s-encinitasstation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28003",
+        "stop_desc": null,
+        "stop_id": "28003",
+        "stop_name": "Encinitas Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C1"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.272046,
+          32.994933
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905498,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9mueeqt17m-solanabeachstation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28004",
+        "stop_desc": null,
+        "stop_id": "28004",
+        "stop_name": "Solana Beach Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C1"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.225677,
+          32.903369
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905499,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9muehmyu58-sorrentovalleystation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28005",
+        "stop_desc": null,
+        "stop_id": "28005",
+        "stop_name": "Sorrento Valley Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C2"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.199754,
+          32.755277
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905500,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9mudm4ctrf-sandiego~oldtown",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28006",
+        "stop_desc": null,
+        "stop_id": "28006",
+        "stop_name": "San Diego - Old Town",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C3"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.17007,
+          32.71887
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905501,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9mudjsr35r-sandiego~santafedepot",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28007",
+        "stop_desc": null,
+        "stop_id": "28007",
+        "stop_name": "San Diego - Santa Fe Depot",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C3"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.376487,
+          33.18856
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905502,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9musc1c13e-oceansidetransitcenter",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28100",
+        "stop_desc": null,
+        "stop_id": "28100",
+        "stop_name": "Oceanside Transit Center",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C1"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.350616,
+          33.160539
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905503,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9mus9seyhk-carlsbadvillagestation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28101",
+        "stop_desc": null,
+        "stop_id": "28101",
+        "stop_name": "Carlsbad Village Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C1"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.318487,
+          33.107188
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905504,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9mus66gr35-carlsbadpoinsettiastation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28102",
+        "stop_desc": null,
+        "stop_id": "28102",
+        "stop_name": "Carlsbad Poinsettia Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C1"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.293125,
+          33.046285
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905505,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9muefzvu84-encinitasstation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28103",
+        "stop_desc": null,
+        "stop_id": "28103",
+        "stop_name": "Encinitas Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C1"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.271459,
+          32.9922
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905506,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9mueeqj92z-solanabeachstation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28104",
+        "stop_desc": null,
+        "stop_id": "28104",
+        "stop_name": "Solana Beach Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C1"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.224498,
+          32.902257
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905507,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9muehmxtx1-sorrentovalleystation",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28105",
+        "stop_desc": null,
+        "stop_id": "28105",
+        "stop_name": "Sorrento Valley Station",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C2"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.199258,
+          32.753434
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905508,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9mudm4d4e6-sandiego~oldtown",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28106",
+        "stop_desc": null,
+        "stop_id": "28106",
+        "stop_name": "San Diego - Old Town",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C3"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -117.170069,
+          32.716895
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "alerts": [],
+        "feed_version": {
+          "feed": {
+            "id": 253,
+            "onestop_id": "f-9mu-northcountytransitdistrict"
+          },
+          "fetched_at": "2026-02-21T03:45:23.976306Z",
+          "id": 642306,
+          "sha1": "21c72c7fbc46589de0f5a8a95766bbe02182b8cd"
+        },
+        "id": 2053905509,
+        "level": null,
+        "location_type": 0,
+        "onestop_id": "s-9mudjezmex-sandiego~santafedepot",
+        "parent": null,
+        "place": {
+          "adm0_iso": "US",
+          "adm0_name": "United States of America",
+          "adm1_iso": "US-CA",
+          "adm1_name": "California"
+        },
+        "platform_code": null,
+        "stop_code": "28107",
+        "stop_desc": null,
+        "stop_id": "28107",
+        "stop_name": "San Diego - Santa Fe Depot",
+        "stop_timezone": null,
+        "stop_url": null,
+        "tts_stop_name": null,
+        "wheelchair_boarding": null,
+        "zone_id": "C3"
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}
