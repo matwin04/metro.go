@@ -3,6 +3,26 @@ let map;
 // =============================================
 // HELPERS
 // =============================================
+function getDelayClass(scheduledTime, estimatedTime) {
+  if (!scheduledTime || !estimatedTime) return "";
+  
+  const [sh, sm] = scheduledTime.split(":").map(Number);
+  const [eh, em] = estimatedTime.split(":").map(Number);
+  
+  const scheduled = sh * 60 + sm;
+  const estimated = eh * 60 + em;
+  const delayMins = estimated - scheduled;
+  
+  if (delayMins < 0) return "early";
+  if (delayMins === 0) return "ontime";
+  if (delayMins <= 5) return "mild";
+  if (delayMins <= 10) return "late";
+
+  return "extreme";
+}
+
+
+
 
 function formatTime(timeStr) {
   if (!timeStr) return "—";
@@ -51,23 +71,25 @@ function buildDepartureRows(departures) {
     const schedtime      = formatTime(dep.departure?.scheduled);
     const estimatedtime = formatTime(dep.departure?.estimated);
     const mins      = minsUntil(dep.departure?.scheduled || dep.departure_time);
-    const delayStat = schedtime-estimatedtime
-
+    const delayClass = getDelayClass(dep.departure?.scheduled, dep.departure?.estimated);
+    const delayStat = schedtime !== estimatedtime ? `${estimatedtime}` : "";
     const routeId     = route?.route_id;
-    return `
+    return `      
       <tr>
         <td>
             <img class="popup-route-icon" src="/public/icons/route_icons/LACMTA_Rail/${routeId}.svg" alt="" />
         </td>
         <td>${headsign}</td>
         <td>
-          <div class="dep-time">${schedtime}</div>
           <div class="dep-time">
-            <span class="mdi mdi-signal-variant"></span> ${estimatedtime}</div>
+            <span class="mdi mdi-clock-outline mdisched"></span><span class="schedtime">${schedtime}</span></div>
+          <div class="dep-time">
+            <span class="mdi mdi-signal-variant ${delayClass} "></span> <span class="${delayClass}">${estimatedtime}</span></div>
           <div class="dep-mins">${minsLabel(mins)}</div>
-          <div class="dep-mins">${delayStat}</div>
         </td>
       </tr>`;
+    
+    
   }).join("");
 }
 

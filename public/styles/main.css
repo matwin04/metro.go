@@ -542,6 +542,51 @@ body:has(.map-shell) {
 .popup-body.Late    .popup-status { color: #ff5252; }
 .popup-body.Early   .popup-status { color: #ffab40; }
 
+/* Delay Status Styling */
+.ontime,
+.ontime .mdi {
+  color: #2e7d32;
+  padding: 2px 2px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Early: arriving before scheduled time */
+.early,
+.early .mdi {
+  color: #1976d2;
+  padding: 2px 2px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Mild delay: 1-5 minutes */
+.mild,
+.mild .mdi {
+  color: #ff6f00;
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Late: 5-10 minutes */
+.late,
+.late .mdi {
+  color: #d32f2f;
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Extreme delay: 10+ minutes */
+.extreme,
+.extreme .mdi {
+  color: #b71c1c;
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-weight: 700;
+}
+
 /* ── Popup mini departure table — removed (departures are sidebar-only) ── */
 
 /* =============================================
