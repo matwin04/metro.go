@@ -37,6 +37,7 @@ function hexColor(c) {
 /**
  * Build the departure rows HTML for the sidebar table.
  */
+
 function buildDepartureRows(departures) {
   if (!departures || departures.length === 0) {
     return `<tr class="empty-row"><td colspan="3">No upcoming departures</td></tr>`;
@@ -50,6 +51,7 @@ function buildDepartureRows(departures) {
     const schedtime      = formatTime(dep.departure?.scheduled);
     const estimatedtime = formatTime(dep.departure?.estimated);
     const mins      = minsUntil(dep.departure?.scheduled || dep.departure_time);
+    const delayStat = schedtime-estimatedtime
 
     const routeId     = route?.route_id;
     return `
@@ -60,8 +62,10 @@ function buildDepartureRows(departures) {
         <td>${headsign}</td>
         <td>
           <div class="dep-time">${schedtime}</div>
-          <div class="dep-time">${estimatedtime}</div>
+          <div class="dep-time">
+            <span class="mdi mdi-signal-variant"></span> ${estimatedtime}</div>
           <div class="dep-mins">${minsLabel(mins)}</div>
+          <div class="dep-mins">${delayStat}</div>
         </td>
       </tr>`;
   }).join("");

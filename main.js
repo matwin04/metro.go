@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import { engine } from "express-handlebars";
 import { fileURLToPath } from "url";
 import Database from "better-sqlite3";
-
+//const database = openDatabase("public/data.db")
 import fs from "node:fs/promises";
 dotenv.config();
 
@@ -50,20 +50,15 @@ app.get("/api/metro/stop_data",async (req,res)=> {
         console.error(error);
     }
 });
-app.get("/agencies/:agency_id", async (req, res) => {
-    const agency_id = req.params.agency_id;
-    const agency_data = getAgencies({ agency_id });
-    const agency_routes = getRoutes({ agency_id });
-    res.render("info/agencies", {
-        agency_id: agency_id,
-        agencies: agency_data,
-        routes: agency_routes
-    });
+app.get("/api/sources/transit",async (req,res)=> {
+    //openDatabase();
+    res.json("");
 });
-app.get("/api/overview", (req, res) => {
+app.get("/api/sources/bikeshare", async (req,res)=> {
+    //openDatabase()
+    res.json("");
+});
 
-    res.render("overview", overview);
-});
 app.get("/api/swiftly/departures", async (req, res) => {
     const {stopId} = req.query;
     const url = `https://api.goswift.ly/real-time/lametro-rail/predictions?stop=${stopId}`;
