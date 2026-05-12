@@ -413,9 +413,7 @@ function setupAmtrakData() {
     try {
       const response = await fetch("/api/amtraker/trains");
       const data = await response.json();
-      
       const trains = Object.values(data).flat();
-      
       map.getSource("amtrak-trains").setData({
         type: "FeatureCollection",
         features: trains.map(train => ({
@@ -435,7 +433,6 @@ function setupAmtrakData() {
       console.error("Amtrak error:", error);
     }
   }
-  
   loadAmtrak();
   setInterval(loadAmtrak, 15000);
 }

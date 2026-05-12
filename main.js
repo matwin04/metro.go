@@ -6,7 +6,8 @@ import { fileURLToPath } from "url";
 import Database from "better-sqlite3";
 import fs from "node:fs/promises";
 import { fetchAllTrains } from "amtrak";
-
+import session from 'express-session';
+import { sql, setupDB } from "./db.js";
 dotenv.config();
 
 const app = express();
@@ -46,7 +47,7 @@ function initializeDatabase() {
 }
 
 const db = initializeDatabase();
-
+setupDB();
 // =============================================
 // VIEW & STATIC CONFIG
 // =============================================
@@ -59,7 +60,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/public", express.static(path.join(__dirname, "public")));
 app.use("/views", express.static(path.join(__dirname, "views")));
-
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "thing-secret",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 // =============================================
 // PAGE ROUTES
 // =============================================
@@ -140,21 +147,16 @@ app.get("/api/sources/:feedId", async (req, res) => {
  */
 app.post("/api/sources", async (req, res) => {
     try {
-        const { feed_id, feed_type, source_type, agency_name, agency_id, onestop_id } = req.body;
+        const { feed_onestop_id, feed_spec, type, url } = req.body;
         
-        if (!feed_id || feed_type === undefined || source_type === undefined) {
-            return res.status(400).json({ 
-                success: false, 
-                error: "Missing required fields: feed_id, feed_type, source_type" 
-            });
-        }
+      
 
         const stmt = db.prepare(`
-            INSERT INTO sources (feed_id, feed_type, source_type, agency_name, agency_id, onestop_id)
-            VALUES (?, ?, ?, ?, ?, ?)
+            INSERT INTO sources (feed_onestop_id, feed_spec, type,url)
+            VALUES (?, ?, ?, ?)
         `);
         
-        const result = stmt.run(feed_id, feed_type, source_type, agency_name || null, agency_id || null, onestop_id || null);
+        const result = stmt.run(feed_onestop_id, feed_spec, type, url);
         
         res.status(201).json({ 
             success: true, 
