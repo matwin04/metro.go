@@ -24,12 +24,17 @@ async function setupDB() {
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )`;
         await sql`
-            CREATE TABLE IF NOT EXISTS chat (
-                id SERIAL PRIMARY KEY,
-                chatContent VARCHAR(300) UNIQUE NOT NULL,
-                from_user VARCHAR(100) UNIQUE NOT NULL,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )`;
+            CREATE TABLE IF NOT EXISTS "sources" (
+                "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+                "feed_id" TEXT UNIQUE NOT NULL,
+                "feed_type" TEXT NOT NULL,
+                "source_type" INTEGER NOT NULL,
+                "agency_name" TEXT,
+                "agency_id" TEXT,
+                "onestop_id" TEXT,
+                "created_at" DATETIME DEFAULT CURRENT_TIMESTAMP,
+                "updated_at" DATETIME DEFAULT CURRENT_TIMESTAMP
+        );`;
     } catch (err) {
         console.error(err);
     }
