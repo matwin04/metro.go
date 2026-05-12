@@ -22,31 +22,9 @@ const DB_PATH = path.join(__dirname, "public", "data.db");
 // DATABASE INITIALIZATION
 // =============================================
 
-function initializeDatabase() {
-  const db = new Database(DB_PATH);
-  
-  // Enable foreign keys
-  db.pragma("foreign_keys = ON");
-  
-  // Create sources table if it doesn't exist
-  db.exec(`
-    CREATE TABLE IF NOT EXISTS "sources" (
-      "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-      "feed_id" TEXT UNIQUE NOT NULL,
-      "feed_type" TEXT NOT NULL,
-      "source_type" INTEGER NOT NULL,
-      "agency_name" TEXT,
-      "agency_id" TEXT,
-      "onestop_id" TEXT,
-      "created_at" DATETIME DEFAULT CURRENT_TIMESTAMP,
-      "updated_at" DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-  `);
 
-  return db;
-}
 
-const db = initializeDatabase();
+
 setupDB();
 // =============================================
 // VIEW & STATIC CONFIG
@@ -298,6 +276,25 @@ app.get("/api/amtraker/trains",async (req,res)=>{
   };
   try {
     const response = await fetch(url,options);
+    const data = await response.json();
+    res.json(data);
+  } catch (error){
+    console.log("Error",error);
+    res.status(500).json({ error: error.message });
+  }
+});
+app.get("/api/swiftly/vehiclepos",async(req,res)=>{
+  const {agency} = req.query;
+  const url = `https://api.goswift.ly/real-time/${agency}/vehicles`;
+  const options = {
+    method: "GET",
+    headers: { 
+      authorization: process.env.SWIFTLY_API_KEY || "a083dc68622b251fd4fa2a63e055c3c9",
+      accept: "application/json"
+    }
+  };
+  try {
+    const response = await fetch(url, options);
     const data = await response.json();
     res.json(data);
   } catch (error){

@@ -262,6 +262,7 @@ function initMap() {
     setupLayers();
     setupMetrolinkData();
     setupAmtrakData();
+    setupOctaData();
     setupMetroWebSocket(metroVehicles, routeColors);
     setupCursorStates();
     setupClickHandlers();
@@ -287,6 +288,10 @@ function setupSources() {
   });
   map.addSource("amtrak-trains", {
     type: "geojson",
+    data: { type: "FeatureCollection", features: [] }
+  });
+  map.addSource("octa-vehicles",{
+    type:"geojson",
     data: { type: "FeatureCollection", features: [] }
   });
 
@@ -402,6 +407,17 @@ function setupLayers() {
       "circle-stroke-color": "#fff"
     }
   });
+  map.addLayer({
+    id: "octa-vehicle-dots",
+    type: "circle",
+    source: "octa-vehicles",
+    paint: {
+      "circle-radius": 7,
+      "circle-color": ["get", "iconColor"],
+      "circle-stroke-width": 2,
+      "circle-stroke-color": "#fff"
+    }
+  });
 }
 
 // =============================================
@@ -437,7 +453,42 @@ function setupAmtrakData() {
   setInterval(loadAmtrak, 15000);
 }
 
-
+function setupOctaData() {
+  async function loadOcta() {
+    try {
+      const res = await fetch("/api/swiftly/vehiclepos?agency=octa");
+      const json = await res.json();
+      
+      const vehicles = json?.data?.vehicles || [];
+      
+      map.getSource("octa-vehicles").setData({
+        type: "FeatureCollection",
+        features: vehicles
+        .filter(v => v.loc?.lat && v.loc?.lon)
+        .map(vehicle => ({
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: [
+              vehicle.loc.lon,
+              vehicle.loc.lat
+            ]
+          },
+          properties: {
+            data: JSON.stringify(vehicle),
+            iconColor: "#f58220"
+          }
+        }))
+      });
+      
+    } catch (err) {
+      console.error("OCTA error:", err);
+    }
+  }
+  
+  loadOcta();
+  setInterval(loadOcta, 5000);
+}
 function setupMetrolinkData() {
   async function loadMetrolink() {
     try {
@@ -501,9 +552,15 @@ function setupMetroWebSocket(metroVehicles, routeColors) {
 
 function setupCursorStates() {
   const clickableLayers = [
-    "metro-train-dots", "metrolink-train-dots", "station-dots",
-    "metrolink-station-dots", "amtrak-ca-station-dots",
-    "northcounty-transit-dots", "mts-station-dots","amtrak-train-dots"
+    "metro-train-dots",
+    "metrolink-train-dots",
+    "station-dots",
+    "metrolink-station-dots",
+    "amtrak-ca-station-dots",
+    "northcounty-transit-dots",
+    "mts-station-dots",
+    "amtrak-train-dots",
+    "octa-vehicle-dots"
   ];
 
   clickableLayers.forEach(layer => {
@@ -517,6 +574,7 @@ function setupClickHandlers() {
   map.on("click", "metro-train-dots", onMetroTrainClick);
   map.on("click", "metrolink-train-dots", onMetrolinkTrainClick);
   map.on("click", "amtrak-train-dots", onAmtrakTrainClick);
+  map.on("click", "octa-vehicle-dots", onOctaBusClick);
   // Station sidebar handlers
   map.on("click", "station-dots", onMetroStationClick);
   map.on("click", "metrolink-station-dots", onMetrolinkStationClick);
@@ -528,7 +586,76 @@ function setupClickHandlers() {
 // =============================================
 // POPUP HANDLERS
 // =============================================
+function onOctaBusClick(e) {
+  const feature = e.features[0];
+  const coords = feature.geometry.coordinates.slice();
+  const bus = JSON.parse(feature.properties.data);
+  
+  new maplibregl.Popup({ offset: 10 })
+  .setLngLat(coords)
+  .setHTML(`
+      <div class="popup">
+        <div class="popup-header">
+          <span class="popup-title">
+            OCTA ${bus.routeShortName || ""}
+          </span>
 
+          <img
+            class="popup-agency-logo"
+            src="/public/icons/agency_logos/OCTA.png"
+            alt=""
+          />
+        </div>
+
+        <div class="popup-body">
+
+          <div class="popup-row">
+            <span class="popup-row-label">Vehicle</span>
+            <span class="popup-row-value">
+              ${bus.id || "—"}
+            </span>
+          </div>
+
+          <div class="popup-row">
+            <span class="popup-row-label">Route</span>
+            <span class="popup-row-value">
+              ${bus.routeShortName || "—"}
+            </span>
+          </div>
+
+          <div class="popup-row">
+            <span class="popup-row-label">Headsign</span>
+            <span class="popup-row-value">
+              ${bus.headsign || "—"}
+            </span>
+          </div>
+
+          <div class="popup-row">
+            <span class="popup-row-label">Next Stop</span>
+            <span class="popup-row-value">
+              ${bus.nextStopName || "—"}
+            </span>
+          </div>
+
+          <div class="popup-row">
+            <span class="popup-row-label">Speed</span>
+            <span class="popup-row-value">
+              ${Math.round((bus.loc?.speed || 0) * 2.23694)} mph
+    </span>
+    </div>
+    
+    <div class="popup-row">
+    <span class="popup-row-label">Direction</span>
+    <span class="popup-row-value">
+    ${bus.directionId || "—"}
+    </span>
+    </div>
+    
+    </div>
+    </div>
+    `)
+    .addTo(map);
+}
 function onMetroTrainClick(e) {
   const feature     = e.features[0];
   const coords      = feature.geometry.coordinates.slice();
