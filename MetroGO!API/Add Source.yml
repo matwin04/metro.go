@@ -4,8 +4,8 @@ info:
   seq: 3
 
 http:
-  method: POST
-  url: http://localhost:8088/api/sources
+  method: GET
+  url: https://metrogo.app/api/sources/transit
   body:
     type: json
     data: |-

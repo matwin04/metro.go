@@ -261,6 +261,7 @@ function initMap() {
     setupSources();
     setupLayers();
     setupMetrolinkData();
+    setupAmtrakData();
     setupMetroWebSocket(metroVehicles, routeColors);
     setupCursorStates();
     setupClickHandlers();
@@ -281,6 +282,10 @@ function setupSources() {
   });
 
   map.addSource("metrolink-trains", {
+    type: "geojson",
+    data: { type: "FeatureCollection", features: [] }
+  });
+  map.addSource("amtrak-trains", {
     type: "geojson",
     data: { type: "FeatureCollection", features: [] }
   });
@@ -386,11 +391,55 @@ function setupLayers() {
       "circle-stroke-color": "#fff"
     }
   });
+  map.addLayer({
+    id: "amtrak-train-dots",
+    type: "circle",
+    source: "amtrak-trains",
+    paint: {
+      "circle-radius": 7,
+      "circle-color": ["get", "iconColor"],
+      "circle-stroke-width": 2,
+      "circle-stroke-color": "#fff"
+    }
+  });
 }
 
 // =============================================
 // REAL-TIME DATA
 // =============================================
+
+function setupAmtrakData() {
+  async function loadAmtrak() {
+    try {
+      const response = await fetch("/api/amtraker/trains");
+      const data = await response.json();
+      
+      const trains = Object.values(data).flat();
+      
+      map.getSource("amtrak-trains").setData({
+        type: "FeatureCollection",
+        features: trains.map(train => ({
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: [train.lon, train.lat]
+          },
+          properties: {
+            data: JSON.stringify(train),
+            iconColor: train.iconColor
+          }
+        }))
+      });
+      
+    } catch (error) {
+      console.error("Amtrak error:", error);
+    }
+  }
+  
+  loadAmtrak();
+  setInterval(loadAmtrak, 15000);
+}
+
 
 function setupMetrolinkData() {
   async function loadMetrolink() {
@@ -401,7 +450,10 @@ function setupMetrolinkData() {
         type: "FeatureCollection",
         features: data.map(train => ({
           type: "Feature",
-          geometry: { type: "Point", coordinates: [dmsToDecimal(train.long), dmsToDecimal(train.lat)] },
+          geometry: { 
+            type: "Point",
+            coordinates: [dmsToDecimal(train.long), dmsToDecimal(train.lat)] 
+          },
           properties: { data: JSON.stringify(train) }
         }))
       });
@@ -454,7 +506,7 @@ function setupCursorStates() {
   const clickableLayers = [
     "metro-train-dots", "metrolink-train-dots", "station-dots",
     "metrolink-station-dots", "amtrak-ca-station-dots",
-    "northcounty-transit-dots", "mts-station-dots"
+    "northcounty-transit-dots", "mts-station-dots","amtrak-train-dots"
   ];
 
   clickableLayers.forEach(layer => {
@@ -467,7 +519,7 @@ function setupClickHandlers() {
   // Train popups
   map.on("click", "metro-train-dots", onMetroTrainClick);
   map.on("click", "metrolink-train-dots", onMetrolinkTrainClick);
-
+  map.on("click", "amtrak-train-dots", onAmtrakTrainClick);
   // Station sidebar handlers
   map.on("click", "station-dots", onMetroStationClick);
   map.on("click", "metrolink-station-dots", onMetrolinkStationClick);
@@ -506,6 +558,7 @@ function onMetroTrainClick(e) {
           </div>
         </div>`)
       .addTo(map);
+
 }
 
 function onMetrolinkTrainClick(e) {
@@ -546,7 +599,51 @@ function onMetrolinkTrainClick(e) {
         </div>`)
       .addTo(map);
 }
+function onAmtrakTrainClick(e) {
+  const feature = e.features[0];
+  const coords = feature.geometry.coordinates.slice();
+  const train = JSON.parse(feature.properties.data);
 
+  new maplibregl.Popup({ offset: 10 })
+    .setLngLat(coords)
+    .setHTML(`
+        <div class="popup">
+        <div class="popup-header">
+        <span class="popup-title">
+        Amtrak ${train.trainNum}
+        
+        </span>
+        </div>
+        
+        <div class="popup-body">
+        <div class="popup-row">
+        <span class="popup-row-label">Route</span>
+        <span class="popup-row-value">${train.routeName}</span>
+        </div>
+        
+        <div class="popup-row">
+        <span class="popup-row-label">Destination</span>
+        <span class="popup-row-value">${train.destName}</span>
+        </div>
+        
+        <div class="popup-row">
+        <span class="popup-row-label">Speed</span>
+        <span class="popup-row-value">
+        ${Math.round(train.velocity)} mph
+        </span>
+        </div>
+        
+        <div class="popup-row">
+        <span class="popup-row-label">Status</span>
+        <span class="popup-row-value">
+        ${train.trainState}
+        </span>
+        </div>
+        </div>
+        </div>
+        `)
+    .addTo(map);
+}
 // =============================================
 // STATION CLICK HANDLERS
 // =============================================
@@ -563,6 +660,7 @@ function onMetrolinkStationClick(e) {
 
 function onAmtrakStationClick(e) {
   const props = e.features[0].properties;
+  console.log(props);
   renderDepartures("f-9-amtrak~amtrakcalifornia~amtrakcharteredvehicle", props.stop_id);
 }
 

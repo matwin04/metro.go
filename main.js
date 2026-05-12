@@ -5,6 +5,7 @@ import { engine } from "express-handlebars";
 import { fileURLToPath } from "url";
 import Database from "better-sqlite3";
 import fs from "node:fs/promises";
+import { fetchAllTrains } from "amtrak";
 
 dotenv.config();
 
@@ -253,6 +254,7 @@ app.get("/api/swiftly/departures", async (req, res) => {
     }
 });
 
+
 app.get("/api/transitland/departures", async (req, res) => {
     const { agencyId, gtfsId } = req.query;
     const url = `https://transit.land/api/v2/rest/stops/${agencyId}:${gtfsId}/departures?include_alerts=true&next=6000`;
@@ -271,7 +273,36 @@ app.get("/api/transitland/departures", async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
-
+app.get("/api/amtraker/stations",async (req,res)=>{
+  const {stationId} = req.query;
+  const url =`https://asm-backend.transitdocs.com/station/${stationId}?points=true`;
+  const options = {
+    method:"GET"
+  };
+  try {
+    const response = await fetch(url, options);
+    const data = await response.json();
+    res.json(data);
+  } catch (error){
+    console.log("Error",error);
+    res.status(500).json({ error: error.message });
+  }
+})
+app.get("/api/amtraker/trains",async (req,res)=>{
+  const trains = fetchAllTrains();
+  const url = `https://api-v3.amtraker.com/v3/trains`;
+  const options = {
+    method: "GET"
+  };
+  try {
+    const response = await fetch(url,options);
+    const data = await response.json();
+    res.json(data);
+  } catch (error){
+    console.log("Error",error);
+    res.status(500).json({ error: error.message });
+  }
+});
 // =============================================
 // START SERVER
 // =============================================
