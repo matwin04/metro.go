@@ -301,7 +301,8 @@ function setupSources() {
     { id: "metrolink-stations", path: "/public/data/f-9qh-metrolinktrains/stops.geojson" },
     { id: "amtrak-ca-stations", path: "/public/data/f-9-amtrak~amtrakcalifornia~amtrakcharteredvehicle/stops.geojson" },
     { id: "northcounty-transit-stops", path: "/public/data/f-9mu-northcountytransitdistrict/stops.geojson" },
-    { id: "mts-stops", path: "/public/data/f-9mu-mts/stops.geojson" }
+    { id: "mts-stops", path: "/public/data/f-9mu-mts/stops.geojson" },
+    { id:"f-9qh1-foothilltransit-stops",data:"/public/data/f-9qh1-foothilltransit-stops.geojson"},
   ];
 
   stationSources.forEach(({ id, path }) => {

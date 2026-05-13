@@ -1,0 +1,12 @@
+Agencies: City of Irvine (LAZ Parking), Foothill Transit, Foothill Transit
+Feed Version: 20250228
+GTFS-to-HTML Version: 2.12.8
+Date Generated: 2026-05-13T06:38:18.388Z
+Timetable Page Count: 38
+Timetable Count: 470
+Calendar Service ID Count: 239
+Route Count: 38
+Trip Count: 17754
+Stop Count: 17359
+Source: https://passio3.com/irvine/passioTransit/gtfs/google_transit.zip
+Source: https://foothilltransit.rideralerts.com/myStop/GTFS-Zip.ashx

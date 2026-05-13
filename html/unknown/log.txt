@@ -1,0 +1,11 @@
+Agencies: City of Irvine (LAZ Parking)
+Feed Version: 20250228
+GTFS-to-HTML Version: 2.12.8
+Date Generated: 2026-05-13T06:31:23.136Z
+Timetable Page Count: 1
+Timetable Count: 2
+Calendar Service ID Count: 2
+Route Count: 1
+Trip Count: 84
+Stop Count: 172
+Source: https://passio3.com/irvine/passioTransit/gtfs/google_transit.zip

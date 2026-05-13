@@ -1,0 +1,6839 @@
+{
+  "header": {
+    "gtfsRealtimeVersion": "1.0",
+    "timestamp": "1778692982"
+  },
+  "entity": [
+    {
+      "id": "1778692982_0_1202",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12717583",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "553"
+        },
+        "position": {
+          "latitude": 33.80760955810547,
+          "longitude": -117.91548156738281,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692958",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "1202",
+          "label": "1202"
+        }
+      }
+    },
+    {
+      "id": "1778692982_1_1203",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12717544",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "553"
+        },
+        "position": {
+          "latitude": 33.76518249511719,
+          "longitude": -117.86735534667969,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692915",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "1203",
+          "label": "1203"
+        }
+      }
+    },
+    {
+      "id": "1778692982_2_2105",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12713666",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "33"
+        },
+        "position": {
+          "latitude": 33.65270233154297,
+          "longitude": -117.9710922241211,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692939",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2105",
+          "label": "2105"
+        }
+      }
+    },
+    {
+      "id": "1778692982_3_2107",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669513",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "26"
+        },
+        "position": {
+          "latitude": 33.88859939575195,
+          "longitude": -117.81398010253906,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692936",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2107",
+          "label": "2107"
+        }
+      }
+    },
+    {
+      "id": "1778692982_4_2110",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12719758",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "46"
+        },
+        "position": {
+          "latitude": 33.81562805175781,
+          "longitude": -117.8603515625,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692968",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2110",
+          "label": "2110"
+        }
+      }
+    },
+    {
+      "id": "1778692982_5_2111",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12949992",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.773406982421875,
+          "longitude": -118.07608795166016,
+          "bearing": 210,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692921",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2111",
+          "label": "2111"
+        }
+      }
+    },
+    {
+      "id": "1778692982_6_2112",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12719777",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "46"
+        },
+        "position": {
+          "latitude": 33.817848205566406,
+          "longitude": -117.9593734741211,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692900",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2112",
+          "label": "2112"
+        }
+      }
+    },
+    {
+      "id": "1778692982_7_2113",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669064",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "150"
+        },
+        "position": {
+          "latitude": 33.69430923461914,
+          "longitude": -117.88636016845703,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692963",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2113",
+          "label": "2113"
+        }
+      }
+    },
+    {
+      "id": "1778692982_8_2114",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12727338",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "30"
+        },
+        "position": {
+          "latitude": 33.85866928100586,
+          "longitude": -118.03467559814453,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692939",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2114",
+          "label": "2114"
+        }
+      }
+    },
+    {
+      "id": "1778692982_9_2115",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12714092",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "35"
+        },
+        "position": {
+          "latitude": 33.76941680908203,
+          "longitude": -117.95514678955078,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692913",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2115",
+          "label": "2115"
+        }
+      }
+    },
+    {
+      "id": "1778692982_10_2116",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669497",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "26"
+        },
+        "position": {
+          "latitude": 33.870140075683594,
+          "longitude": -117.94241333007812,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692946",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2116",
+          "label": "2116"
+        }
+      }
+    },
+    {
+      "id": "1778692982_11_2117",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670230",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "42"
+        },
+        "position": {
+          "latitude": 33.8321533203125,
+          "longitude": -117.9754638671875,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692962",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2117",
+          "label": "2117"
+        }
+      }
+    },
+    {
+      "id": "1778692982_12_2118",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670282",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "42"
+        },
+        "position": {
+          "latitude": 33.83013916015625,
+          "longitude": -118.07215118408203,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692928",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2118",
+          "label": "2118"
+        }
+      }
+    },
+    {
+      "id": "1778692982_13_2119",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12713657",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "33"
+        },
+        "position": {
+          "latitude": 33.68764877319336,
+          "longitude": -117.97142791748047,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692945",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2119",
+          "label": "2119"
+        }
+      }
+    },
+    {
+      "id": "1778692982_14_2120",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670793",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "129"
+        },
+        "position": {
+          "latitude": 33.91782760620117,
+          "longitude": -117.96812438964844,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692961",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2120",
+          "label": "2120"
+        }
+      }
+    },
+    {
+      "id": "1778692982_15_2122",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669287",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "71"
+        },
+        "position": {
+          "latitude": 33.66701126098633,
+          "longitude": -117.8824234008789,
+          "bearing": 300,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692935",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2122",
+          "label": "2122"
+        }
+      }
+    },
+    {
+      "id": "1778692982_16_2124",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669496",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "26"
+        },
+        "position": {
+          "latitude": 33.88066482543945,
+          "longitude": -117.86798858642578,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692956",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2124",
+          "label": "2124"
+        }
+      }
+    },
+    {
+      "id": "1778692982_17_2126",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12949970",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.8133659362793,
+          "longitude": -117.83589935302734,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692917",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2126",
+          "label": "2126"
+        }
+      }
+    },
+    {
+      "id": "1778692982_18_2129",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12719742",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "46"
+        },
+        "position": {
+          "latitude": 33.81755828857422,
+          "longitude": -117.96832275390625,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692939",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2129",
+          "label": "2129"
+        }
+      }
+    },
+    {
+      "id": "1778692982_19_2130",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12714091",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "35"
+        },
+        "position": {
+          "latitude": 33.69438934326172,
+          "longitude": -117.9543685913086,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692957",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2130",
+          "label": "2130"
+        }
+      }
+    },
+    {
+      "id": "1778692982_20_2132",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670228",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "42"
+        },
+        "position": {
+          "latitude": 33.829647064208984,
+          "longitude": -117.83634185791016,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692928",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2132",
+          "label": "2132"
+        }
+      }
+    },
+    {
+      "id": "1778692982_21_2133",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12713667",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "33"
+        },
+        "position": {
+          "latitude": 33.80760955810547,
+          "longitude": -117.9758071899414,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692954",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2133",
+          "label": "2133"
+        }
+      }
+    },
+    {
+      "id": "1778692982_22_2134",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669456",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "38"
+        },
+        "position": {
+          "latitude": 33.84674835205078,
+          "longitude": -117.97191619873047,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692950",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2134",
+          "label": "2134"
+        }
+      }
+    },
+    {
+      "id": "1778692982_23_2136",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669086",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "151"
+        },
+        "position": {
+          "latitude": 33.76004409790039,
+          "longitude": -117.88130187988281,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692944",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2136",
+          "label": "2136"
+        }
+      }
+    },
+    {
+      "id": "1778692982_24_2137",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670404",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "143"
+        },
+        "position": {
+          "latitude": 33.91478729248047,
+          "longitude": -117.88359069824219,
+          "bearing": 105,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692968",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2137",
+          "label": "2137"
+        }
+      }
+    },
+    {
+      "id": "1778692982_25_2139",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12719759",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "46"
+        },
+        "position": {
+          "latitude": 33.80674743652344,
+          "longitude": -118.07186126708984,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692941",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2139",
+          "label": "2139"
+        }
+      }
+    },
+    {
+      "id": "1778692982_26_2141",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12710673",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "25"
+        },
+        "position": {
+          "latitude": 33.679386138916016,
+          "longitude": -118.00225067138672,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692969",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2141",
+          "label": "2141"
+        }
+      }
+    },
+    {
+      "id": "1778692982_27_2142",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670285",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "42"
+        },
+        "position": {
+          "latitude": 33.83548355102539,
+          "longitude": -117.86336517333984,
+          "bearing": 285,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692930",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2142",
+          "label": "2142"
+        }
+      }
+    },
+    {
+      "id": "1778692982_28_2143",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670231",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "42"
+        },
+        "position": {
+          "latitude": 33.831661224365234,
+          "longitude": -118.03520965576172,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692929",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2143",
+          "label": "2143"
+        }
+      }
+    },
+    {
+      "id": "1778692982_29_2144",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669085",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "151"
+        },
+        "position": {
+          "latitude": 33.6941032409668,
+          "longitude": -117.88592529296875,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692929",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2144",
+          "label": "2144"
+        }
+      }
+    },
+    {
+      "id": "1778692982_30_2147",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12713656",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "33"
+        },
+        "position": {
+          "latitude": 33.818092346191406,
+          "longitude": -117.9758071899414,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692957",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2147",
+          "label": "2147"
+        }
+      }
+    },
+    {
+      "id": "1778692982_31_2148",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709388",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "50"
+        },
+        "position": {
+          "latitude": 33.80341720581055,
+          "longitude": -117.90050506591797,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692967",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2148",
+          "label": "2148"
+        }
+      }
+    },
+    {
+      "id": "1778692982_32_2150",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12702918",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "1"
+        },
+        "position": {
+          "latitude": 33.41561508178711,
+          "longitude": -117.60101318359375,
+          "bearing": 315,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692925",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2150",
+          "label": "2150"
+        }
+      }
+    },
+    {
+      "id": "1778692982_33_2152",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12710430",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "56"
+        },
+        "position": {
+          "latitude": 33.77451705932617,
+          "longitude": -117.90196228027344,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692972",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2152",
+          "label": "2152"
+        }
+      }
+    },
+    {
+      "id": "1778692982_34_2153",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13043265",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "64"
+        },
+        "position": {
+          "latitude": 33.744956970214844,
+          "longitude": -117.96691131591797,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692958",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2153",
+          "label": "2153"
+        }
+      }
+    },
+    {
+      "id": "1778692982_35_2157",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709337",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "50"
+        },
+        "position": {
+          "latitude": 33.80300521850586,
+          "longitude": -118.01153564453125,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692928",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2157",
+          "label": "2157"
+        }
+      }
+    },
+    {
+      "id": "1778692982_36_2158",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12728693",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "47"
+        },
+        "position": {
+          "latitude": 33.78023147583008,
+          "longitude": -117.88908386230469,
+          "bearing": 240,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692970",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2158",
+          "label": "2158"
+        }
+      }
+    },
+    {
+      "id": "1778692982_37_2160",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12710445",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "56"
+        },
+        "position": {
+          "latitude": 33.77406311035156,
+          "longitude": -117.93959045410156,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692958",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2160",
+          "label": "2160"
+        }
+      }
+    },
+    {
+      "id": "1778692982_38_2162",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044474",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.7976188659668,
+          "longitude": -117.76954650878906,
+          "bearing": 210,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692920",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2162",
+          "label": "2162"
+        }
+      }
+    },
+    {
+      "id": "1778692982_39_2164",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12728658",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "47"
+        },
+        "position": {
+          "latitude": 33.77443313598633,
+          "longitude": -117.89793395996094,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692968",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2164",
+          "label": "2164"
+        }
+      }
+    },
+    {
+      "id": "1778692982_40_2165",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12717401",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "53"
+        },
+        "position": {
+          "latitude": 33.80271911621094,
+          "longitude": -117.86662292480469,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692927",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2165",
+          "label": "2165"
+        }
+      }
+    },
+    {
+      "id": "1778692982_41_2167",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12730141",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "66"
+        },
+        "position": {
+          "latitude": 33.73369216918945,
+          "longitude": -117.85067749023438,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692949",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2167",
+          "label": "2167"
+        }
+      }
+    },
+    {
+      "id": "1778692982_42_2168",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12713415",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "60"
+        },
+        "position": {
+          "latitude": 33.760128021240234,
+          "longitude": -117.87605285644531,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692937",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2168",
+          "label": "2168"
+        }
+      }
+    },
+    {
+      "id": "1778692982_43_2169",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12728695",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "47"
+        },
+        "position": {
+          "latitude": 33.859779357910156,
+          "longitude": -117.91999816894531,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692962",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2169",
+          "label": "2169"
+        }
+      }
+    },
+    {
+      "id": "1778692982_44_2170",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12659942",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "55"
+        },
+        "position": {
+          "latitude": 33.6362190246582,
+          "longitude": -117.92515563964844,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692933",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2170",
+          "label": "2170"
+        }
+      }
+    },
+    {
+      "id": "1778692982_45_2171",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12728659",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "47"
+        },
+        "position": {
+          "latitude": 33.72587966918945,
+          "longitude": -117.90663146972656,
+          "bearing": 15,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692934",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2171",
+          "label": "2171"
+        }
+      }
+    },
+    {
+      "id": "1778692982_46_2173",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12728694",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "47"
+        },
+        "position": {
+          "latitude": 33.81776428222656,
+          "longitude": -117.90814208984375,
+          "bearing": 150,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692950",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2173",
+          "label": "2173"
+        }
+      }
+    },
+    {
+      "id": "1778692982_47_2174",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044381",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.74413299560547,
+          "longitude": -117.84139251708984,
+          "bearing": 315,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692944",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2174",
+          "label": "2174"
+        }
+      }
+    },
+    {
+      "id": "1778692982_48_2175",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044353",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.88206100463867,
+          "longitude": -117.92607879638672,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692956",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2175",
+          "label": "2175"
+        }
+      }
+    },
+    {
+      "id": "1778692982_49_2177",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658247",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "43"
+        },
+        "position": {
+          "latitude": 33.738502502441406,
+          "longitude": -117.9198989868164,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692956",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2177",
+          "label": "2177"
+        }
+      }
+    },
+    {
+      "id": "1778692982_50_2178",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12659909",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "55"
+        },
+        "position": {
+          "latitude": 33.69500732421875,
+          "longitude": -117.88568115234375,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692961",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2178",
+          "label": "2178"
+        }
+      }
+    },
+    {
+      "id": "1778692982_51_2180",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044536",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.78960418701172,
+          "longitude": -117.85612487792969,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692964",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2180",
+          "label": "2180"
+        }
+      }
+    },
+    {
+      "id": "1778692982_52_2181",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12710464",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "56"
+        },
+        "position": {
+          "latitude": 33.78125762939453,
+          "longitude": -118.03020477294922,
+          "bearing": 210,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692935",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2181",
+          "label": "2181"
+        }
+      }
+    },
+    {
+      "id": "1778692982_53_2182",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12711139",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "83"
+        },
+        "position": {
+          "latitude": 33.80559539794922,
+          "longitude": -117.91523742675781,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692958",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2182",
+          "label": "2182"
+        }
+      }
+    },
+    {
+      "id": "1778692982_54_2183",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12728692",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "47"
+        },
+        "position": {
+          "latitude": 33.69599151611328,
+          "longitude": -117.90784454345703,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692955",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2183",
+          "label": "2183"
+        }
+      }
+    },
+    {
+      "id": "1778692982_55_2184",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12728691",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "47"
+        },
+        "position": {
+          "latitude": 33.653114318847656,
+          "longitude": -117.93220520019531,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692952",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2184",
+          "label": "2184"
+        }
+      }
+    },
+    {
+      "id": "1778692982_56_2185",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12728734",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "47"
+        },
+        "position": {
+          "latitude": 33.80012893676758,
+          "longitude": -117.90644073486328,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692969",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2185",
+          "label": "2185"
+        }
+      }
+    },
+    {
+      "id": "1778692982_57_2186",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12713377",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "60"
+        },
+        "position": {
+          "latitude": 33.758934020996094,
+          "longitude": -118.0197982788086,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692960",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2186",
+          "label": "2186"
+        }
+      }
+    },
+    {
+      "id": "1778692982_58_2187",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12713416",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "60"
+        },
+        "position": {
+          "latitude": 33.75461959838867,
+          "longitude": -117.8056640625,
+          "bearing": 30,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692916",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2187",
+          "label": "2187"
+        }
+      }
+    },
+    {
+      "id": "1778692982_59_2188",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13043263",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "64"
+        },
+        "position": {
+          "latitude": 33.74536895751953,
+          "longitude": -117.86424255371094,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692966",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2188",
+          "label": "2188"
+        }
+      }
+    },
+    {
+      "id": "1778692982_60_2189",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658284",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "43"
+        },
+        "position": {
+          "latitude": 33.80312728881836,
+          "longitude": -117.91552734375,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692913",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2189",
+          "label": "2189"
+        }
+      }
+    },
+    {
+      "id": "1778692982_61_2190",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12702914",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "1"
+        },
+        "position": {
+          "latitude": 33.65414047241211,
+          "longitude": -117.9977798461914,
+          "bearing": 120,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692961",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2190",
+          "label": "2190"
+        }
+      }
+    },
+    {
+      "id": "1778692982_62_2191",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12728660",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "47"
+        },
+        "position": {
+          "latitude": 33.67247772216797,
+          "longitude": -117.90769958496094,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692936",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2191",
+          "label": "2191"
+        }
+      }
+    },
+    {
+      "id": "1778692982_63_2192",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12659941",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "55"
+        },
+        "position": {
+          "latitude": 33.6665153503418,
+          "longitude": -117.90760040283203,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692919",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2192",
+          "label": "2192"
+        }
+      }
+    },
+    {
+      "id": "1778692982_64_2193",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13043269",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "64"
+        },
+        "position": {
+          "latitude": 33.73722839355469,
+          "longitude": -117.99724578857422,
+          "bearing": 105,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692951",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2193",
+          "label": "2193"
+        }
+      }
+    },
+    {
+      "id": "1778692982_65_2196",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12715300",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "54"
+        },
+        "position": {
+          "latitude": 33.7896842956543,
+          "longitude": -117.85505676269531,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692938",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2196",
+          "label": "2196"
+        }
+      }
+    },
+    {
+      "id": "1778692982_66_2202",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12702912",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "1"
+        },
+        "position": {
+          "latitude": 33.4020881652832,
+          "longitude": -117.59703063964844,
+          "bearing": 150,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692952",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2202",
+          "label": "2202"
+        }
+      }
+    },
+    {
+      "id": "1778692982_67_2204",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12714287",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "72"
+        },
+        "position": {
+          "latitude": 33.7159309387207,
+          "longitude": -117.96297454833984,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692936",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2204",
+          "label": "2204"
+        }
+      }
+    },
+    {
+      "id": "1778692982_68_2206",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12714305",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "72"
+        },
+        "position": {
+          "latitude": 33.716094970703125,
+          "longitude": -117.86754608154297,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692938",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2206",
+          "label": "2206"
+        }
+      }
+    },
+    {
+      "id": "1778692982_69_2207",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658282",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "43"
+        },
+        "position": {
+          "latitude": 33.70174789428711,
+          "longitude": -117.91975402832031,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692942",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2207",
+          "label": "2207"
+        }
+      }
+    },
+    {
+      "id": "1778692982_70_2208",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709939",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "29"
+        },
+        "position": {
+          "latitude": 33.64879608154297,
+          "longitude": -117.98863983154297,
+          "bearing": 120,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692964",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2208",
+          "label": "2208"
+        }
+      }
+    },
+    {
+      "id": "1778692982_71_2210",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709989",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "29"
+        },
+        "position": {
+          "latitude": 33.74245071411133,
+          "longitude": -117.98936462402344,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692946",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2210",
+          "label": "2210"
+        }
+      }
+    },
+    {
+      "id": "1778692982_72_2212",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658971",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "37"
+        },
+        "position": {
+          "latitude": 33.716712951660156,
+          "longitude": -117.93706512451172,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692927",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2212",
+          "label": "2212"
+        }
+      }
+    },
+    {
+      "id": "1778692982_73_2213",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658990",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "37"
+        },
+        "position": {
+          "latitude": 33.76382827758789,
+          "longitude": -117.9378890991211,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692948",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2213",
+          "label": "2213"
+        }
+      }
+    },
+    {
+      "id": "1778692982_74_2215",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13043794",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.70277786254883,
+          "longitude": -117.9261703491211,
+          "bearing": 135,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692925",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2215",
+          "label": "2215"
+        }
+      }
+    },
+    {
+      "id": "1778692982_75_2216",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658246",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "43"
+        },
+        "position": {
+          "latitude": 33.78915023803711,
+          "longitude": -117.914794921875,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692967",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2216",
+          "label": "2216"
+        }
+      }
+    },
+    {
+      "id": "1778692982_76_2217",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12702916",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "1"
+        },
+        "position": {
+          "latitude": 33.548484802246094,
+          "longitude": -117.80036926269531,
+          "bearing": 285,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692940",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2217",
+          "label": "2217"
+        }
+      }
+    },
+    {
+      "id": "1778692982_77_2218",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658992",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "37"
+        },
+        "position": {
+          "latitude": 33.939083099365234,
+          "longitude": -117.94596099853516,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692964",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2218",
+          "label": "2218"
+        }
+      }
+    },
+    {
+      "id": "1778692982_78_2219",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658970",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "37"
+        },
+        "position": {
+          "latitude": 33.88193893432617,
+          "longitude": -117.9418716430664,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692936",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2219",
+          "label": "2219"
+        }
+      }
+    },
+    {
+      "id": "1778692982_79_2223",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658283",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "43"
+        },
+        "position": {
+          "latitude": 33.779571533203125,
+          "longitude": -117.91499328613281,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692966",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2223",
+          "label": "2223"
+        }
+      }
+    },
+    {
+      "id": "1778692982_80_2224",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709386",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "50"
+        },
+        "position": {
+          "latitude": 33.80296325683594,
+          "longitude": -118.0741958618164,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692952",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2224",
+          "label": "2224"
+        }
+      }
+    },
+    {
+      "id": "1778692982_81_2225",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709414",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "50"
+        },
+        "position": {
+          "latitude": 33.78960418701172,
+          "longitude": -118.09942626953125,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692932",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2225",
+          "label": "2225"
+        }
+      }
+    },
+    {
+      "id": "1778692982_82_2226",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709378",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "50"
+        },
+        "position": {
+          "latitude": 33.80304718017578,
+          "longitude": -117.94367218017578,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692972",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2226",
+          "label": "2226"
+        }
+      }
+    },
+    {
+      "id": "1778692982_83_2227",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12730129",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "66"
+        },
+        "position": {
+          "latitude": 33.734474182128906,
+          "longitude": -117.88539123535156,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692942",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2227",
+          "label": "2227"
+        }
+      }
+    },
+    {
+      "id": "1778692982_84_2228",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12717402",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "53"
+        },
+        "position": {
+          "latitude": 33.73394012451172,
+          "longitude": -117.86774444580078,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692966",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2228",
+          "label": "2228"
+        }
+      }
+    },
+    {
+      "id": "1778692982_85_2229",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12717445",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "53"
+        },
+        "position": {
+          "latitude": 33.67626190185547,
+          "longitude": -117.81670379638672,
+          "bearing": 120,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692965",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2229",
+          "label": "2229"
+        }
+      }
+    },
+    {
+      "id": "1778692982_86_2230",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12659943",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "55"
+        },
+        "position": {
+          "latitude": 33.613975524902344,
+          "longitude": -117.86842346191406,
+          "bearing": 225,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692926",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2230",
+          "label": "2230"
+        }
+      }
+    },
+    {
+      "id": "1778692982_87_2231",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044464",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.70639419555664,
+          "longitude": -117.85413360595703,
+          "bearing": 210,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692931",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2231",
+          "label": "2231"
+        }
+      }
+    },
+    {
+      "id": "1778692982_88_2232",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12713375",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "60"
+        },
+        "position": {
+          "latitude": 33.75992202758789,
+          "longitude": -117.88679504394531,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692923",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2232",
+          "label": "2232"
+        }
+      }
+    },
+    {
+      "id": "1778692982_89_2233",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12713413",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "60"
+        },
+        "position": {
+          "latitude": 33.75918197631836,
+          "longitude": -118.00637817382812,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692915",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2233",
+          "label": "2233"
+        }
+      }
+    },
+    {
+      "id": "1778692982_90_2235",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044543",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.82697296142578,
+          "longitude": -117.83628845214844,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692917",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2235",
+          "label": "2235"
+        }
+      }
+    },
+    {
+      "id": "1778692982_91_2237",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13043266",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "64"
+        },
+        "position": {
+          "latitude": 33.74553298950195,
+          "longitude": -117.86793518066406,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692924",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2237",
+          "label": "2237"
+        }
+      }
+    },
+    {
+      "id": "1778692982_92_2238",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13043261",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "64"
+        },
+        "position": {
+          "latitude": 33.74479293823242,
+          "longitude": -117.9639892578125,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692942",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2238",
+          "label": "2238"
+        }
+      }
+    },
+    {
+      "id": "1778692982_93_2240",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12730089",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "66"
+        },
+        "position": {
+          "latitude": 33.73743438720703,
+          "longitude": -117.99199676513672,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692949",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2240",
+          "label": "2240"
+        }
+      }
+    },
+    {
+      "id": "1778692982_94_2241",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12713376",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "60"
+        },
+        "position": {
+          "latitude": 33.75934600830078,
+          "longitude": -117.96797943115234,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692942",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2241",
+          "label": "2241"
+        }
+      }
+    },
+    {
+      "id": "1778692982_95_2242",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12730095",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "66"
+        },
+        "position": {
+          "latitude": 33.733734130859375,
+          "longitude": -117.839111328125,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692918",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2242",
+          "label": "2242"
+        }
+      }
+    },
+    {
+      "id": "1778692982_96_2243",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044425",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.71556091308594,
+          "longitude": -118.003662109375,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692916",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2243",
+          "label": "2243"
+        }
+      }
+    },
+    {
+      "id": "1778692982_97_2244",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12730140",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "66"
+        },
+        "position": {
+          "latitude": 33.73817443847656,
+          "longitude": -117.937744140625,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692918",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2244",
+          "label": "2244"
+        }
+      }
+    },
+    {
+      "id": "1778692982_98_2245",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12730207",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "66"
+        },
+        "position": {
+          "latitude": 33.7158088684082,
+          "longitude": -117.8072738647461,
+          "bearing": 315,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692930",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2245",
+          "label": "2245"
+        }
+      }
+    },
+    {
+      "id": "1778692982_99_2246",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12730088",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "66"
+        },
+        "position": {
+          "latitude": 33.73439025878906,
+          "longitude": -117.88568115234375,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692968",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2246",
+          "label": "2246"
+        }
+      }
+    },
+    {
+      "id": "1778692982_100_2250",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658482",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "57"
+        },
+        "position": {
+          "latitude": 33.87388229370117,
+          "longitude": -117.88961791992188,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692934",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2250",
+          "label": "2250"
+        }
+      }
+    },
+    {
+      "id": "1778692982_101_2251",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12714304",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "72"
+        },
+        "position": {
+          "latitude": 33.71572494506836,
+          "longitude": -117.98960876464844,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692956",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2251",
+          "label": "2251"
+        }
+      }
+    },
+    {
+      "id": "1778692982_102_2252",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12714286",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "72"
+        },
+        "position": {
+          "latitude": 33.7159309387207,
+          "longitude": -117.8614730834961,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692950",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2252",
+          "label": "2252"
+        }
+      }
+    },
+    {
+      "id": "1778692982_103_2253",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12702913",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "1"
+        },
+        "position": {
+          "latitude": 33.53722381591797,
+          "longitude": -117.7794189453125,
+          "bearing": 135,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692961",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2253",
+          "label": "2253"
+        }
+      }
+    },
+    {
+      "id": "1778692982_104_2254",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12660304",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "76"
+        },
+        "position": {
+          "latitude": 33.70162582397461,
+          "longitude": -117.96574401855469,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692928",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2254",
+          "label": "2254"
+        }
+      }
+    },
+    {
+      "id": "1778692982_105_2255",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12730096",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "66"
+        },
+        "position": {
+          "latitude": 33.73813247680664,
+          "longitude": -117.93390655517578,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692948",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2255",
+          "label": "2255"
+        }
+      }
+    },
+    {
+      "id": "1778692982_106_2258",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12660292",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "76"
+        },
+        "position": {
+          "latitude": 33.69989776611328,
+          "longitude": -117.87979888916016,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692972",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2258",
+          "label": "2258"
+        }
+      }
+    },
+    {
+      "id": "1778692982_107_2259",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658244",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "43"
+        },
+        "position": {
+          "latitude": 33.87038803100586,
+          "longitude": -117.92058563232422,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692920",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2259",
+          "label": "2259"
+        }
+      }
+    },
+    {
+      "id": "1778692982_108_2260",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12659908",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "55"
+        },
+        "position": {
+          "latitude": 33.64756393432617,
+          "longitude": -117.91917419433594,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692947",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2260",
+          "label": "2260"
+        }
+      }
+    },
+    {
+      "id": "1778692982_109_2264",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12728661",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "47"
+        },
+        "position": {
+          "latitude": 33.643123626708984,
+          "longitude": -117.93196105957031,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692967",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2264",
+          "label": "2264"
+        }
+      }
+    },
+    {
+      "id": "1778692982_110_2301",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12710429",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "56"
+        },
+        "position": {
+          "latitude": 33.773983001708984,
+          "longitude": -117.98042297363281,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692932",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2301",
+          "label": "2301"
+        }
+      }
+    },
+    {
+      "id": "1778692982_111_2309",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12660328",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "543"
+        },
+        "position": {
+          "latitude": 33.818382263183594,
+          "longitude": -117.9151840209961,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692965",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2309",
+          "label": "2309"
+        }
+      }
+    },
+    {
+      "id": "1778692982_112_2310",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12660329",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "543"
+        },
+        "position": {
+          "latitude": 33.76181411743164,
+          "longitude": -117.92019653320312,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692922",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2310",
+          "label": "2310"
+        }
+      }
+    },
+    {
+      "id": "1778692982_113_2311",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044030",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.70252990722656,
+          "longitude": -117.9261245727539,
+          "bearing": 30,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692942",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2311",
+          "label": "2311"
+        }
+      }
+    },
+    {
+      "id": "1778692982_114_2313",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12713414",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "60"
+        },
+        "position": {
+          "latitude": 33.75971603393555,
+          "longitude": -117.93827819824219,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692972",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2313",
+          "label": "2313"
+        }
+      }
+    },
+    {
+      "id": "1778692982_115_2314",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12660150",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "560"
+        },
+        "position": {
+          "latitude": 33.75934600830078,
+          "longitude": -117.98790740966797,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692944",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2314",
+          "label": "2314"
+        }
+      }
+    },
+    {
+      "id": "1778692982_116_2315",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12660128",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "560"
+        },
+        "position": {
+          "latitude": 33.75971603393555,
+          "longitude": -117.91718292236328,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692940",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2315",
+          "label": "2315"
+        }
+      }
+    },
+    {
+      "id": "1778692982_117_2316",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12660151",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "560"
+        },
+        "position": {
+          "latitude": 33.75992202758789,
+          "longitude": -117.90497589111328,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692940",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2316",
+          "label": "2316"
+        }
+      }
+    },
+    {
+      "id": "1778692982_118_2317",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12660129",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "560"
+        },
+        "position": {
+          "latitude": 33.75876998901367,
+          "longitude": -118.00711059570312,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692968",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2317",
+          "label": "2317"
+        }
+      }
+    },
+    {
+      "id": "1778692982_119_2320",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12660355",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "543"
+        },
+        "position": {
+          "latitude": 33.800785064697266,
+          "longitude": -117.91533660888672,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692936",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2320",
+          "label": "2320"
+        }
+      }
+    },
+    {
+      "id": "1778692982_120_2321",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12660702",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "529"
+        },
+        "position": {
+          "latitude": 33.79597473144531,
+          "longitude": -117.99320983886719,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692937",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2321",
+          "label": "2321"
+        }
+      }
+    },
+    {
+      "id": "1778692982_121_2322",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12660678",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "529"
+        },
+        "position": {
+          "latitude": 33.813201904296875,
+          "longitude": -117.99315643310547,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692963",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2322",
+          "label": "2322"
+        }
+      }
+    },
+    {
+      "id": "1778692982_122_2324",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12717543",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "553"
+        },
+        "position": {
+          "latitude": 33.804527282714844,
+          "longitude": -117.8778076171875,
+          "bearing": 195,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692950",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2324",
+          "label": "2324"
+        }
+      }
+    },
+    {
+      "id": "1778692982_123_2325",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12717545",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "553"
+        },
+        "position": {
+          "latitude": 33.70002365112305,
+          "longitude": -117.86823272705078,
+          "bearing": 60,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692925",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2325",
+          "label": "2325"
+        }
+      }
+    },
+    {
+      "id": "1778692982_124_2326",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044092",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.808143615722656,
+          "longitude": -117.9153823852539,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692912",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2326",
+          "label": "2326"
+        }
+      }
+    },
+    {
+      "id": "1778692982_125_2327",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044368",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.84987258911133,
+          "longitude": -117.8388671875,
+          "bearing": 105,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692954",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2327",
+          "label": "2327"
+        }
+      }
+    },
+    {
+      "id": "1778692982_126_2328",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12711141",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "83"
+        },
+        "position": {
+          "latitude": 33.73825454711914,
+          "longitude": -117.82676696777344,
+          "bearing": 285,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692912",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2328",
+          "label": "2328"
+        }
+      }
+    },
+    {
+      "id": "1778692982_127_2331",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12711142",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "83"
+        },
+        "position": {
+          "latitude": 33.752685546875,
+          "longitude": -117.860595703125,
+          "bearing": 60,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692934",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2331",
+          "label": "2331"
+        }
+      }
+    },
+    {
+      "id": "1778692982_128_2333",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12711144",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "83"
+        },
+        "position": {
+          "latitude": 33.81891632080078,
+          "longitude": -117.92257690429688,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692916",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2333",
+          "label": "2333"
+        }
+      }
+    },
+    {
+      "id": "1778692982_129_5121",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658285",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "43"
+        },
+        "position": {
+          "latitude": 33.86549377441406,
+          "longitude": -117.92437744140625,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692957",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5121",
+          "label": "5121"
+        }
+      }
+    },
+    {
+      "id": "1778692982_130_5122",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12714285",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "72"
+        },
+        "position": {
+          "latitude": 33.70750427246094,
+          "longitude": -117.80707550048828,
+          "bearing": 60,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692934",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5122",
+          "label": "5122"
+        }
+      }
+    },
+    {
+      "id": "1778692982_131_5124",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12661088",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "123"
+        },
+        "position": {
+          "latitude": 33.87782669067383,
+          "longitude": -117.98368072509766,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692970",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5124",
+          "label": "5124"
+        }
+      }
+    },
+    {
+      "id": "1778692982_132_5125",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12659006",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "37"
+        },
+        "position": {
+          "latitude": 33.84736633300781,
+          "longitude": -117.94182586669922,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692940",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5125",
+          "label": "5125"
+        }
+      }
+    },
+    {
+      "id": "1778692982_133_5127",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12659940",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "55"
+        },
+        "position": {
+          "latitude": 33.71589279174805,
+          "longitude": -117.85184478759766,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692945",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5127",
+          "label": "5127"
+        }
+      }
+    },
+    {
+      "id": "1778692982_134_5128",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709936",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "29"
+        },
+        "position": {
+          "latitude": 33.828575134277344,
+          "longitude": -117.99325561523438,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692936",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5128",
+          "label": "5128"
+        }
+      }
+    },
+    {
+      "id": "1778692982_135_5129",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12713464",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "60"
+        },
+        "position": {
+          "latitude": 33.77529525756836,
+          "longitude": -118.11390686035156,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692916",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5129",
+          "label": "5129"
+        }
+      }
+    },
+    {
+      "id": "1778692982_136_5130",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12702911",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "1"
+        },
+        "position": {
+          "latitude": 33.656978607177734,
+          "longitude": -118.00157165527344,
+          "bearing": 300,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692938",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5130",
+          "label": "5130"
+        }
+      }
+    },
+    {
+      "id": "1778692982_137_5135",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12661089",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "123"
+        },
+        "position": {
+          "latitude": 33.73739242553711,
+          "longitude": -118.00653076171875,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692971",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5135",
+          "label": "5135"
+        }
+      }
+    },
+    {
+      "id": "1778692982_138_5702",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12715942",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "70"
+        },
+        "position": {
+          "latitude": 33.72748565673828,
+          "longitude": -117.91217041015625,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692922",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5702",
+          "label": "5702"
+        }
+      }
+    },
+    {
+      "id": "1778692982_139_5703",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669216",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "178"
+        },
+        "position": {
+          "latitude": 33.672969818115234,
+          "longitude": -117.85588073730469,
+          "bearing": 30,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692960",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5703",
+          "label": "5703"
+        }
+      }
+    },
+    {
+      "id": "1778692982_140_5704",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12715995",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "70"
+        },
+        "position": {
+          "latitude": 33.727359771728516,
+          "longitude": -117.9101333618164,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692947",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5704",
+          "label": "5704"
+        }
+      }
+    },
+    {
+      "id": "1778692982_141_5705",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670551",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "59"
+        },
+        "position": {
+          "latitude": 33.910552978515625,
+          "longitude": -117.86366271972656,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692924",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5705",
+          "label": "5705"
+        }
+      }
+    },
+    {
+      "id": "1778692982_142_5707",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12950112",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.62462615966797,
+          "longitude": -117.71675872802734,
+          "bearing": 315,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692943",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5707",
+          "label": "5707"
+        }
+      }
+    },
+    {
+      "id": "1778692982_143_5709",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12715964",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "70"
+        },
+        "position": {
+          "latitude": 33.73003387451172,
+          "longitude": -117.9972915649414,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692945",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5709",
+          "label": "5709"
+        }
+      }
+    },
+    {
+      "id": "1778692982_144_5713",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670552",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "59"
+        },
+        "position": {
+          "latitude": 33.7896842956543,
+          "longitude": -117.85315704345703,
+          "bearing": 30,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692938",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5713",
+          "label": "5713"
+        }
+      }
+    },
+    {
+      "id": "1778692982_145_5714",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12823637",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "90"
+        },
+        "position": {
+          "latitude": 33.58384323120117,
+          "longitude": -117.707275390625,
+          "bearing": 135,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692945",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5714",
+          "label": "5714"
+        }
+      }
+    },
+    {
+      "id": "1778692982_146_5717",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12950191",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.6784782409668,
+          "longitude": -117.75642395019531,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692927",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5717",
+          "label": "5717"
+        }
+      }
+    },
+    {
+      "id": "1778692982_147_5719",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669609",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "91"
+        },
+        "position": {
+          "latitude": 33.498783111572266,
+          "longitude": -117.67237854003906,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692927",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5719",
+          "label": "5719"
+        }
+      }
+    },
+    {
+      "id": "1778692982_148_5723",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669193",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "177"
+        },
+        "position": {
+          "latitude": 33.6085090637207,
+          "longitude": -117.68865966796875,
+          "bearing": 225,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692922",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5723",
+          "label": "5723"
+        }
+      }
+    },
+    {
+      "id": "1778692982_149_5724",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12715963",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "70"
+        },
+        "position": {
+          "latitude": 33.71498489379883,
+          "longitude": -117.8167495727539,
+          "bearing": 120,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692961",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5724",
+          "label": "5724"
+        }
+      }
+    },
+    {
+      "id": "1778692982_150_5727",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669272",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "71"
+        },
+        "position": {
+          "latitude": 33.717166900634766,
+          "longitude": -117.83152770996094,
+          "bearing": 30,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692938",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5727",
+          "label": "5727"
+        }
+      }
+    },
+    {
+      "id": "1778692982_151_5729",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12823635",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "90"
+        },
+        "position": {
+          "latitude": 33.602630615234375,
+          "longitude": -117.71821594238281,
+          "bearing": 315,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692939",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5729",
+          "label": "5729"
+        }
+      }
+    },
+    {
+      "id": "1778692982_152_5732",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670553",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "59"
+        },
+        "position": {
+          "latitude": 33.7459831237793,
+          "longitude": -117.85175323486328,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692968",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5732",
+          "label": "5732"
+        }
+      }
+    },
+    {
+      "id": "1778692982_153_5733",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12716012",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "70"
+        },
+        "position": {
+          "latitude": 33.72230529785156,
+          "longitude": -117.82817077636719,
+          "bearing": 300,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692952",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5733",
+          "label": "5733"
+        }
+      }
+    },
+    {
+      "id": "1778692982_154_5738",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669230",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "178"
+        },
+        "position": {
+          "latitude": 33.662200927734375,
+          "longitude": -117.87537384033203,
+          "bearing": 210,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692946",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5738",
+          "label": "5738"
+        }
+      }
+    },
+    {
+      "id": "1778692982_155_5739",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669611",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "91"
+        },
+        "position": {
+          "latitude": 33.57463455200195,
+          "longitude": -117.6744155883789,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692935",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5739",
+          "label": "5739"
+        }
+      }
+    },
+    {
+      "id": "1778692982_156_5740",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670482",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "86"
+        },
+        "position": {
+          "latitude": 33.606536865234375,
+          "longitude": -117.65570068359375,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692945",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5740",
+          "label": "5740"
+        }
+      }
+    },
+    {
+      "id": "1778692982_157_5743",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669588",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "91"
+        },
+        "position": {
+          "latitude": 33.49697494506836,
+          "longitude": -117.674560546875,
+          "bearing": 30,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692939",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5743",
+          "label": "5743"
+        }
+      }
+    },
+    {
+      "id": "1778692982_158_5745",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12720583",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "89"
+        },
+        "position": {
+          "latitude": 33.58219909667969,
+          "longitude": -117.76123809814453,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692912",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5745",
+          "label": "5745"
+        }
+      }
+    },
+    {
+      "id": "1778692982_159_5746",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669180",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "177"
+        },
+        "position": {
+          "latitude": 33.59235382080078,
+          "longitude": -117.69935607910156,
+          "bearing": 315,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692950",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5746",
+          "label": "5746"
+        }
+      }
+    },
+    {
+      "id": "1778692982_160_5747",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670049",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "167"
+        },
+        "position": {
+          "latitude": 33.714080810546875,
+          "longitude": -117.76089477539062,
+          "bearing": 120,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692954",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5747",
+          "label": "5747"
+        }
+      }
+    },
+    {
+      "id": "1778692982_161_5749",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669587",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "91"
+        },
+        "position": {
+          "latitude": 33.55884552001953,
+          "longitude": -117.67913055419922,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692972",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5749",
+          "label": "5749"
+        }
+      }
+    },
+    {
+      "id": "1778692982_162_5755",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12727089",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "79"
+        },
+        "position": {
+          "latitude": 33.626678466796875,
+          "longitude": -117.85165405273438,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692943",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5755",
+          "label": "5755"
+        }
+      }
+    },
+    {
+      "id": "1778692982_163_5756",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669608",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "91"
+        },
+        "position": {
+          "latitude": 33.491424560546875,
+          "longitude": -117.67976379394531,
+          "bearing": 210,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692916",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5756",
+          "label": "5756"
+        }
+      }
+    },
+    {
+      "id": "1778692982_164_5758",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670473",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "86"
+        },
+        "position": {
+          "latitude": 33.67564392089844,
+          "longitude": -117.80420684814453,
+          "bearing": 315,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692921",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5758",
+          "label": "5758"
+        }
+      }
+    },
+    {
+      "id": "1778692982_165_5759",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670032",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "167"
+        },
+        "position": {
+          "latitude": 33.70335388183594,
+          "longitude": -117.75496673583984,
+          "bearing": 30,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692955",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5759",
+          "label": "5759"
+        }
+      }
+    },
+    {
+      "id": "1778692982_166_5761",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669262",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "71"
+        },
+        "position": {
+          "latitude": 33.8095817565918,
+          "longitude": -117.83566284179688,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692963",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5761",
+          "label": "5761"
+        }
+      }
+    },
+    {
+      "id": "1778692982_167_5764",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12727077",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "79"
+        },
+        "position": {
+          "latitude": 33.70499801635742,
+          "longitude": -117.78719329833984,
+          "bearing": 30,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692919",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5764",
+          "label": "5764"
+        }
+      }
+    },
+    {
+      "id": "1778692982_168_5765",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12717781",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "85"
+        },
+        "position": {
+          "latitude": 33.65245819091797,
+          "longitude": -117.64875030517578,
+          "bearing": 15,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692952",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5765",
+          "label": "5765"
+        }
+      }
+    },
+    {
+      "id": "1778692982_169_5767",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12720566",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "89"
+        },
+        "position": {
+          "latitude": 33.61220932006836,
+          "longitude": -117.71306610107422,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692956",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5767",
+          "label": "5767"
+        }
+      }
+    },
+    {
+      "id": "1778692982_170_5769",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12727067",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "79"
+        },
+        "position": {
+          "latitude": 33.676753997802734,
+          "longitude": -117.81572723388672,
+          "bearing": 210,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692943",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5769",
+          "label": "5769"
+        }
+      }
+    },
+    {
+      "id": "1778692982_171_5771",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670492",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "86"
+        },
+        "position": {
+          "latitude": 33.678890228271484,
+          "longitude": -117.80941009521484,
+          "bearing": 135,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692970",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5771",
+          "label": "5771"
+        }
+      }
+    },
+    {
+      "id": "1778692982_172_5774",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12727056",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "79"
+        },
+        "position": {
+          "latitude": 33.615455627441406,
+          "longitude": -117.8564682006836,
+          "bearing": 210,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692925",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5774",
+          "label": "5774"
+        }
+      }
+    },
+    {
+      "id": "1778692982_173_5776",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670518",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "59"
+        },
+        "position": {
+          "latitude": 33.84605026245117,
+          "longitude": -117.85452270507812,
+          "bearing": 150,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692948",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5776",
+          "label": "5776"
+        }
+      }
+    },
+    {
+      "id": "1778692982_174_5779",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669512",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "26"
+        },
+        "position": {
+          "latitude": 33.87063217163086,
+          "longitude": -117.88996124267578,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692952",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5779",
+          "label": "5779"
+        }
+      }
+    },
+    {
+      "id": "1778692982_175_5782",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12719890",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "46"
+        },
+        "position": {
+          "latitude": 33.81817626953125,
+          "longitude": -117.88018798828125,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692941",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5782",
+          "label": "5782"
+        }
+      }
+    },
+    {
+      "id": "1778692982_176_5783",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670516",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "59"
+        },
+        "position": {
+          "latitude": 33.708492279052734,
+          "longitude": -117.85077667236328,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692957",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5783",
+          "label": "5783"
+        }
+      }
+    },
+    {
+      "id": "1778692982_177_5784",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12714076",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "35"
+        },
+        "position": {
+          "latitude": 33.64337158203125,
+          "longitude": -117.93074035644531,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692939",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5784",
+          "label": "5784"
+        }
+      }
+    },
+    {
+      "id": "1778692982_178_5788",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12714094",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "35"
+        },
+        "position": {
+          "latitude": 33.855873107910156,
+          "longitude": -117.95942687988281,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692918",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5788",
+          "label": "5788"
+        }
+      }
+    },
+    {
+      "id": "1778692982_179_5789",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669457",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "38"
+        },
+        "position": {
+          "latitude": 33.84728240966797,
+          "longitude": -117.9216537475586,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692947",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5789",
+          "label": "5789"
+        }
+      }
+    },
+    {
+      "id": "1778692982_180_5790",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12727357",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "30"
+        },
+        "position": {
+          "latitude": 33.859039306640625,
+          "longitude": -118.01051330566406,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692919",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5790",
+          "label": "5790"
+        }
+      }
+    },
+    {
+      "id": "1778692982_181_5796",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670403",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "143"
+        },
+        "position": {
+          "latitude": 33.927162170410156,
+          "longitude": -117.93297576904297,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692950",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5796",
+          "label": "5796"
+        }
+      }
+    },
+    {
+      "id": "1778692982_182_5798",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12727337",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "30"
+        },
+        "position": {
+          "latitude": 33.85945129394531,
+          "longitude": -117.90736389160156,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692964",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5798",
+          "label": "5798"
+        }
+      }
+    },
+    {
+      "id": "1778692982_183_5799",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670229",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "42"
+        },
+        "position": {
+          "latitude": 33.835235595703125,
+          "longitude": -117.91722869873047,
+          "bearing": 45,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692960",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5799",
+          "label": "5799"
+        }
+      }
+    },
+    {
+      "id": "1778692982_184_5801",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13043992",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.86989212036133,
+          "longitude": -117.92243194580078,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692937",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5801",
+          "label": "5801"
+        }
+      }
+    },
+    {
+      "id": "1778692982_185_5802",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12660356",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "543"
+        },
+        "position": {
+          "latitude": 33.859657287597656,
+          "longitude": -117.92442321777344,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692934",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5802",
+          "label": "5802"
+        }
+      }
+    },
+    {
+      "id": "1778692982_186_5804",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12660719",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "529"
+        },
+        "position": {
+          "latitude": 33.73422622680664,
+          "longitude": -117.99909210205078,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692933",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5804",
+          "label": "5804"
+        }
+      }
+    },
+    {
+      "id": "1778692982_187_5805",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12660354",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "543"
+        },
+        "position": {
+          "latitude": 33.72809982299805,
+          "longitude": -117.92005157470703,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692967",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5805",
+          "label": "5805"
+        }
+      }
+    },
+    {
+      "id": "1778692982_188_5807",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12730087",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "66"
+        },
+        "position": {
+          "latitude": 33.713134765625,
+          "longitude": -117.80406188964844,
+          "bearing": 120,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692956",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5807",
+          "label": "5807"
+        }
+      }
+    },
+    {
+      "id": "1778692982_189_5810",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044251",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.69167709350586,
+          "longitude": -117.91985321044922,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692913",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5810",
+          "label": "5810"
+        }
+      }
+    },
+    {
+      "id": "1778692982_190_5811",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12717477",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "53"
+        },
+        "position": {
+          "latitude": 33.7607421875,
+          "longitude": -117.86769104003906,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692961",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5811",
+          "label": "5811"
+        }
+      }
+    },
+    {
+      "id": "1778692982_191_5812",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670284",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "42"
+        },
+        "position": {
+          "latitude": 33.83272933959961,
+          "longitude": -117.92758178710938,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692933",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5812",
+          "label": "5812"
+        }
+      }
+    },
+    {
+      "id": "1778692982_192_5813",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12710644",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "25"
+        },
+        "position": {
+          "latitude": 33.68230438232422,
+          "longitude": -118.00633239746094,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692955",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5813",
+          "label": "5813"
+        }
+      }
+    },
+    {
+      "id": "1778692982_193_5816",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670768",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "129"
+        },
+        "position": {
+          "latitude": 33.87355041503906,
+          "longitude": -117.99485778808594,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692971",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5816",
+          "label": "5816"
+        }
+      }
+    },
+    {
+      "id": "1778692982_194_5818",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12727356",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "30"
+        },
+        "position": {
+          "latitude": 33.865535736083984,
+          "longitude": -118.09563446044922,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692933",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5818",
+          "label": "5818"
+        }
+      }
+    },
+    {
+      "id": "1778692982_195_5819",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670755",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "129"
+        },
+        "position": {
+          "latitude": 33.91762161254883,
+          "longitude": -117.8829574584961,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692969",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5819",
+          "label": "5819"
+        }
+      }
+    },
+    {
+      "id": "1778692982_196_5820",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669422",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "38"
+        },
+        "position": {
+          "latitude": 33.855587005615234,
+          "longitude": -117.83677673339844,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692957",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5820",
+          "label": "5820"
+        }
+      }
+    },
+    {
+      "id": "1778692982_197_5824",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669401",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "38"
+        },
+        "position": {
+          "latitude": 33.84613037109375,
+          "longitude": -118.05377960205078,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692932",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5824",
+          "label": "5824"
+        }
+      }
+    },
+    {
+      "id": "1778692982_198_5825",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670386",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "143"
+        },
+        "position": {
+          "latitude": 33.895751953125,
+          "longitude": -117.92909240722656,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692942",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5825",
+          "label": "5825"
+        }
+      }
+    },
+    {
+      "id": "1778692982_199_5828",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670767",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "129"
+        },
+        "position": {
+          "latitude": 33.93180847167969,
+          "longitude": -117.91805267333984,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692941",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5828",
+          "label": "5828"
+        }
+      }
+    },
+    {
+      "id": "1778692982_200_5829",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12714074",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "35"
+        },
+        "position": {
+          "latitude": 33.79552459716797,
+          "longitude": -117.95864868164062,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692932",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5829",
+          "label": "5829"
+        }
+      }
+    },
+    {
+      "id": "1778692982_201_5830",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12710679",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "25"
+        },
+        "position": {
+          "latitude": 33.85850524902344,
+          "longitude": -118.01139068603516,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692962",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5830",
+          "label": "5830"
+        }
+      }
+    },
+    {
+      "id": "1778692982_202_5831",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670283",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "42"
+        },
+        "position": {
+          "latitude": 33.83211135864258,
+          "longitude": -117.99826049804688,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692928",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5831",
+          "label": "5831"
+        }
+      }
+    },
+    {
+      "id": "1778692982_203_5832",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12727358",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "30"
+        },
+        "position": {
+          "latitude": 33.86343765258789,
+          "longitude": -117.86905670166016,
+          "bearing": 240,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692920",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5832",
+          "label": "5832"
+        }
+      }
+    },
+    {
+      "id": "1778692982_204_5835",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670517",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "59"
+        },
+        "position": {
+          "latitude": 33.7695426940918,
+          "longitude": -117.85204315185547,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692937",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5835",
+          "label": "5835"
+        }
+      }
+    },
+    {
+      "id": "1778692982_205_5836",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12710672",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "25"
+        },
+        "position": {
+          "latitude": 33.81340789794922,
+          "longitude": -118.01071166992188,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692942",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5836",
+          "label": "5836"
+        }
+      }
+    },
+    {
+      "id": "1778692982_206_5837",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12719889",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "46"
+        },
+        "position": {
+          "latitude": 33.7674446105957,
+          "longitude": -118.07817840576172,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692947",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5837",
+          "label": "5837"
+        }
+      }
+    },
+    {
+      "id": "1778692982_207_5838",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669421",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "38"
+        },
+        "position": {
+          "latitude": 33.846378326416016,
+          "longitude": -118.04167175292969,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692962",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5838",
+          "label": "5838"
+        }
+      }
+    },
+    {
+      "id": "1778692982_208_5841",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669294",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "71"
+        },
+        "position": {
+          "latitude": 33.755523681640625,
+          "longitude": -117.83439636230469,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692948",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5841",
+          "label": "5841"
+        }
+      }
+    },
+    {
+      "id": "1778692982_209_5842",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12670554",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "59"
+        },
+        "position": {
+          "latitude": 33.66450119018555,
+          "longitude": -117.85189819335938,
+          "bearing": 300,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692922",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5842",
+          "label": "5842"
+        }
+      }
+    },
+    {
+      "id": "1778692982_210_5843",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12714075",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "35"
+        },
+        "position": {
+          "latitude": 33.73065185546875,
+          "longitude": -117.95455932617188,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692954",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5843",
+          "label": "5843"
+        }
+      }
+    },
+    {
+      "id": "1778692982_211_5845",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12669400",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "38"
+        },
+        "position": {
+          "latitude": 33.85348892211914,
+          "longitude": -117.84761810302734,
+          "bearing": 60,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692921",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5845",
+          "label": "5845"
+        }
+      }
+    },
+    {
+      "id": "1778692982_212_5848",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658543",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "57"
+        },
+        "position": {
+          "latitude": 33.70808029174805,
+          "longitude": -117.88558197021484,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692922",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5848",
+          "label": "5848"
+        }
+      }
+    },
+    {
+      "id": "1778692982_213_5851",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709411",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "50"
+        },
+        "position": {
+          "latitude": 33.80896759033203,
+          "longitude": -117.85345458984375,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692961",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5851",
+          "label": "5851"
+        }
+      }
+    },
+    {
+      "id": "1778692982_214_5852",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658281",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "43"
+        },
+        "position": {
+          "latitude": 33.6483039855957,
+          "longitude": -117.91917419433594,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692945",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5852",
+          "label": "5852"
+        }
+      }
+    },
+    {
+      "id": "1778692982_215_5853",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12659014",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "37"
+        },
+        "position": {
+          "latitude": 33.80345916748047,
+          "longitude": -117.94129180908203,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692937",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5853",
+          "label": "5853"
+        }
+      }
+    },
+    {
+      "id": "1778692982_216_5854",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658248",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "43"
+        },
+        "position": {
+          "latitude": 33.66080093383789,
+          "longitude": -117.91912841796875,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692933",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5854",
+          "label": "5854"
+        }
+      }
+    },
+    {
+      "id": "1778692982_217_5861",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044392",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.74549102783203,
+          "longitude": -117.85889434814453,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692955",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5861",
+          "label": "5861"
+        }
+      }
+    },
+    {
+      "id": "1778692982_218_5862",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044481",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.74327087402344,
+          "longitude": -117.8160171508789,
+          "bearing": 120,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692927",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5862",
+          "label": "5862"
+        }
+      }
+    },
+    {
+      "id": "1778692982_219_5863",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044152",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.519874572753906,
+          "longitude": -117.66542053222656,
+          "bearing": 330,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692965",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5863",
+          "label": "5863"
+        }
+      }
+    },
+    {
+      "id": "1778692982_220_5864",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044403",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.83486557006836,
+          "longitude": -117.83517456054688,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692956",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5864",
+          "label": "5864"
+        }
+      }
+    },
+    {
+      "id": "1778692982_221_7536",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12713374",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "60"
+        },
+        "position": {
+          "latitude": 33.759796142578125,
+          "longitude": -117.8438720703125,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692860",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7536",
+          "label": "7536"
+        }
+      }
+    },
+    {
+      "id": "1778692982_222_7537",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12661085",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "123"
+        },
+        "position": {
+          "latitude": 33.874046325683594,
+          "longitude": -117.91786193847656,
+          "bearing": 270,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692954",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7537",
+          "label": "7537"
+        }
+      }
+    },
+    {
+      "id": "1778692982_223_7538",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12715299",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "54"
+        },
+        "position": {
+          "latitude": 33.78873825073242,
+          "longitude": -117.93502044677734,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692968",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7538",
+          "label": "7538"
+        }
+      }
+    },
+    {
+      "id": "1778692982_224_7540",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12659910",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "55"
+        },
+        "position": {
+          "latitude": 33.7406005859375,
+          "longitude": -117.85685729980469,
+          "bearing": 150,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692952",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7540",
+          "label": "7540"
+        }
+      }
+    },
+    {
+      "id": "1778692982_225_7544",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13043260",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "64"
+        },
+        "position": {
+          "latitude": 33.74516296386719,
+          "longitude": -117.91343688964844,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692876",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7544",
+          "label": "7544"
+        }
+      }
+    },
+    {
+      "id": "1778692982_226_7552",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13043267",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "64"
+        },
+        "position": {
+          "latitude": 33.742488861083984,
+          "longitude": -117.81879425048828,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692950",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7552",
+          "label": "7552"
+        }
+      }
+    },
+    {
+      "id": "1778692982_227_7554",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12728733",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "47"
+        },
+        "position": {
+          "latitude": 33.83708572387695,
+          "longitude": -117.91431427001953,
+          "bearing": 330,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692962",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7554",
+          "label": "7554"
+        }
+      }
+    },
+    {
+      "id": "1778692982_228_7555",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658245",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "43"
+        },
+        "position": {
+          "latitude": 33.82738494873047,
+          "longitude": -117.91732788085938,
+          "bearing": 330,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692966",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7555",
+          "label": "7555"
+        }
+      }
+    },
+    {
+      "id": "1778692982_229_7556",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12728750",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "47"
+        },
+        "position": {
+          "latitude": 33.74853515625,
+          "longitude": -117.9051284790039,
+          "bearing": 195,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692958",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7556",
+          "label": "7556"
+        }
+      }
+    },
+    {
+      "id": "1778692982_230_7557",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12715275",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "54"
+        },
+        "position": {
+          "latitude": 33.78779602050781,
+          "longitude": -117.8664321899414,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692964",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7557",
+          "label": "7557"
+        }
+      }
+    },
+    {
+      "id": "1778692982_231_7559",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12661084",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "123"
+        },
+        "position": {
+          "latitude": 33.788822174072266,
+          "longitude": -118.02859497070312,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692932",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7559",
+          "label": "7559"
+        }
+      }
+    },
+    {
+      "id": "1778692982_232_7561",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12715276",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "54"
+        },
+        "position": {
+          "latitude": 33.788330078125,
+          "longitude": -117.9864501953125,
+          "bearing": 75,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692950",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7561",
+          "label": "7561"
+        }
+      }
+    },
+    {
+      "id": "1778692982_233_7563",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12728731",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "47"
+        },
+        "position": {
+          "latitude": 33.857643127441406,
+          "longitude": -117.9198989868164,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692956",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7563",
+          "label": "7563"
+        }
+      }
+    },
+    {
+      "id": "1778692982_234_7568",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12660271",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "862"
+        },
+        "position": {
+          "latitude": 33.75313949584961,
+          "longitude": -117.85977172851562,
+          "bearing": 240,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692932",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7568",
+          "label": "7568"
+        }
+      }
+    },
+    {
+      "id": "1778692982_235_7569",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12717446",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "53"
+        },
+        "position": {
+          "latitude": 33.71387481689453,
+          "longitude": -117.86808013916016,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692950",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7569",
+          "label": "7569"
+        }
+      }
+    },
+    {
+      "id": "1778692982_236_7580",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12717581",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "553"
+        },
+        "position": {
+          "latitude": 33.72547149658203,
+          "longitude": -117.86793518066406,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692958",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7580",
+          "label": "7580"
+        }
+      }
+    },
+    {
+      "id": "1778692982_237_7581",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12717582",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "553"
+        },
+        "position": {
+          "latitude": 33.78512191772461,
+          "longitude": -117.86740112304688,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692941",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7581",
+          "label": "7581"
+        }
+      }
+    },
+    {
+      "id": "1778692982_238_7605",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658541",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "57"
+        },
+        "position": {
+          "latitude": 33.613197326660156,
+          "longitude": -117.87352752685547,
+          "bearing": 30,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692943",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7605",
+          "label": "7605"
+        }
+      }
+    },
+    {
+      "id": "1778692982_239_7606",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709985",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "29"
+        },
+        "position": {
+          "latitude": 33.831661224365234,
+          "longitude": -117.99369812011719,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692942",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7606",
+          "label": "7606"
+        }
+      }
+    },
+    {
+      "id": "1778692982_240_7607",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709930",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "29"
+        },
+        "position": {
+          "latitude": 33.68592071533203,
+          "longitude": -117.98892974853516,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692956",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7607",
+          "label": "7607"
+        }
+      }
+    },
+    {
+      "id": "1778692982_241_7608",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658484",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "57"
+        },
+        "position": {
+          "latitude": 33.786109924316406,
+          "longitude": -117.89058685302734,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692946",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7608",
+          "label": "7608"
+        }
+      }
+    },
+    {
+      "id": "1778692982_242_7609",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658544",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "57"
+        },
+        "position": {
+          "latitude": 33.73060989379883,
+          "longitude": -117.88524627685547,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692967",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7609",
+          "label": "7609"
+        }
+      }
+    },
+    {
+      "id": "1778692982_243_7611",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658487",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "57"
+        },
+        "position": {
+          "latitude": 33.69455337524414,
+          "longitude": -117.88533782958984,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692964",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7611",
+          "label": "7611"
+        }
+      }
+    },
+    {
+      "id": "1778692982_244_7613",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658485",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "57"
+        },
+        "position": {
+          "latitude": 33.773983001708984,
+          "longitude": -117.88947296142578,
+          "bearing": 285,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692919",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7613",
+          "label": "7613"
+        }
+      }
+    },
+    {
+      "id": "1778692982_245_7618",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13043865",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.857479095458984,
+          "longitude": -117.89297485351562,
+          "bearing": 195,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692917",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7618",
+          "label": "7618"
+        }
+      }
+    },
+    {
+      "id": "1778692982_246_7620",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658546",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "57"
+        },
+        "position": {
+          "latitude": 33.80575942993164,
+          "longitude": -117.88937377929688,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692949",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7620",
+          "label": "7620"
+        }
+      }
+    },
+    {
+      "id": "1778692982_247_7621",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658488",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "57"
+        },
+        "position": {
+          "latitude": 33.65253829956055,
+          "longitude": -117.86676788330078,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692928",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7621",
+          "label": "7621"
+        }
+      }
+    },
+    {
+      "id": "1778692982_248_7623",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658545",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "57"
+        },
+        "position": {
+          "latitude": 33.77656936645508,
+          "longitude": -117.89000701904297,
+          "bearing": 195,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692954",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7623",
+          "label": "7623"
+        }
+      }
+    },
+    {
+      "id": "1778692982_249_7626",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658547",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "57"
+        },
+        "position": {
+          "latitude": 33.85665512084961,
+          "longitude": -117.88951873779297,
+          "bearing": 165,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692950",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7626",
+          "label": "7626"
+        }
+      }
+    },
+    {
+      "id": "1778692982_250_7627",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658486",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "57"
+        },
+        "position": {
+          "latitude": 33.73722839355469,
+          "longitude": -117.88509368896484,
+          "bearing": 345,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692942",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7627",
+          "label": "7627"
+        }
+      }
+    },
+    {
+      "id": "1778692982_251_7628",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658483",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "57"
+        },
+        "position": {
+          "latitude": 33.854557037353516,
+          "longitude": -117.88922882080078,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692936",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7628",
+          "label": "7628"
+        }
+      }
+    },
+    {
+      "id": "1778692982_252_7635",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709980",
+          "startDate": "20260513",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "29"
+        },
+        "position": {
+          "latitude": 33.758975982666016,
+          "longitude": -117.98985290527344,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1778692964",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7635",
+          "label": "7635"
+        }
+      }
+    }
+  ]
+}

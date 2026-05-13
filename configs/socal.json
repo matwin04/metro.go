@@ -35,6 +35,10 @@
           "X-Api-Key": "gMpUXrGPJJ8X9Pp2OivQC1czi046utCMabRM3XQg"
         }
       }
+    },
+    {
+      "url": "https://passio3.com/irvine/passioTransit/gtfs/google_transit.zip",
+      "prefix": "f-9mu-irvine~ca~us"
     }
   ],
   "ignoreDuplicates": true

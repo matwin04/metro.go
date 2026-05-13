@@ -1,0 +1,13 @@
+Agencies: Metro - Los Angeles, Metrolink Trains, City of Irvine (LAZ Parking)
+Feed Version: Unknown
+GTFS-to-HTML Version: 2.12.8
+Date Generated: 2026-05-13T06:26:51.412Z
+Timetable Page Count: 14
+Timetable Count: 64
+Calendar Service ID Count: 44
+Route Count: 14
+Trip Count: 4126
+Stop Count: 1271
+Source: https://gitlab.com/LACMTA/gtfs_rail/raw/master/gtfs_rail.zip
+Source: https://metrolinktrains.com/globalassets/about/gtfs/gtfs.zip
+Source: https://passio3.com/irvine/passioTransit/gtfs/google_transit.zip
