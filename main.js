@@ -71,6 +71,9 @@ app.get("/", async (req, res) => {
 app.get("/testing", async (req, res) => {
     res.render("rawgtfs");
 });
+app.get("/agencies",async(req,res)=>{
+    res.render("agencies");
+})
 
 app.get("/transit", async (req, res) => {
     res.render("map");
