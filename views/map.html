@@ -4,34 +4,27 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MW Transit + Bike App | Bikes</title>
-
         <!-- Styles -->
         <link rel="stylesheet" href="/public/styles/main.css" />
         <link href="/public/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
-        <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />
-        <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
+        <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <!-- Renders the Transitland .pbf vector tiles (routes/stops) that MapLibre handled natively -->
+        <script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.bundled.min.js"></script>
 </head>
     <body>
-
     {{> navbar}}
-
     <div class="map-shell">
-
         <!-- ── LEFT SIDEBAR ── -->
         <aside class="departures-panel" id="departures-panel">
-
             <!-- Empty state -->
             <div class="panel-empty" id="panel-empty">
-
             </div>
-
             <!-- Station info (hidden until a station is selected) -->
             <div class="panel-station" id="panel-station" hidden>
-
                 <div class="panel-header">
                     <div class="panel-header-row">
-                        
+
                         <div>
                             <div class="panel-station-name" id="stop-name">—</div>
                             <div class="panel-station-id" id="panel-station-id"></div>
@@ -39,9 +32,7 @@
                     </div>
                     <div class="panel-route-badges" id="panel-route-badges"></div>
                 </div>
-
                 <div class="panel-section-label">Upcoming Departures</div>
-
                 <div class="panel-scroll">
                     <table class="departures-table">
                         <thead>
@@ -60,15 +51,11 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </aside>
-
         <!-- ── MAP ── -->
         <div id="map"></div>
-
     </div>
-
     <script src="/public/scripts/map.js"></script>
     <script type="module" src="/public/scripts/metro.js"></script>
     <script>
@@ -76,5 +63,4 @@
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
     </body>
-
 </html>
