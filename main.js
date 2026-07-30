@@ -67,26 +67,18 @@ function getFeedByAgencyKey(agencyKey) {
 app.get("/", async (req, res) => {
     res.render("index");
 });
-
-app.get("/testing", async (req, res) => {
-    res.render("rawgtfs");
+app.get("/maps/maptype3", async (req, res) => {
+  res.render("maptype3");
 });
-app.get("/agencies",async(req,res)=>{
-    res.render("agencies");
-})
 
-app.get("/transit", async (req, res) => {
+
+app.get("/maps/transit", async (req, res) => {
     res.render("map");
 });
 
-app.get("/bikes", async (req, res) => {
+app.get("/maps/bikes", async (req, res) => {
     res.render("bikes");
 });
-
-app.get("/departures", async (req, res) => {
-    res.render("station");
-});
-
 app.get("/about", (req, res) => {
     res.render("about");
 });
@@ -257,12 +249,12 @@ app.post("/api/agencies", async (req, res) => {
 
         const stmt = db.prepare(`
             INSERT INTO sources (
-                feed_onestop_id, 
-                feed_spec, 
-                type, 
-                url, 
-                source_type, 
-                agency_name, 
+                feed_onestop_id,
+                feed_spec,
+                type,
+                url,
+                source_type,
+                agency_name,
                 color,
                 static_gtfs_url,
                 vehicle_url,
@@ -327,12 +319,12 @@ app.put("/api/agencies/:agencyKey", async (req, res) => {
         }
 
         const stmt = db.prepare(`
-            UPDATE sources 
-            SET 
-                agency_name = COALESCE(?, agency_name), 
-                color = COALESCE(?, color), 
-                static_gtfs_url = COALESCE(?, static_gtfs_url), 
-                vehicle_url = COALESCE(?, vehicle_url), 
+            UPDATE sources
+            SET
+                agency_name = COALESCE(?, agency_name),
+                color = COALESCE(?, color),
+                static_gtfs_url = COALESCE(?, static_gtfs_url),
+                vehicle_url = COALESCE(?, vehicle_url),
                 trip_url = COALESCE(?, trip_url),
                 updated_at = CURRENT_TIMESTAMP
             WHERE feed_onestop_id = ? AND source_type = 0
