@@ -79,6 +79,9 @@ app.get("/maps/transit", async (req, res) => {
 app.get("/maps/bikes", async (req, res) => {
     res.render("bikes");
 });
+app.get("/maps/rawgtfs", async (req, res) => {
+  res.render("rawgtfs");
+});
 app.get("/about", (req, res) => {
     res.render("about");
 });
