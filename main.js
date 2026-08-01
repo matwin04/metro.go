@@ -28,15 +28,11 @@ const FEEDS_PATH = path.join(__dirname, "public", "data","feeds");
 // DATABASE INITIALIZATION
 // =============================================
 
-<<<<<<< HEAD
-const db = new Database(DB_PATH);
-=======
+
 function initializeDatabase() {
-  const db = new Database(DB_PATH);
-  
   // Enable foreign keys
   db.pragma("foreign_keys = ON");
-  
+
   // Create sources table if it doesn't exist
   db.exec(`
     CREATE TABLE IF NOT EXISTS "sources" (
@@ -56,13 +52,11 @@ function initializeDatabase() {
 }
 
 const db = initializeDatabase();
-<<<<<<< HEAD
->>>>>>> parent of c82aa9b (added OCTA)
+
 setupDB();
 //setInterval(runAll, 10000);
-=======
 
->>>>>>> parent of 2be553a (db remote)
+
 // =============================================
 // VIEW & STATIC CONFIG
 // =============================================
@@ -76,7 +70,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/public", express.static(path.join(__dirname, "public")));
 app.use("/views", express.static(path.join(__dirname, "views")));
-<<<<<<< HEAD
+
 app.use(
     session({
         secret: process.env.SESSION_SECRET || "thing-secret",
@@ -168,27 +162,12 @@ app.get("/api/sources/bikeshare", async (req, res) => {
  */
 app.get("/api/feeds", async (req, res) => {
     try {
-<<<<<<< HEAD
-        const feeds = getAllFeeds();
-
-        res.json({
-            success: true,
-            data: feeds.map(feed => ({
-                agencyKey: feed.agencyKey,
-                name: feed.name,
-                color: feed.color || "#000000",
-                staticGtfs: feed.staticGtfs,
-                vehicleUrl: feed.vehicleUrl,
-                tripUrl: feed.tripUrl
-            })),
-            count: feeds.length
-=======
         const { feed_id, feed_type, source_type, agency_name, agency_id, onestop_id } = req.body;
-        
+
         if (!feed_id || feed_type === undefined || source_type === undefined) {
-            return res.status(400).json({ 
-                success: false, 
-                error: "Missing required fields: feed_id, feed_type, source_type" 
+            return res.status(400).json({
+                success: false,
+                error: "Missing required fields: feed_id, feed_type, source_type"
             });
         }
 
@@ -196,14 +175,13 @@ app.get("/api/feeds", async (req, res) => {
             INSERT INTO sources (feed_id, feed_type, source_type, agency_name, agency_id, onestop_id)
             VALUES (?, ?, ?, ?, ?, ?)
         `);
-        
+
         const result = stmt.run(feed_id, feed_type, source_type, agency_name || null, agency_id || null, onestop_id || null);
-        
-        res.status(201).json({ 
-            success: true, 
+
+        res.status(201).json({
+            success: true,
             message: "Source added successfully",
-            id: result.lastInsertRowid 
->>>>>>> parent of 2be553a (db remote)
+            id: result.lastInsertRowid
         });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
@@ -567,7 +545,6 @@ app.get("/api/transitland/departures", async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
-<<<<<<< HEAD
 
 app.get("/api/amtraker/stations", async (req, res) => {
     const { stationId } = req.query;
@@ -621,7 +598,6 @@ app.get("/api/swiftly/vehiclepos", async (req, res) => {
     }
 });
 
-=======
 app.get("/api/amtraker/stations",async (req,res)=>{
   const {stationId} = req.query;
   const url =`https://asm-backend.transitdocs.com/station/${stationId}?points=true`;
@@ -652,7 +628,6 @@ app.get("/api/amtraker/trains",async (req,res)=>{
     res.status(500).json({ error: error.message });
   }
 });
->>>>>>> parent of c82aa9b (added OCTA)
 // =============================================
 // START SERVER
 // =============================================
