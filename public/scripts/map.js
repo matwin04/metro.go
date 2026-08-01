@@ -473,7 +473,9 @@ function setupAmtrakData() {
     try {
       const response = await fetch("/api/amtraker/trains");
       const data = await response.json();
+      
       const trains = Object.values(data).flat();
+<<<<<<< HEAD
       const currentIds = new Set();
 
       trains.forEach(train => {
@@ -489,6 +491,22 @@ function setupAmtrakData() {
             features: [{ geometry: { coordinates: [train.lon, train.lat] }, properties: { data: JSON.stringify(train) } }]
           })
         );
+=======
+      
+      map.getSource("amtrak-trains").setData({
+        type: "FeatureCollection",
+        features: trains.map(train => ({
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: [train.lon, train.lat]
+          },
+          properties: {
+            data: JSON.stringify(train),
+            iconColor: train.iconColor
+          }
+        }))
+>>>>>>> parent of 2be553a (db remote)
       });
 
       pruneVehicleMarkers(registry, layers.amtrakTrains, currentIds);
@@ -496,6 +514,7 @@ function setupAmtrakData() {
       console.error("Amtrak error:", error);
     }
   }
+  
   loadAmtrak();
   setInterval(loadAmtrak, 15000);
 }

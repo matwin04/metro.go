@@ -4,16 +4,15 @@ info:
   seq: 3
 
 http:
-  method: POST
-  url: http://localhost:8088/api/sources/
+  method: GET
+  url: https://metrogo.app/api/sources/transit
   body:
     type: json
     data: |-
       {
-        "feed_onestop_id": "f-bird~los~angeles~ca~gbfs",
-        "feed_spec": "gbfs",
-        "url": "https://mds.bird.co/gbfs/v2/public/los-angeles/gbfs.json",
-        "type": "bikeshare"
+        "feed_id": "f-9q5-metro~losangeles~rail",
+        "feed_type": "gtfs",
+        "source_type":0
       }
   auth: inherit
 

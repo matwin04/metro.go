@@ -6,10 +6,13 @@ import { fileURLToPath } from "url";
 import Database from "better-sqlite3";
 import fs from "node:fs/promises";
 import { fetchAllTrains } from "amtrak";
+<<<<<<< HEAD
 import session from 'express-session';
 import { sql, setupDB } from "./db.js";
 import gtfsRealtime from "gtfs-realtime";
 import {runAll} from "./gtfsrt.js";
+=======
+>>>>>>> parent of 2be553a (db remote)
 
 dotenv.config();
 
@@ -53,9 +56,13 @@ function initializeDatabase() {
 }
 
 const db = initializeDatabase();
+<<<<<<< HEAD
 >>>>>>> parent of c82aa9b (added OCTA)
 setupDB();
 //setInterval(runAll, 10000);
+=======
+
+>>>>>>> parent of 2be553a (db remote)
 // =============================================
 // VIEW & STATIC CONFIG
 // =============================================
@@ -69,6 +76,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/public", express.static(path.join(__dirname, "public")));
 app.use("/views", express.static(path.join(__dirname, "views")));
+<<<<<<< HEAD
 app.use(
     session({
         secret: process.env.SESSION_SECRET || "thing-secret",
@@ -76,6 +84,8 @@ app.use(
         saveUninitialized: true,
     })
 );
+=======
+>>>>>>> parent of 2be553a (db remote)
 
 // =============================================
 // PAGE ROUTES
@@ -158,6 +168,7 @@ app.get("/api/sources/bikeshare", async (req, res) => {
  */
 app.get("/api/feeds", async (req, res) => {
     try {
+<<<<<<< HEAD
         const feeds = getAllFeeds();
 
         res.json({
@@ -171,6 +182,28 @@ app.get("/api/feeds", async (req, res) => {
                 tripUrl: feed.tripUrl
             })),
             count: feeds.length
+=======
+        const { feed_id, feed_type, source_type, agency_name, agency_id, onestop_id } = req.body;
+        
+        if (!feed_id || feed_type === undefined || source_type === undefined) {
+            return res.status(400).json({ 
+                success: false, 
+                error: "Missing required fields: feed_id, feed_type, source_type" 
+            });
+        }
+
+        const stmt = db.prepare(`
+            INSERT INTO sources (feed_id, feed_type, source_type, agency_name, agency_id, onestop_id)
+            VALUES (?, ?, ?, ?, ?, ?)
+        `);
+        
+        const result = stmt.run(feed_id, feed_type, source_type, agency_name || null, agency_id || null, onestop_id || null);
+        
+        res.status(201).json({ 
+            success: true, 
+            message: "Source added successfully",
+            id: result.lastInsertRowid 
+>>>>>>> parent of 2be553a (db remote)
         });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
