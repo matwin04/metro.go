@@ -271,6 +271,7 @@ function initMap() {
     unknown: "#888"
   };
 
+<<<<<<< HEAD
   setupStationLayers();
   setupVectorTileLayers();
   setupMetrolinkData();
@@ -278,6 +279,17 @@ function initMap() {
   setupOctaData();
   setupMetroWebSocket(routeColors);
   setupMetroBusWebSocket();
+=======
+  map.on("load", () => {
+    setupSources();
+    setupLayers();
+    setupMetrolinkData();
+    setupAmtrakData();
+    setupMetroWebSocket(metroVehicles, routeColors);
+    setupCursorStates();
+    setupClickHandlers();
+  });
+>>>>>>> parent of c82aa9b (added OCTA)
 
   return map;
 }
@@ -288,7 +300,27 @@ function initMap() {
 // itself and renders it directly with L.geoJSON + pointToLayer)
 // =============================================
 
+<<<<<<< HEAD
 function setupStationLayers() {
+=======
+function setupSources() {
+  // Real-time vehicle data
+  map.addSource("metro-trains", {
+    type: "geojson",
+    data: { type: "FeatureCollection", features: [] }
+  });
+
+  map.addSource("metrolink-trains", {
+    type: "geojson",
+    data: { type: "FeatureCollection", features: [] }
+  });
+  map.addSource("amtrak-trains", {
+    type: "geojson",
+    data: { type: "FeatureCollection", features: [] }
+  });
+
+  // Static station data
+>>>>>>> parent of c82aa9b (added OCTA)
   const stationSources = [
     { id: "rail-stations",              path: "/public/data/f-9q5-metro~losangeles~rail/stations.geojson", color: "#333", handler: onMetroStationClick },
     { id: "metrolink-stations",         path: "/public/data/f-9qh-metrolinktrains/stops.geojson",          color: "#ff6600", handler: onMetrolinkStationClick },
@@ -357,11 +389,38 @@ function setupVectorTileLayers() {
       interactive: false,
       maxNativeZoom: 14
     }
+<<<<<<< HEAD
   ).addTo(map);
   // Note: the Transitland "stops" vector tile layer is intentionally not
   // loaded here — station dots are already rendered from the GeoJSON
   // sources in setupStationLayers(), so fetching a second, invisible copy
   // of every stop tile was pure wasted bandwidth/render time.
+=======
+  });
+
+  map.addLayer({
+    id: "metrolink-train-dots",
+    type: "circle",
+    source: "metrolink-trains",
+    paint: {
+      "circle-radius": 7,
+      "circle-color": "#ff6600",
+      "circle-stroke-width": 2,
+      "circle-stroke-color": "#fff"
+    }
+  });
+  map.addLayer({
+    id: "amtrak-train-dots",
+    type: "circle",
+    source: "amtrak-trains",
+    paint: {
+      "circle-radius": 7,
+      "circle-color": ["get", "iconColor"],
+      "circle-stroke-width": 2,
+      "circle-stroke-color": "#fff"
+    }
+  });
+>>>>>>> parent of c82aa9b (added OCTA)
 }
 
 // =============================================
@@ -441,6 +500,7 @@ function setupAmtrakData() {
   setInterval(loadAmtrak, 15000);
 }
 
+<<<<<<< HEAD
 function setupOctaData() {
   const registry = {};
 
@@ -473,6 +533,8 @@ function setupOctaData() {
   loadOcta();
   setInterval(loadOcta, 5000);
 }
+=======
+>>>>>>> parent of c82aa9b (added OCTA)
 
 function setupMetrolinkData() {
   const registry = {};
@@ -546,16 +608,26 @@ function setupMetroBusWebSocket() {
   const registry = {};
   const ws = new WebSocket("wss://api.metro.net/ws/LACMTA/vehicle_positions");
 
+<<<<<<< HEAD
   ws.onmessage = (event) => {
     try {
       const data    = JSON.parse(event.data);
       const vehicle = data.vehicle;
       if (!vehicle?.position) return;
+=======
+function setupCursorStates() {
+  const clickableLayers = [
+    "metro-train-dots", "metrolink-train-dots", "station-dots",
+    "metrolink-station-dots", "amtrak-ca-station-dots",
+    "northcounty-transit-dots", "mts-station-dots","amtrak-train-dots"
+  ];
+>>>>>>> parent of c82aa9b (added OCTA)
 
       const id  = vehicle.vehicle?.id || data.id;
       const lat = vehicle.position.latitude;
       const lon = vehicle.position.longitude;
 
+<<<<<<< HEAD
       upsertVehicleMarker(
         registry,
         layers.metroBuses,
@@ -570,6 +642,19 @@ function setupMetroBusWebSocket() {
       console.error("Metro Bus WebSocket error:", err);
     }
   };
+=======
+function setupClickHandlers() {
+  // Train popups
+  map.on("click", "metro-train-dots", onMetroTrainClick);
+  map.on("click", "metrolink-train-dots", onMetrolinkTrainClick);
+  map.on("click", "amtrak-train-dots", onAmtrakTrainClick);
+  // Station sidebar handlers
+  map.on("click", "station-dots", onMetroStationClick);
+  map.on("click", "metrolink-station-dots", onMetrolinkStationClick);
+  map.on("click", "amtrak-ca-station-dots", onAmtrakStationClick);
+  map.on("click", "northcounty-transit-dots", onNorthCountyStationClick);
+  map.on("click", "mts-station-dots", onMtsStationClick);
+>>>>>>> parent of c82aa9b (added OCTA)
 }
 
 // =============================================
@@ -577,6 +662,7 @@ function setupMetroBusWebSocket() {
 // (unchanged content — just now opened via L.popup instead of maplibregl.Popup)
 // =============================================
 
+<<<<<<< HEAD
 function onOctaBusClick(e) {
   const feature = e.features[0];
   const [lon, lat] = feature.geometry.coordinates;
@@ -623,6 +709,8 @@ function onOctaBusClick(e) {
     .openOn(map);
 }
 
+=======
+>>>>>>> parent of c82aa9b (added OCTA)
 function onMetroTrainClick(e) {
   const feature     = e.features[0];
   const [lon, lat]  = feature.geometry.coordinates;
