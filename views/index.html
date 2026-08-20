@@ -27,7 +27,84 @@
                 Converted from other apis to human readable and easier to use format
             </div>
             <a href="/departures/13156942550">LA Metro San Dimas</a>
-
+            <div class="route-group">
+                        <h2>Pages</h2>
+                        <ul class="route-list">
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/departures/:osm_station_id</code>
+                                <span class="desc">Departure board for a station</span>
+                                <a href="/departures/268547062">/departures/268547062</a>
+                            </li>
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/route/:chateau/:route_id</code>
+                                <span class="desc">Route info + map</span>
+                                <a href="/route/metro~losangeles/802">/route/metro~losangeles/802</a>
+                            </li>
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/maps</code>
+                                <span class="desc">Main map view</span>
+                                <a href="/maps">/maps</a>
+                            </li>
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/maps/bikemap</code>
+                                <span class="desc">GBFS bikeshare map</span>
+                                <a href="/maps/bikemap">/maps/bikemap</a>
+                            </li>
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/maps/transit</code>
+                                <span class="desc">Transitland vector tile map</span>
+                                <a href="/maps/transit">/maps/transit</a>
+                            </li>
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/departures</code>
+                                <span class="desc">Departure board (no station selected)</span>
+                                <a href="/departures">/departures</a>
+                            </li>
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/testing</code>
+                                <span class="desc">Raw GTFS testing page</span>
+                                <a href="/testing">/testing</a>
+                            </li>
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/about</code>
+                                <span class="desc">About this project</span>
+                                <a href="/about">/about</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="route-group">
+                                <h2>Catenary Maps API</h2>
+                                <ul class="route-list">
+                                    <li>
+                                        <span class="method">GET</span>
+                                        <code>/api/catenarymaps/departures/:osm_station_id</code>
+                                        <span class="desc">All upcoming departures (JSON)</span>
+                                        <a href="/api/catenarymaps/departures/268547062">/api/catenarymaps/departures/268547062</a>
+                                    </li>
+                                    <li>
+                                        <span class="method">GET</span>
+                                        <code>/api/catenarymaps/departures/:osm_station_id/:n</code>
+                                        <span class="desc">Nth upcoming departure (1 = next)</span>
+                                        <a href="/api/catenarymaps/departures/268547062/1">/api/catenarymaps/departures/268547062/1</a>
+                                        <a href="/api/catenarymaps/departures/268547062/2">/2</a>
+                                        <a href="/api/catenarymaps/departures/268547062/3">/3</a>
+                                    </li>
+                                    <li>
+                                        <span class="method">GET</span>
+                                        <code>/api/catenarymaps/route_info/:chateau/:route_id</code>
+                                        <span class="desc">Route info (JSON)</span>
+                                        <a href="/api/catenarymaps/route_info/metro~losangeles/802">/api/catenarymaps/route_info/metro~losangeles/802</a>
+                                    </li>
+                                </ul>
+                            </div>
         </main>
 
         <script>

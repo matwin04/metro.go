@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{#if route}}{{route.long_name}}{{else}}Route Info{{/if}} — MattMaps</title>
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+    #route-map {
+        width: 100%;
+        height: 420px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        margin-bottom: 1.5rem;
+    }
+        .route-banner {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            {{#if route}}
+            background-color: #{{route.color}};
+            color: #{{route.text_color}};
+            {{/if}}
+        }
+        .route-banner .badge {
+            font-size: 1.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.25);
+        }
+        .route-banner .names h1 {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .route-banner .names p {
+            margin: 0.15rem 0 0;
+            opacity: 0.85;
+            font-size: 0.9rem;
+        }
+        .route-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .route-meta .stat {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+        }
+        .route-meta .stat label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: #777;
+            margin-bottom: 0.25rem;
+        }
+        .connection-stop {
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .connection-stop h3 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .connection-agencies {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .connection-agencies li {
+            margin-bottom: 0.35rem;
+            font-size: 0.85rem;
+        }
+        .route-chip {
+            display: inline-block;
+            background: #f5f5f5;
+            border-radius: 4px;
+            padding: 0.1rem 0.4rem;
+            margin-right: 0.3rem;
+            font-size: 0.8rem;
+        }
+        #route-map {
+            width: 100%;
+            height: 420px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .error-box {
+            padding: 1rem;
+            border-radius: 6px;
+            background: #fdecea;
+            color: #b3261e;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        {{#if error}}
+            <div class="error-box">
+                <strong>Couldn't load route info:</strong> {{error}}
+            </div>
+        {{else}}
+            <div class="route-banner">
+                <div class="badge">{{route.short_name}}</div>
+                <div class="names">
+                    <h1>{{route.long_name}}</h1>
+                    <p>{{route.chateau}} · Route {{route.route_id}}</p>
+                </div>
+            </div>
+            <div id="route-map"></div>
+            <div class="route-meta">
+                <div class="stat">
+                    <label>Type</label>
+                    <span>{{route.route_type}}</span>
+                </div>
+                <div class="stat">
+                    <label>Agency</label>
+                    <span>{{route.agency_name}}</span>
+                </div>
+                <div class="stat">
+                    <label>Color</label>
+                    <span>#{{route.color}}</span>
+                </div>
+            </div>
+            <section>
+                <h2>Stops</h2>
+                <ul class="stop-list">
+                    {{#each route.stops}}
+                    <li><span class="stop-id">{{this.id}}</span>{{this.name}}</li>
+                    {{/each}}
+                </ul>
+            </section>
+            <section>
+                <h2>Connections</h2>
+                {{#each route.connections_per_stop}}
+                <div class="connection-stop">
+                    <h3>Stop {{@key}}</h3>
+                    <ul class="connection-agencies">
+                        {{#each this}}
+                        <li>
+                            <strong>{{@key}}:</strong>
+                            {{#each this}}
+                                <span class="route-chip">{{this}}</span>
+                            {{/each}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/each}}
+            </section>
+            <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+            <script>
+                const routeData = {{{routeJson}}};
+
+                const map = new maplibregl.Map({
+                    container: "route-map",
+                    style: "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
+                    center: [-118.2437, 34.0522],
+                    zoom: 10
+                });
+
+                map.on("load", () => {
+                    if (!routeData || !routeData.stops) return;
+
+                    // only plot platform-level stops (location_type 0), skip parent station entries
+                    const stops = Object.values(routeData.stops).filter(s => s.location_type === 0);
+                    if (!stops.length) return;
+
+                    const geojson = {
+                        type: "FeatureCollection",
+                        features: stops.map(s => ({
+                            type: "Feature",
+                            properties: { name: s.name, id: s.id },
+                            geometry: { type: "Point", coordinates: [s.longitude, s.latitude] }
+                        }))
+                    };
+
+                    map.addSource("route-stops", { type: "geojson", data: geojson });
+
+                    map.addLayer({
+                        id: "route-stops-circle",
+                        type: "circle",
+                        source: "route-stops",
+                        paint: {
+                            "circle-radius": 6,
+                            "circle-color": routeData.color || "#444444",
+                            "circle-stroke-width": 2,
+                            "circle-stroke-color": "#ffffff"
+                        }
+                    });
+
+                    const popup = new maplibregl.Popup({ closeButton: false, offset: 10 });
+                    map.on("mouseenter", "route-stops-circle", (e) => {
+                        map.getCanvas().style.cursor = "pointer";
+                        const f = e.features[0];
+                        popup.setLngLat(f.geometry.coordinates).setHTML(`<strong>${f.properties.name}</strong>`).addTo(map);
+                    });
+                    map.on("mouseleave", "route-stops-circle", () => {
+                        map.getCanvas().style.cursor = "";
+                        popup.remove();
+                    });
+
+                    const bounds = stops.reduce(
+                        (b, s) => b.extend([s.longitude, s.latitude]),
+                        new maplibregl.LngLatBounds([stops[0].longitude, stops[0].latitude], [stops[0].longitude, stops[0].latitude])
+                    );
+                    map.fitBounds(bounds, { padding: 60 });
+                });
+            </script>
+
+
+        {{/if}}
+    </main>
+</body>
+</html>

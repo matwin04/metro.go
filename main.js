@@ -10,7 +10,7 @@ import session from "express-session";
 //import { sql, setupDB } from "./db.js";
 //import gtfsRealtime from "gtfs-realtime";
 //import {runAll} from "./gtfsrt.js";
-
+import {getAllEvents,getEvent,getRouteInfo}from "./catenary.js"
 dotenv.config();
 
 const app = express();
@@ -105,6 +105,35 @@ app.get("/departures/:osm_station_id", async (req, res) => {
         });
     }
 });
+app.get("/route/:chateau/:route_id", async (req, res) => {
+    try {
+        const { chateau, route_id } = req.params;
+        const data = await getRouteInfo(chateau, route_id);
+
+        const stops = data.stops || {};
+
+        res.render("routeinfo", {
+            route: data,
+          stops: data.stops,
+                routeJson: JSON.stringify(data),
+            connections_per_stop: data.connections_per_stop,
+            chateau,
+            route_id,
+            error: null
+        });
+    } catch (err) {
+        console.error("Route info error:", err);
+        res.status(500).render("routeinfo", {
+            route: null,
+            stops: {},
+            platformStops: [],
+            routeJson: "null",
+            chateau: req.params.chateau,
+            route_id: req.params.route_id,
+            error: err.message
+        });
+    }
+});
 app.get("/api/catenarymaps/departures/:osm_station_id",async (req,res) => {
   try {
     const osm_station_id = req.params.osm_station_id;
@@ -122,7 +151,23 @@ app.get("/api/catenarymaps/departures/:osm_station_id",async (req,res) => {
     console.error(err);
   }
 })
+app.get("/api/catenarymaps/departures/:osm_station_id/:n", async (req, res) => {
+    try {
+        const { osm_station_id, n } = req.params;
+        const nNum = parseInt(n, 10);
 
+        if (isNaN(nNum) || nNum < 1) {
+            return res.status(400).json({ error: "n must be a positive integer (1, 2, 3...)" });
+        }
+
+        const greaterThanTime = Math.floor(Date.now() / 1000);
+        const result = await getEvent(osm_station_id, nNum - 1, { greaterThanTime });
+        res.json(result);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
 app.get("/testing", async (req, res) => {
     res.render("rawgtfs");
 });
