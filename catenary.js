@@ -1,9 +1,7 @@
 // catenary.js
 const BASE_URL = "https://birch.catenarymaps.org";
+const BASE_URL_RT = "https://birch_rt.catenarymaps.org";
 
-/**
- * Raw departures fetch, supports greater_than_time / less_than_time windowing.
- */
 export async function getDeparturesAtStation(osmStationId, opts = {}) {
     const {
         greaterThanTime,
@@ -29,14 +27,6 @@ export async function getDeparturesAtStation(osmStationId, opts = {}) {
 
     return response.json();
 }
-
-/**
- * Get the Nth upcoming event at a station (0-indexed internally).
- * index=0 -> next departure, index=1 -> the one after that, etc.
- *
- * greaterThanTime/lessThanTime let you window the query (unix seconds),
- * otherwise it just pulls whatever the API returns and sorts by time.
- */
 export async function getAllEvents(osmStationId) {
   const data = await getDeparturesAtStation(osmStationId);
   const events = data.events || [];
@@ -61,11 +51,23 @@ export async function getEvent(osmStationId, index = 0, opts = {}) {
         events: sorted
     };
 }
-/**
- * Get route info (color, name, shape, etc.) for a given chateau + route_id.
- * e.g. chateau="metro~losangeles", route_id="802"
- */
+export async function getRealtimeVehiclesForRoute(chateau, routeId, lastUpdatedTimeMs) {
+    const params = new URLSearchParams();
+    params.set("chateau", chateau);
+    params.set("route_id", routeId);
+    if (lastUpdatedTimeMs !== undefined && lastUpdatedTimeMs !== null) {
+        params.set("last_updated_time_ms", lastUpdatedTimeMs);
+    }
 
+    const url = `${BASE_URL_RT}/get_rt_of_single_route?${params.toString()}`;
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error(`Catenary RT API returned ${response.status}`);
+    }
+
+    return response.json();
+}
 export async function getRouteInfo(chateau, routeId) {
   const url = `https://birch.catenarymaps.org/route_info_v2?chateau=${chateau}&route_id=${routeId}`;
   const options = { method: 'GET' };

@@ -10,7 +10,7 @@ import session from "express-session";
 //import { sql, setupDB } from "./db.js";
 //import gtfsRealtime from "gtfs-realtime";
 //import {runAll} from "./gtfsrt.js";
-import {getAllEvents,getEvent,getRouteInfo}from "./catenary.js"
+import {getAllEvents,getEvent,getRouteInfo,getRealtimeVehiclesForRoute}from "./catenary.js"
 dotenv.config();
 
 const app = express();
@@ -168,6 +168,17 @@ app.get("/api/catenarymaps/departures/:osm_station_id/:n", async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+app.get("/api/catenarymaps/vehicles/:chateau/:route_id", async (req, res) => {
+    try {
+        const { chateau, route_id } = req.params;
+        const data = await getRealtimeVehiclesForRoute(chateau, route_id);
+        res.json(data);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 app.get("/testing", async (req, res) => {
     res.render("rawgtfs");
 });
