@@ -2,6 +2,7 @@
   "header": {
     "gtfsRealtimeVersion": "1.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "timestamp": "1785525723"
   },
   "entity": [
@@ -1267,18 +1268,37 @@
         "trip": {
           "tripId": "12710645",
           "startDate": "20260731",
+=======
+    "timestamp": "1783757201"
+  },
+  "entity": [
+    {
+      "id": "1783757201_0_2157",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709316",
+          "startDate": "20260711",
+>>>>>>> parent of cba6d24 (21)
           "scheduleRelationship": "SCHEDULED",
           "routeId": "25"
         },
         "position": {
+<<<<<<< HEAD
           "latitude": 33.76584243774414,
           "longitude": -118.00740051269531,
           "bearing": 165,
+=======
+          "latitude": 33.80304718017578,
+          "longitude": -118.02791595458984,
+          "bearing": 270,
+>>>>>>> parent of cba6d24 (21)
           "odometer": 0,
           "speed": 0
         },
         "currentStopSequence": 0,
         "currentStatus": "INCOMING_AT",
+<<<<<<< HEAD
         "timestamp": "1785525665",
 =======
         "timestamp": "1778708398",
@@ -2089,6 +2109,9 @@
 =======
         "timestamp": "1778708401",
 >>>>>>> parent of b03d652 (Well)
+=======
+        "timestamp": "1783757169",
+>>>>>>> parent of cba6d24 (21)
         "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
         "vehicle": {
           "id": "2157",
@@ -2097,6 +2120,7 @@
       }
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "id": "1785525723_42_2158",
       "isDeleted": false,
@@ -2669,10 +2693,19 @@
           "tripId": "12658254",
           "startDate": "20260513",
 >>>>>>> parent of b03d652 (Well)
+=======
+      "id": "1783757201_1_2189",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658338",
+          "startDate": "20260711",
+>>>>>>> parent of cba6d24 (21)
           "scheduleRelationship": "SCHEDULED",
           "routeId": "43"
         },
         "position": {
+<<<<<<< HEAD
 <<<<<<< HEAD
           "latitude": 33.67975616455078,
           "longitude": -117.91951751708984,
@@ -3124,11 +3157,17 @@
           "latitude": 33.738502502441406,
           "longitude": -117.90682983398438,
           "bearing": 165,
+=======
+          "latitude": 33.76933670043945,
+          "longitude": -117.9202880859375,
+          "bearing": 360,
+>>>>>>> parent of cba6d24 (21)
           "odometer": 0,
           "speed": 0
         },
         "currentStopSequence": 0,
         "currentStatus": "INCOMING_AT",
+<<<<<<< HEAD
         "timestamp": "1785525649",
         "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
         "vehicle": {
@@ -3256,6 +3295,9 @@
         "currentStatus": "INCOMING_AT",
         "timestamp": "1778708408",
 >>>>>>> parent of b03d652 (Well)
+=======
+        "timestamp": "1783757176",
+>>>>>>> parent of cba6d24 (21)
         "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
         "vehicle": {
           "id": "2189",
@@ -3264,6 +3306,7 @@
       }
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "id": "1785525723_64_2190",
       "isDeleted": false,
@@ -3429,11 +3472,27 @@
           "longitude": -117.89088439941406,
           "bearing": 90,
 >>>>>>> parent of b03d652 (Well)
+=======
+      "id": "1783757201_2_2195",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12713399",
+          "startDate": "20260711",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "60"
+        },
+        "position": {
+          "latitude": 33.75971603393555,
+          "longitude": -117.9151382446289,
+          "bearing": 75,
+>>>>>>> parent of cba6d24 (21)
           "odometer": 0,
           "speed": 0
         },
         "currentStopSequence": 0,
         "currentStatus": "INCOMING_AT",
+<<<<<<< HEAD
 <<<<<<< HEAD
         "timestamp": "1785525700",
 =======
@@ -3530,6 +3589,9 @@
 =======
         "timestamp": "1778708411",
 >>>>>>> parent of b03d652 (Well)
+=======
+        "timestamp": "1783757152",
+>>>>>>> parent of cba6d24 (21)
         "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
         "vehicle": {
           "id": "2195",
@@ -3538,6 +3600,7 @@
       }
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "id": "1785525723_70_2197",
       "isDeleted": false,
@@ -3553,10 +3616,19 @@
           "tripId": "12715306",
           "startDate": "20260513",
 >>>>>>> parent of b03d652 (Well)
+=======
+      "id": "1783757201_3_2224",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044362",
+          "startDate": "20260711",
+>>>>>>> parent of cba6d24 (21)
           "scheduleRelationship": "SCHEDULED",
           "routeId": "0"
         },
         "position": {
+<<<<<<< HEAD
 <<<<<<< HEAD
           "latitude": 33.76538848876953,
           "longitude": -117.92073059082031,
@@ -3565,11 +3637,17 @@
           "latitude": 33.788368225097656,
           "longitude": -118.00633239746094,
           "bearing": 270,
+=======
+          "latitude": 33.69512939453125,
+          "longitude": -117.9373550415039,
+          "bearing": 150,
+>>>>>>> parent of cba6d24 (21)
           "odometer": 0,
           "speed": 0
         },
         "currentStopSequence": 0,
         "currentStatus": "INCOMING_AT",
+<<<<<<< HEAD
         "timestamp": "1778708374",
         "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
         "vehicle": {
@@ -4491,6 +4569,9 @@
 =======
         "timestamp": "1778708373",
 >>>>>>> parent of b03d652 (Well)
+=======
+        "timestamp": "1783757173",
+>>>>>>> parent of cba6d24 (21)
         "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
         "vehicle": {
           "id": "2224",
@@ -4499,6 +4580,7 @@
       }
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "id": "1785525723_89_2225",
       "isDeleted": false,
@@ -4633,10 +4715,19 @@
           "tripId": "12717457",
           "startDate": "20260513",
 >>>>>>> parent of b03d652 (Well)
+=======
+      "id": "1783757201_4_2247",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044659",
+          "startDate": "20260710",
+>>>>>>> parent of cba6d24 (21)
           "scheduleRelationship": "SCHEDULED",
           "routeId": "53"
         },
         "position": {
+<<<<<<< HEAD
 <<<<<<< HEAD
           "latitude": 33.748573303222656,
           "longitude": -117.86769104003906,
@@ -4839,24 +4930,61 @@
           "longitude": -118.02111053466797,
           "bearing": 75,
 >>>>>>> parent of b03d652 (Well)
+=======
+          "latitude": 33.702816009521484,
+          "longitude": -117.9263687133789,
+          "bearing": 135,
+>>>>>>> parent of cba6d24 (21)
           "odometer": 0,
           "speed": 0
         },
         "currentStopSequence": 0,
         "currentStatus": "INCOMING_AT",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "timestamp": "1785525703",
 =======
         "timestamp": "1778708391",
 >>>>>>> parent of b03d652 (Well)
+=======
+        "timestamp": "1783747233",
         "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
         "vehicle": {
-          "id": "2234",
-          "label": "2234"
+          "id": "2247",
+          "label": "2247"
         }
       }
     },
     {
+      "id": "1783757201_5_2336",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044429",
+          "startDate": "20260711",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.78627395629883,
+          "longitude": -117.88014221191406,
+          "bearing": 180,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1783757135",
+>>>>>>> parent of cba6d24 (21)
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "2336",
+          "label": "2336"
+        }
+      }
+    },
+    {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "id": "1785525723_97_2235",
       "isDeleted": false,
@@ -5250,12 +5378,27 @@
         "position": {
           "latitude": 33.70162582397461,
           "longitude": -117.82559967041016,
+=======
+      "id": "1783757201_6_5136",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044669",
+          "startDate": "20260711",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "0"
+        },
+        "position": {
+          "latitude": 33.806007385253906,
+          "longitude": -117.83210754394531,
+>>>>>>> parent of cba6d24 (21)
           "bearing": 165,
           "odometer": 0,
           "speed": 0
         },
         "currentStopSequence": 0,
         "currentStatus": "INCOMING_AT",
+<<<<<<< HEAD
         "timestamp": "1785525652",
 =======
         "timestamp": "1778708378",
@@ -5264,10 +5407,18 @@
         "vehicle": {
           "id": "2248",
           "label": "2248"
+=======
+        "timestamp": "1783757184",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5136",
+          "label": "5136"
+>>>>>>> parent of cba6d24 (21)
         }
       }
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "id": "1785525723_106_2250",
       "isDeleted": false,
@@ -5606,10 +5757,19 @@
         "trip": {
           "tripId": "12728663",
           "startDate": "20260731",
+=======
+      "id": "1783757201_7_5142",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044499",
+          "startDate": "20260711",
+>>>>>>> parent of cba6d24 (21)
           "scheduleRelationship": "SCHEDULED",
           "routeId": "47"
         },
         "position": {
+<<<<<<< HEAD
           "latitude": 33.85205078125,
           "longitude": -117.91980743408203,
           "bearing": 345,
@@ -5660,20 +5820,30 @@
           "latitude": 33.75215148925781,
           "longitude": -117.85782623291016,
           "bearing": 330,
+=======
+          "latitude": 33.764278411865234,
+          "longitude": -117.92364501953125,
+          "bearing": 255,
+>>>>>>> parent of cba6d24 (21)
           "odometer": 0,
           "speed": 0
         },
         "currentStopSequence": 0,
         "currentStatus": "INCOMING_AT",
+<<<<<<< HEAD
         "timestamp": "1785525662",
+=======
+        "timestamp": "1783757139",
+>>>>>>> parent of cba6d24 (21)
         "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
         "vehicle": {
-          "id": "2264",
-          "label": "2264"
+          "id": "5142",
+          "label": "5142"
         }
       }
     },
     {
+<<<<<<< HEAD
       "id": "1785525723_115_2302",
       "isDeleted": false,
       "vehicle": {
@@ -8221,10 +8391,19 @@
         "trip": {
           "tripId": "12669182",
           "startDate": "20260731",
+=======
+      "id": "1783757201_8_5761",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12950155",
+          "startDate": "20260711",
+>>>>>>> parent of cba6d24 (21)
           "scheduleRelationship": "SCHEDULED",
           "routeId": "177"
         },
         "position": {
+<<<<<<< HEAD
           "latitude": 33.56739807128906,
           "longitude": -117.71491241455078,
 =======
@@ -8316,11 +8495,17 @@
           "longitude": -117.82691192626953,
           "bearing": 120,
 >>>>>>> parent of b03d652 (Well)
+=======
+          "latitude": 33.71531677246094,
+          "longitude": -118.0245132446289,
+          "bearing": 75,
+>>>>>>> parent of cba6d24 (21)
           "odometer": 0,
           "speed": 0
         },
         "currentStopSequence": 0,
         "currentStatus": "INCOMING_AT",
+<<<<<<< HEAD
 <<<<<<< HEAD
         "timestamp": "1785525649",
 =======
@@ -8373,14 +8558,18 @@
 =======
         "timestamp": "1778708375",
 >>>>>>> parent of b03d652 (Well)
+=======
+        "timestamp": "1783757143",
+>>>>>>> parent of cba6d24 (21)
         "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
         "vehicle": {
-          "id": "5759",
-          "label": "5759"
+          "id": "5761",
+          "label": "5761"
         }
       }
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "id": "1785525723_163_5761",
       "isDeleted": false,
@@ -8435,10 +8624,19 @@
         "trip": {
           "tripId": "12670484",
           "startDate": "20260731",
+=======
+      "id": "1783757201_9_5808",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13044380",
+          "startDate": "20260711",
+>>>>>>> parent of cba6d24 (21)
           "scheduleRelationship": "SCHEDULED",
           "routeId": "86"
         },
         "position": {
+<<<<<<< HEAD
           "latitude": 33.681236267089844,
           "longitude": -117.84085845947266,
           "bearing": 105,
@@ -8457,11 +8655,17 @@
           "longitude": -117.77732849121094,
           "bearing": 120,
 >>>>>>> parent of b03d652 (Well)
+=======
+          "latitude": 33.70289993286133,
+          "longitude": -117.92626953125,
+          "bearing": 30,
+>>>>>>> parent of cba6d24 (21)
           "odometer": 0,
           "speed": 0
         },
         "currentStopSequence": 0,
         "currentStatus": "INCOMING_AT",
+<<<<<<< HEAD
 <<<<<<< HEAD
         "timestamp": "1785525611",
 =======
@@ -9562,6 +9766,9 @@
         "currentStatus": "INCOMING_AT",
 <<<<<<< HEAD
         "timestamp": "1785525698",
+=======
+        "timestamp": "1783757156",
+>>>>>>> parent of cba6d24 (21)
         "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
         "vehicle": {
           "id": "5808",
@@ -9578,16 +9785,80 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "id": "1785525723_186_5809",
       "isDeleted": false,
       "vehicle": {
         "trip": {
           "tripId": "12702915",
           "startDate": "20260731",
+=======
+      "id": "1783757201_10_5851",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12713367",
+          "startDate": "20260711",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "60"
+        },
+        "position": {
+          "latitude": 33.75975799560547,
+          "longitude": -117.93730926513672,
+          "bearing": 255,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1783757135",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "5851",
+          "label": "5851"
+        }
+      }
+    },
+    {
+      "id": "1783757201_11_7561",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709362",
+          "startDate": "20260711",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "50"
+        },
+        "position": {
+          "latitude": 33.80288314819336,
+          "longitude": -118.03972625732422,
+          "bearing": 90,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1783757186",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7561",
+          "label": "7561"
+        }
+      }
+    },
+    {
+      "id": "1783757201_12_7607",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "13043890",
+          "startDate": "20260711",
+>>>>>>> parent of cba6d24 (21)
           "scheduleRelationship": "SCHEDULED",
           "routeId": "1"
         },
         "position": {
+<<<<<<< HEAD
           "latitude": 33.57085037231445,
           "longitude": -117.83589935302734,
           "bearing": 120,
@@ -10546,11 +10817,17 @@
           "longitude": -117.8764419555664,
           "bearing": 360,
 >>>>>>> parent of b03d652 (Well)
+=======
+          "latitude": 33.789276123046875,
+          "longitude": -117.88018798828125,
+          "bearing": 165,
+>>>>>>> parent of cba6d24 (21)
           "odometer": 0,
           "speed": 0
         },
         "currentStopSequence": 0,
         "currentStatus": "INCOMING_AT",
+<<<<<<< HEAD
 <<<<<<< HEAD
         "timestamp": "1785525681",
 =======
@@ -11139,14 +11416,18 @@
 =======
         "timestamp": "1778708417",
 >>>>>>> parent of b03d652 (Well)
+=======
+        "timestamp": "1783757171",
+>>>>>>> parent of cba6d24 (21)
         "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
         "vehicle": {
-          "id": "7530",
-          "label": "7530"
+          "id": "7607",
+          "label": "7607"
         }
       }
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "id": "1785525723_218_7531",
       "isDeleted": false,
@@ -12116,10 +12397,19 @@
         "trip": {
           "tripId": "12713380",
           "startDate": "20260731",
+=======
+      "id": "1783757201_13_7626",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658583",
+          "startDate": "20260711",
+>>>>>>> parent of cba6d24 (21)
           "scheduleRelationship": "SCHEDULED",
           "routeId": "60"
         },
         "position": {
+<<<<<<< HEAD
           "latitude": 33.75975799560547,
           "longitude": -117.83522033691406,
           "bearing": 75,
@@ -12138,11 +12428,17 @@
           "longitude": -117.86759948730469,
           "bearing": 360,
 >>>>>>> parent of b03d652 (Well)
+=======
+          "latitude": 33.788658142089844,
+          "longitude": -117.89102935791016,
+          "bearing": 180,
+>>>>>>> parent of cba6d24 (21)
           "odometer": 0,
           "speed": 0
         },
         "currentStopSequence": 0,
         "currentStatus": "INCOMING_AT",
+<<<<<<< HEAD
 <<<<<<< HEAD
         "timestamp": "1785525684",
         "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
@@ -12683,6 +12979,9 @@
         "currentStopSequence": 0,
         "currentStatus": "INCOMING_AT",
         "timestamp": "1785525677",
+=======
+        "timestamp": "1783757173",
+>>>>>>> parent of cba6d24 (21)
         "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
         "vehicle": {
           "id": "7620",
@@ -12691,6 +12990,7 @@
       }
     },
     {
+<<<<<<< HEAD
       "id": "1785525723_246_7622",
       "isDeleted": false,
       "vehicle": {
@@ -12860,10 +13160,19 @@
           "tripId": "12658500",
           "startDate": "20260513",
 >>>>>>> parent of b03d652 (Well)
+=======
+      "id": "1783757201_14_7629",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709971",
+          "startDate": "20260711",
+>>>>>>> parent of cba6d24 (21)
           "scheduleRelationship": "SCHEDULED",
           "routeId": "29"
         },
         "position": {
+<<<<<<< HEAD
 <<<<<<< HEAD
           "latitude": 33.658912658691406,
           "longitude": -118.00458526611328,
@@ -12873,11 +13182,71 @@
           "longitude": -117.88912963867188,
           "bearing": 360,
 >>>>>>> parent of b03d652 (Well)
+=======
+          "latitude": 33.70421600341797,
+          "longitude": -117.9261245727539,
+          "bearing": 285,
           "odometer": 0,
           "speed": 0
         },
         "currentStopSequence": 0,
         "currentStatus": "INCOMING_AT",
+        "timestamp": "1783757183",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7629",
+          "label": "7629"
+        }
+      }
+    },
+    {
+      "id": "1783757201_15_7631",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12658526",
+          "startDate": "20260711",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "57"
+        },
+        "position": {
+          "latitude": 33.76740264892578,
+          "longitude": -117.88480377197266,
+          "bearing": 360,
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+        "timestamp": "1783757193",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7631",
+          "label": "7631"
+        }
+      }
+    },
+    {
+      "id": "1783757201_16_7632",
+      "isDeleted": false,
+      "vehicle": {
+        "trip": {
+          "tripId": "12709972",
+          "startDate": "20260711",
+          "scheduleRelationship": "SCHEDULED",
+          "routeId": "29"
+        },
+        "position": {
+          "latitude": 33.657432556152344,
+          "longitude": -117.98849487304688,
+          "bearing": 180,
+>>>>>>> parent of cba6d24 (21)
+          "odometer": 0,
+          "speed": 0
+        },
+        "currentStopSequence": 0,
+        "currentStatus": "INCOMING_AT",
+<<<<<<< HEAD
 <<<<<<< HEAD
         "timestamp": "1785525667",
         "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
@@ -13068,6 +13437,13 @@
           "id": "7635",
           "label": "7635"
 >>>>>>> parent of b03d652 (Well)
+=======
+        "timestamp": "1783757137",
+        "congestionLevel": "UNKNOWN_CONGESTION_LEVEL",
+        "vehicle": {
+          "id": "7632",
+          "label": "7632"
+>>>>>>> parent of cba6d24 (21)
         }
       }
     }
