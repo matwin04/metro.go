@@ -86,69 +86,34 @@
 
                         {{#each events}}
 
-                            <tr>
+                            <td class="scheduled_row">
+                                <time
+                                    class="format-time"
+                                    datetime="{{scheduled_departure}}"
+                                    data-timestamp="{{scheduled_departure}}"
+                                ></time>
+                            </td>
+                            <td class="realtime_row">
+                                {{#if realtime_arrival}}
+                                <time
+                                    class="format-time"
+                                    datetime="{{realtime_arrival}}"
+                                    data-timestamp="{{realtime_arrival}}"
+                                ></time>
 
-                                <td class="route">
-                                    {{#if route_id}}
-                                        {{route_id}}
-                                    {{else}}
-                                        —
-                                    {{/if}}
-                                </td>
+                            {{else}}
+                                —
+                            {{/if}}
+                            </td>
+                            <td>
+                                {{headsign}}
+                            </td>
+                            <td>
+                                {{chateau}}
+                            </td>
 
-
-                                <td class="scheduled">
-                                    {{formatTime scheduled_departure}}
-                                </td>
-
-
-                                <td class="realtime">
-
-                                    {{#if realtime_departure}}
-                                        {{formatTime realtime_departure}}
-                                    {{else}}
-
-                                        <span class="no-realtime">
-                                            —
-                                        </span>
-
-                                    {{/if}}
-
-                                </td>
-
-
-                                <td class="destination">
-                                    {{#if headsign}}
-                                        {{headsign}}
-                                    {{else}}
-                                        —
-                                    {{/if}}
-                                </td>
-
-
-                                <td class="platform">
-
-                                    {{#if platform_code}}
-                                        {{platform_code}}
-                                    {{else}}
-                                        —
-                                    {{/if}}
-
-                                </td>
-
-                            </tr>
-
-                        {{else}}
-
-                            <tr>
-                                <td
-                                    colspan="5"
-                                    class="empty"
-                                >
-                                    No upcoming departures
-                                </td>
-                            </tr>
-
+                        </td>
+                        </tr>
                         {{/each}}
 
                     </tbody>
@@ -160,6 +125,25 @@
         {{/if}}
 
     </main>
+    <script>
+        function formatTime(timestamp) {
+            if (!timestamp) return "—";
+
+            return new Date(Number(timestamp) * 1000).toLocaleTimeString(
+                undefined,
+                {
+                    hour: "numeric",
+                    minute: "2-digit"
+                }
+            );
+        }
+
+        document.querySelectorAll(".format-time").forEach(element => {
+            element.textContent = formatTime(
+                element.dataset.timestamp
+            );
+        });
+    </script>
     <script>
         window.va =
             window.va ||

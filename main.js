@@ -47,6 +47,7 @@ app.engine(
                 return new Date(timestamp * 1000).toLocaleTimeString(
                     "en-US",
                     {
+                        timeZone: "America/Los_Angeles",
                         hour: "numeric",
                         minute: "2-digit"
                     }
@@ -66,6 +67,16 @@ app.use("/views", express.static(path.join(__dirname, "views")));
 app.get("/", async (req, res) => {
     res.render("index");
 });
+/*app.get("/departures/swiftly/:agencyid/:gtfsid", async (req, res) => {
+  try {
+    const { agencyid,gtfs_id } = req.params;
+    const url =
+      `https://api.goswift.ly/real-time/${agencyid}/predictions?stop=${stopid}`;
+    const response = await fetch(url);
+    res:re
+
+  }
+})*/
 app.get("/departures/:osm_station_id", async (req, res) => {
     try {
         const { osm_station_id } = req.params;
@@ -86,7 +97,6 @@ app.get("/departures/:osm_station_id", async (req, res) => {
 
     } catch (err) {
         console.error("Departure error:", err);
-
         res.status(500).render("station", {
             error: err.message,
             station: null,
