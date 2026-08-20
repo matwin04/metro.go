@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {{#if station}}
+            {{station.name}} Departures
+        {{else}}
+            Departures
+        {{/if}}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/public/styles/station.css"
+    >
+</head>
+
+<body>
+
+    <main class="container">
+
+        {{#if error}}
+
+            <section class="error">
+                <h1>Error</h1>
+                <p>{{error}}</p>
+            </section>
+
+        {{else}}
+
+            <header class="station-header">
+
+                <div>
+                    <h1>
+                        {{station.name}}
+                    </h1>
+
+                    <p class="subtitle">
+                        Departures
+                    </p>
+                </div>
+
+                <div class="station-info">
+
+                    {{#if station.mode_type}}
+                        <span>
+                            {{station.mode_type}}
+                        </span>
+                    {{/if}}
+
+                    {{#if station.lat}}
+                        <span>
+                            {{station.lat}},
+                            {{station.lon}}
+                        </span>
+                    {{/if}}
+
+                </div>
+
+            </header>
+
+
+            <section class="departures">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Route</th>
+                            <th>Scheduled</th>
+                            <th>Realtime</th>
+                            <th>Destination</th>
+                            <th>Platform</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {{#each events}}
+
+                            <tr>
+
+                                <td class="route">
+                                    {{#if route_id}}
+                                        {{route_id}}
+                                    {{else}}
+                                        —
+                                    {{/if}}
+                                </td>
+
+
+                                <td class="scheduled">
+                                    {{formatTime scheduled_departure}}
+                                </td>
+
+
+                                <td class="realtime">
+
+                                    {{#if realtime_departure}}
+                                        {{formatTime realtime_departure}}
+                                    {{else}}
+
+                                        <span class="no-realtime">
+                                            —
+                                        </span>
+
+                                    {{/if}}
+
+                                </td>
+
+
+                                <td class="destination">
+                                    {{#if headsign}}
+                                        {{headsign}}
+                                    {{else}}
+                                        —
+                                    {{/if}}
+                                </td>
+
+
+                                <td class="platform">
+
+                                    {{#if platform_code}}
+                                        {{platform_code}}
+                                    {{else}}
+                                        —
+                                    {{/if}}
+
+                                </td>
+
+                            </tr>
+
+                        {{else}}
+
+                            <tr>
+                                <td
+                                    colspan="5"
+                                    class="empty"
+                                >
+                                    No upcoming departures
+                                </td>
+                            </tr>
+
+                        {{/each}}
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+        {{/if}}
+
+    </main>
+
+</body>
+
+</html>

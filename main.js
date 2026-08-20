@@ -33,7 +33,28 @@ const PARTIALS_DIR = path.join(VIEWS_DIR, "partials");
 // =============================================
 
 //setInterval(runAll, 15000);
-app.engine("html", engine({ extname: ".html", defaultLayout: false, partialsDir: PARTIALS_DIR }));
+app.engine(
+    "html",
+    engine({
+        extname: ".html",
+        defaultLayout: false,
+        partialsDir: PARTIALS_DIR,
+
+        helpers: {
+            formatTime(timestamp) {
+                if (!timestamp) return "—";
+
+                return new Date(timestamp * 1000).toLocaleTimeString(
+                    "en-US",
+                    {
+                        hour: "numeric",
+                        minute: "2-digit"
+                    }
+                );
+            }
+        }
+    })
+);
 app.set("view engine", "html");
 app.set("views", VIEWS_DIR);
 
@@ -45,8 +66,36 @@ app.use("/views", express.static(path.join(__dirname, "views")));
 app.get("/", async (req, res) => {
     res.render("index");
 });
-app.get("/api/catenarymaps/departures/:osm_station_id",async (req,res) => {
+app.get("/departures/:osm_station_id", async (req, res) => {
+    try {
+        const { osm_station_id } = req.params;
+        const url =
+            `https://birch.catenarymaps.org/departures_at_osm_station` +
+            `?osm_station_id=${encodeURIComponent(osm_station_id)}` +
+            `&include_shapes=false`;
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Catenary API returned ${response.status}`);
+        }
+        const data = await response.json();
+        res.render("station", {
+            station: data.osm_station,
+            stops: data.stops,
+            events: data.events || []
+        });
 
+    } catch (err) {
+        console.error("Departure error:", err);
+
+        res.status(500).render("station", {
+            error: err.message,
+            station: null,
+            stops: [],
+            events: []
+        });
+    }
+});
+app.get("/api/catenarymaps/departures/:osm_station_id",async (req,res) => {
   try {
     const osm_station_id = req.params.osm_station_id;
     console.log(osm_station_id);
