@@ -77,7 +77,33 @@ app.get("/", async (req, res) => {
 
   }
 })*/
-
+// GET /api/catenarymaps/departures/:chateau/:stopId
+app.get("/departures_stop/:chateau_id/:stop_id", async (req, res) => {
+    try {
+        const { chateau_id, stop_id } = req.params;
+        const url =
+            `https://birchdeparturesfromstop.catenarymaps.org/departures_at_stop` +
+            `?stop_id=${encodeURIComponent(stop_id)}` +
+            `&chateau_id=${encodeURIComponent(chateau_id)}` +
+            `&include_shapes=false`;
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Catenary API returned ${response.status}`);
+        }
+        const data = await response.json();
+        res.render("stops", {
+            stop: data.stop,
+            events: data.events || []
+        });
+    } catch (err) {
+        console.error("Departure error:", err);
+        res.status(500).render("stops", {
+            error: err.message,
+            stop: null,
+            events: []
+        });
+    }
+});
 app.get("/departures/:osm_station_id", async (req, res) => {
     try {
         const { osm_station_id } = req.params;
