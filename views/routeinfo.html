@@ -41,7 +41,9 @@
                 <h2>Stops</h2>
                 <ul class="stop-list">
                     {{#each route.stops}}
-                    <li><span class="stop-id">{{this.id}}</span>{{this.name}}</li>
+                    <li><span class="stop-id"><a href="/departures/{{id}}">{{id}}</a></span>{{this.name}}
+
+                    </li>
                     {{/each}}
                 </ul>
             </section>
@@ -55,7 +57,7 @@
                         <li>
                             <strong>{{@key}}:</strong>
                             {{#each this}}
-                                <span class="route-chip">{{this}}</span>
+                                <a class="route-chip" href="/route/{{@key}}/{{this}}">{{this}}</a>
                             {{/each}}
                         </li>
                         {{/each}}
