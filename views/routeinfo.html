@@ -41,12 +41,13 @@
                 <h2>Stops</h2>
                 <ul class="stop-list">
                     {{#each route.stops}}
-                    <li><span class="stop-id"><a href="/departures/{{id}}">{{id}}</a></span>{{this.name}}
+                    <li><span class="stop-id"><a href="/departures/{{../chateau}}/{{id}}">{{id}}</a></span>{{this.name}}
 
                     </li>
                     {{/each}}
                 </ul>
             </section>
+
             <section>
                 <h2>Connections</h2>
                 {{#each route.connections_per_stop}}

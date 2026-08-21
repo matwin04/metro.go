@@ -77,6 +77,7 @@ app.get("/", async (req, res) => {
 
   }
 })*/
+
 app.get("/departures/:osm_station_id", async (req, res) => {
     try {
         const { osm_station_id } = req.params;
@@ -178,7 +179,6 @@ app.get("/api/catenarymaps/vehicles/:chateau/:route_id", async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
-
 app.get("/testing", async (req, res) => {
     res.render("rawgtfs");
 });
