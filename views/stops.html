@@ -1,110 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{#if stop}}{{stop.name}}{{else}}Stop{{/if}} — MattMaps</title>
-    <link rel="stylesheet" href="/public/styles/main.css" />
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>
+        {{#if stop}}
+            {{stop.name}} Departures
+        {{else}}
+            Departures
+        {{/if}}
+    </title>
+    <link
+        rel="stylesheet"
+        href="/public/styles/main.css"
+    >
 </head>
 <body>
     <main class="container">
         {{#if error}}
-            <div class="error-box">
-                <strong>Couldn't load departures:</strong> {{error}}
-            </div>
-        {{else}}
-            <div class="route-banner">
-                <div class="names">
-                    <h1>{{stop.name}}</h1>
-                    <p>{{stop.chateau}} · Stop {{stop.id}}</p>
-                </div>
-            </div>
-
-            <section>
-                <h2>Departures</h2>
-                <ul class="departure-list">
-                    {{#each events}}
-                    <li class="departure-row{{#if this.trip_cancelled}} cancelled{{/if}}{{#if this.stop_cancelled}} cancelled{{/if}}">
-                        <div class="departure-time">
-                            <span class="scheduled-time" data-epoch="{{this.scheduled_departure}}"></span>
-                            {{#if this.realtime_departure}}
-                            <span class="realtime-time" data-epoch="{{this.realtime_departure}}"></span>
-                            {{/if}}
-                        </div>
-
-                        <a class="route-chip" href="/route/{{this.chateau}}/{{this.route_id}}">{{this.route_id}}</a>
-
-                        <div class="departure-headsign">
-                            {{this.headsign}}
-                            {{#if this.trip_cancelled}}<span class="tag tag-cancelled">Cancelled</span>{{/if}}
-                            {{#if this.trip_modified}}<span class="tag tag-modified">Modified</span>{{/if}}
-                            {{#if this.unscheduled_trip}}<span class="tag tag-unscheduled">Unscheduled</span>{{/if}}
-                        </div>
-
-                        {{#if this.platform_code}}
-                        <div class="departure-platform">Plat. {{this.platform_code}}</div>
-                        {{/if}}
-
-                        <div class="departure-delay" data-scheduled="{{this.scheduled_departure}}" data-realtime="{{this.realtime_departure}}"></div>
-                    </li>
-                    {{else}}
-                    <li class="no-departures">No upcoming departures.</li>
-                    {{/each}}
-                </ul>
+            <section class="error">
+                <h1>Error</h1>
+                <p>{{error}}</p>
             </section>
+        {{else}}
+            <header class="station-header">
+                <div>
+                    <h1>
+                        {{stop.name}}
+                    </h1>
+                    <p class="subtitle">
+                        Departures
+                    </p>
+                </div>
+                <div class="station-info">
+                    {{#if stop.chateau}}
+                        <span>
+                            {{stop.chateau}}
+                        </span>
+                    {{/if}}
+                    {{#if stop.id}}
+                        <span>
+                            Stop {{stop.id}}
+                        </span>
+                    {{/if}}
+                </div>
+            </header>
 
-            <script>
-                // Render epoch (seconds) times in the user's local timezone
-                function formatEpoch(epochSeconds) {
-                    if (!epochSeconds) return "";
-                    const d = new Date(epochSeconds * 1000);
-                    return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-                }
-
-                function delayColor(delaySeconds) {
-                    if (delaySeconds === null || delaySeconds === undefined) return "#888888";
-                    if (delaySeconds < 60) return "#2e7d32";
-                    if (delaySeconds < 300) return "#f9a825";
-                    if (delaySeconds < 600) return "#ef6c00";
-                    return "#c62828";
-                }
-
-                document.querySelectorAll(".scheduled-time, .realtime-time").forEach(el => {
-                    const epoch = parseInt(el.dataset.epoch, 10);
-                    if (epoch) el.textContent = formatEpoch(epoch);
-                });
-
-                document.querySelectorAll(".departure-delay").forEach(el => {
-                    const scheduled = parseInt(el.dataset.scheduled, 10);
-                    const realtime = parseInt(el.dataset.realtime, 10);
-                    if (!scheduled || !realtime) {
-                        el.textContent = "Scheduled";
-                        el.style.color = "#888888";
-                        return;
-                    }
-                    const delaySeconds = realtime - scheduled;
-                    const mins = Math.round(delaySeconds / 60);
-                    el.textContent = mins === 0 ? "On time" : `${mins > 0 ? "+" : ""}${mins} min`;
-                    el.style.color = delayColor(delaySeconds);
-                });
-
-                // Live refresh every 15s, matching the route-info page's polling interval
-                async function refreshDepartures() {
-                    const chateau = "{{stop.chateau}}";
-                    const stopId = "{{stop.id}}";
-                    try {
-                        const res = await fetch(`/departures_stop/${encodeURIComponent(chateau)}/${encodeURIComponent(stopId)}?include_shapes=false`);
-                        if (!res.ok) return;
-                        // Full DOM diffing/re-render left for you to wire into your
-                        // existing render pipeline (e.g. re-fetch the page fragment,
-                        // or swap this for a client-side templating pass).
-                    } catch (err) {
-                        console.error("Departure refresh failed:", err);
-                    }
-                }
-                setInterval(refreshDepartures, 15000);
-            </script>
+            <section class="departures">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Route</th>
+                            <th>Scheduled</th>
+                            <th>Realtime</th>
+                            <th>Destination</th>
+                            <th>Platform</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each events}}
+                        <tr class="{{#if this.trip_cancelled}}cancelled{{/if}}{{#if this.stop_cancelled}}cancelled{{/if}}">
+                            <td class="route_row">
+                                <a href="/route/{{this.chateau}}/{{this.route_id}}">{{this.route_id}}</a>
+                            </td>
+                            <td class="scheduled_row">
+                                <time
+                                    class="format-time"
+                                    datetime="{{this.scheduled_departure}}"
+                                    data-timestamp="{{this.scheduled_departure}}"
+                                ></time>
+                            </td>
+                            <td class="realtime_row">
+                                {{#if this.realtime_departure}}
+                                <time
+                                    class="format-time"
+                                    datetime="{{this.realtime_departure}}"
+                                    data-timestamp="{{this.realtime_departure}}"
+                                ></time>
+                                {{else}}
+                                    —
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{this.headsign}}
+                                {{#if this.trip_cancelled}}<span class="tag tag-cancelled">Cancelled</span>{{/if}}
+                                {{#if this.trip_modified}}<span class="tag tag-modified">Modified</span>{{/if}}
+                            </td>
+                            <td>
+                                {{#if this.platform_string_realtime}}
+                                    {{this.platform_string_realtime}}
+                                {{else}}
+                                    {{#if this.platform_code}}
+                                        {{this.platform_code}}
+                                    {{else}}
+                                        —
+                                    {{/if}}
+                                {{/if}}
+                            </td>
+                        </tr>
+                        {{else}}
+                        <tr>
+                            <td colspan="5" class="no-departures">No upcoming departures.</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </section>
         {{/if}}
     </main>
+    <script>
+        function formatTime(timestamp) {
+            if (!timestamp) return "—";
+            return new Date(Number(timestamp) * 1000).toLocaleTimeString(
+                undefined,
+                {
+                    hour: "numeric",
+                    minute: "2-digit"
+                }
+            );
+        }
+        document.querySelectorAll(".format-time").forEach(element => {
+            element.textContent = formatTime(
+                element.dataset.timestamp
+            );
+        });
+    </script>
+    <script>
+        window.va =
+            window.va ||
+            function () {
+                (window.vaq = window.vaq || []).push(arguments);
+            };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
