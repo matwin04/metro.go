@@ -7,6 +7,81 @@
     <link rel="stylesheet" href="/public/styles/main.css" />
     <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
 
+    {{#unless error}}
+    <style>
+        /*
+          Route-specific theme, driven by this route's GTFS route_color /
+          route_text_color. Falls back to a neutral slate if the feed
+          doesn't supply one. Scoped as CSS vars so it composes with
+          main.css instead of overriding it wholesale.
+        */
+        :root {
+            --route-color: #{{#if route.color}}{{route.color}}{{else}}444444{{/if}};
+            --route-text-color: #{{#if route.text_color}}{{route.text_color}}{{else}}FFFFFF{{/if}};
+            --route-color-dark: color-mix(in srgb, var(--route-color) 70%, black);
+            --route-color-soft: color-mix(in srgb, var(--route-color) 15%, white);
+        }
+
+        .route-banner {
+            background: linear-gradient(135deg, var(--route-color), var(--route-color-dark));
+            color: var(--route-text-color);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+        }
+
+        .route-banner .badge {
+            background: var(--route-text-color);
+            color: var(--route-color-dark);
+            border: 2px solid var(--route-text-color);
+        }
+
+        .route-banner .names p {
+            color: var(--route-text-color);
+            opacity: 0.85;
+        }
+
+        .route-meta .stat label {
+            color: var(--route-color-dark);
+        }
+
+        .route-meta .stat {
+            border-left: 3px solid var(--route-color);
+            padding-left: 0.6rem;
+        }
+
+        section h2 {
+            display: inline-block;
+            border-bottom: 3px solid var(--route-color);
+            padding-bottom: 0.2rem;
+        }
+
+        .stop-list .stop-id a {
+            color: var(--route-color-dark);
+            font-weight: 600;
+        }
+
+        .stop-list .stop-id a:hover {
+            color: var(--route-color);
+        }
+
+        .route-chip {
+            display: inline-block;
+            background: var(--route-color-soft);
+            color: var(--route-color-dark);
+            border: 1px solid var(--route-color);
+            border-radius: 999px;
+            padding: 0.1rem 0.6rem;
+            margin: 0.15rem;
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+
+        .route-chip:hover {
+            background: var(--route-color);
+            color: var(--route-text-color);
+        }
+    </style>
+    {{/unless}}
 </head>
 <body>
     <main class="container">
@@ -47,10 +122,8 @@
                     {{/each}}
                 </ul>
             </section>
-
             <section>
                 <h2>Connections</h2>
-
                 {{#each route.connections_per_stop}}
                 <div class="connection-stop">
                     <h3>Stop {{@key}}</h3>
@@ -70,6 +143,12 @@
             <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
             <script>
                 const routeData = {{{routeJson}}};
+
+                // GTFS route_color comes back as a bare hex string (no '#').
+                // Prefix it once here so every consumer below gets a valid CSS color.
+                const routeHexColor = routeData && routeData.color
+                    ? (routeData.color.startsWith("#") ? routeData.color : `#${routeData.color}`)
+                    : "#444444";
 
                 const map = new maplibregl.Map({
                     container: "route-map",
@@ -102,7 +181,7 @@
                         source: "route-stops",
                         paint: {
                             "circle-radius": 6,
-                            "circle-color": routeData.color || "#444444",
+                            "circle-color": routeHexColor,
                             "circle-stroke-width": 2,
                             "circle-stroke-color": "#ffffff"
                         }
