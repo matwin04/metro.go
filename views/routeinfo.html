@@ -50,15 +50,16 @@
 
             <section>
                 <h2>Connections</h2>
+
                 {{#each route.connections_per_stop}}
                 <div class="connection-stop">
                     <h3>Stop {{@key}}</h3>
                     <ul class="connection-agencies">
-                        {{#each this}}
+                        {{#each this as |routeIds agency|}}
                         <li>
-                            <strong>{{@key}}:</strong>
-                            {{#each this}}
-                                <a class="route-chip" href="/route/{{@key}}/{{this}}">{{this}}</a>
+                            <strong>{{agency}}:</strong>
+                            {{#each routeIds}}
+                                <a class="route-chip" href="/route/{{agency}}/{{this}}">{{this}}</a>
                             {{/each}}
                         </li>
                         {{/each}}
