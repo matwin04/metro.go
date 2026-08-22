@@ -501,7 +501,7 @@ main .sidebar::-webkit-scrollbar-thumb {
    .leaflet-popup-* and a slightly different structure)
 ============================================= */
 .leaflet-popup-content-wrapper {
-    background: var(--surface) !important;
+    background: #ffffff !important;
     border: 1px solid var(--border) !important;
     border-radius: var(--radius-md) !important;
     padding: 0 !important;
@@ -513,12 +513,13 @@ main .sidebar::-webkit-scrollbar-thumb {
     min-width: 230px;
     max-width: 290px;
     font-family: "FF DIN Pro", sans-serif;
+    color: #000000;
 }
 .leaflet-popup-tip-container {
     /* Leaflet nests the tip in its own container; color the tip itself below */
 }
 .leaflet-popup-tip {
-    background: var(--surface) !important;
+    background: #ffffff !important;
     box-shadow: none !important;
 }
 .leaflet-popup-close-button {
@@ -552,7 +553,7 @@ main .sidebar::-webkit-scrollbar-thumb {
 /* ── Popup shell ── */
 .popup {
     padding: 0;
-    color: var(--text);
+    color: #000000;
     font-family: "FF DIN Pro", sans-serif;
     font-size: 0.82rem;
 }
@@ -563,15 +564,15 @@ main .sidebar::-webkit-scrollbar-thumb {
     align-items: center;
     gap: 8px;
     padding: 11px 14px 10px;
-    border-bottom: 1px solid var(--border);
-    background: var(--surface-alt);
+    border-bottom: 1px solid #e2e2e6;
+    background: #f7f7f9;
     justify-content: flex-start;
     width: auto;
 }
 .popup-title {
     font-size: 0.88rem;
     font-weight: 700;
-    color: var(--text);
+    color: #000000;
     flex: 1;
     line-height: 1.2;
 }
@@ -604,9 +605,9 @@ main .sidebar::-webkit-scrollbar-thumb {
     font-size: 0.8rem;
     line-height: 1.3;
 }
-.popup-row-label { color: var(--text-faint); }
+.popup-row-label { color: #000000; }
 .popup-row-value {
-    color: var(--text-dim);
+    color: #000000;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
 }
@@ -903,9 +904,7 @@ main.container section h2 {
     font-size: 0.8rem;
     color: var(--text-dim);
 }
-.popup {
-    color: black;
-}
+
 #station-map {
     width: 100%;
     height: 320px;
@@ -942,4 +941,3 @@ main.container section h2 {
     color: var(--status-late);
     margin-top: 0;
 }
-.map-libre-
