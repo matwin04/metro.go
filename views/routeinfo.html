@@ -16,8 +16,8 @@
           main.css instead of overriding it wholesale.
         */
         :root {
-            --route-color: #{{#if route.color}}{{route.color}}{{else}}444444{{/if}};
-            --route-text-color: #{{#if route.text_color}}{{route.text_color}}{{else}}FFFFFF{{/if}};
+            --route-color: {{#if route.color}}{{route.color}}{{else}}444444{{/if}};
+            --route-text-color: {{#if route.text_color}}{{route.text_color}}{{else}}FFFFFF{{/if}};
             --route-color-dark: color-mix(in srgb, var(--route-color) 70%, black);
             --route-color-soft: color-mix(in srgb, var(--route-color) 15%, white);
         }
@@ -240,7 +240,7 @@
                     const stops = Object.values(routeData.stops).filter(s => s.location_type === 0);
                     if (!stops.length) return;
 
-                    const geojson = {
+                    const geojsonstops = {
                         type: "FeatureCollection",
                         features: stops.map(s => ({
                             type: "Feature",
@@ -249,7 +249,7 @@
                         }))
                     };
 
-                    map.addSource("route-stops", { type: "geojson", data: geojson });
+                    map.addSource("route-stops", { type: "geojson", data: geojsonstops });
 
                     map.addLayer({
                         id: "route-stops-circle",

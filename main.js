@@ -67,17 +67,6 @@ app.use("/views", express.static(path.join(__dirname, "views")));
 app.get("/", async (req, res) => {
     res.render("index");
 });
-/*app.get("/departures/swiftly/:agencyid/:gtfsid", async (req, res) => {
-  try {
-    const { agencyid,gtfs_id } = req.params;
-    const url =
-      `https://api.goswift.ly/real-time/${agencyid}/predictions?stop=${stopid}`;
-    const response = await fetch(url);
-    res:re
-
-  }
-})*/
-// GET /api/catenarymaps/departures/:chateau/:stopId
 app.get("/departures_stop/:chateau_id/:stop_id", async (req, res) => {
     try {
         const { chateau_id, stop_id } = req.params;
@@ -205,6 +194,7 @@ app.get("/api/catenarymaps/vehicles/:chateau/:route_id", async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
 app.get("/testing", async (req, res) => {
     res.render("rawgtfs");
 });
