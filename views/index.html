@@ -1,26 +1,25 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>MetroGO! Transit Map</title>
-        <link rel="icon" type="image/svg+xml" href="/public/icons/favicon.ico" />
-        <link rel="stylesheet" href="public/styles/main.css" />
-        <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ee8066ccd1024fe7901f5f9910e52f36"}'></script><!-- End Cloudflare Web Analytics -->
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MetroGO! Transit Map</title>
+    <link rel="icon" type="image/svg+xml" href="/public/icons/favicon.ico" />
+    <link rel="stylesheet" href="/public/styles/main.css" />
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_ACTUAL_TOKEN"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+
+    <!-- Vercel Web Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
     <body>
         {{> navbar}}
-        <header>
 
-            <script>
-                window.va =
-                    window.va ||
-                    function () {
-                        (window.vaq = window.vaq || []).push(arguments);
-                    };
-            </script>
-            <script defer src="/_vercel/insights/script.js"></script>
-        </header>
         <main>
             <div class="hero">
                 API for Public Transportation Departure Widgets for iOS using Widgy
@@ -107,14 +106,6 @@
                             </div>
         </main>
 
-        <script>
-            window.va =
-                window.va ||
-                function () {
-                    (window.vaq = window.vaq || []).push(arguments);
-                };
-        </script>
-        <script defer src="/_vercel/insights/script.js"></script>
-        <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "35b2170be4824033bf6aeb1bd7d1938b"}'></script><!-- End Cloudflare Web Analytics -->
+       
     </body>
 </html>
