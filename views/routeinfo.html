@@ -254,7 +254,8 @@
                                 .setLngLat([pos.longitude, pos.latitude])
                                 .setPopup(
                                     new maplibregl.Popup({ offset: 12 }).setHTML(
-                                        `<strong>${label}</strong>${headsign ? `<br>${headsign}` : ""}` +
+                                        `<div class="popup">
+                                          <strong>${label}</strong>${headsign ? `<br>${headsign}` : ""}</div>` +
                                         (delay !== null ? `<br>${delay >= 0 ? "+" : ""}${Math.round(delay / 60)} min` : "")
                                     )
                                 )
