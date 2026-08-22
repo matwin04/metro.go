@@ -13,7 +13,7 @@
           Route-specific theme, driven by this route's GTFS route_color /
           route_text_color. Falls back to a neutral slate if the feed
           doesn't supply one. Scoped as CSS vars so it composes with
-          main.css instead of overriding it wholesale.
+          main.css instead of ovsderriding it wholesale.
         */
         :root {
             --route-color: {{#if route.color}}{{route.color}}{{else}}444444{{/if}};
