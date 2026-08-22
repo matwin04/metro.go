@@ -80,6 +80,58 @@
             background: var(--route-color);
             color: var(--route-text-color);
         }
+
+        /* Active vehicles table */
+        .vehicle-table-wrap {
+            overflow-x: auto;
+        }
+
+        table.vehicle-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        table.vehicle-table caption {
+            text-align: left;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-bottom: 0.4rem;
+        }
+
+        table.vehicle-table th {
+            text-align: left;
+            border-bottom: 2px solid var(--route-color);
+            padding: 0.4rem 0.6rem;
+            color: var(--route-color-dark);
+        }
+
+        table.vehicle-table td {
+            padding: 0.4rem 0.6rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            vertical-align: middle;
+        }
+
+        table.vehicle-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .vehicle-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+            vertical-align: middle;
+            margin-right: 0.4rem;
+        }
+
+        .vehicle-table-empty {
+            padding: 0.75rem 0.6rem;
+            opacity: 0.7;
+            font-style: italic;
+        }
     </style>
     {{/unless}}
 </head>
@@ -140,7 +192,30 @@
                 </div>
                 {{/each}}
             </section>
-            {{#each }}
+
+            <section>
+                <h2>Active Vehicles</h2>
+                <div class="vehicle-table-wrap">
+                    <table class="vehicle-table" id="vehicle-table">
+                        <caption>Live positions, refreshed every 10 seconds</caption>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Vehicle</th>
+                                <th>Headsign</th>
+                                <th>Delay</th>
+                                <th>Position</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vehicle-table-body">
+                            <tr>
+                                <td colspan="5" class="vehicle-table-empty">Loading vehicles…</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
             <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
             <script>
                 const routeData = {{{routeJson}}};
@@ -223,6 +298,53 @@
                     return "#c62828";                              // extreme delay
                 }
 
+                function formatDelay(delaySeconds) {
+                    if (delaySeconds === null || delaySeconds === undefined) return "—";
+                    const mins = Math.round(delaySeconds / 60);
+                    if (mins === 0) return "On time";
+                    return `${mins > 0 ? "+" : ""}${mins} min`;
+                }
+
+                function escapeHtml(str) {
+                    return String(str)
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;")
+                        .replace(/"/g, "&quot;");
+                }
+
+                function renderVehicleTable(vehiclePositions) {
+                    const tbody = document.getElementById("vehicle-table-body");
+                    if (!tbody) return;
+
+                    const entries = Object.entries(vehiclePositions);
+
+                    if (!entries.length) {
+                        tbody.innerHTML = `<tr><td colspan="5" class="vehicle-table-empty">No active vehicles right now</td></tr>`;
+                        return;
+                    }
+
+                    tbody.innerHTML = entries.map(([vehicleId, v]) => {
+                        const pos = v.position || {};
+                        const label = (v.vehicle && v.vehicle.label) || vehicleId;
+                        const headsign = (v.trip && v.trip.trip_headsign) ? v.trip.trip_headsign.trim() : "—";
+                        const delay = v.trip ? v.trip.delay : null;
+                        const color = delayColor(delay);
+                        const lat = pos.latitude !== undefined ? pos.latitude.toFixed(4) : "—";
+                        const lon = pos.longitude !== undefined ? pos.longitude.toFixed(4) : "—";
+
+                        return `
+                            <tr>
+                                <td><span class="vehicle-dot" style="background:${color}"></span></td>
+                                <td>${escapeHtml(label)}</td>
+                                <td>${escapeHtml(headsign)}</td>
+                                <td>${escapeHtml(formatDelay(delay))}</td>
+                                <td>${lat}, ${lon}</td>
+                            </tr>
+                        `;
+                    }).join("");
+                }
+
                 async function updateVehicles() {
                     try {
                         const res = await fetch(`/api/catenarymaps/vehicles/${encodeURIComponent(chateau)}/${encodeURIComponent(routeId)}`);
@@ -264,6 +386,8 @@
 
                             vehicleMarkers.push(marker);
                         });
+
+                        renderVehicleTable(vehiclePositions);
                     } catch (err) {
                         console.error("Vehicle update failed:", err);
                     }
@@ -274,8 +398,6 @@
                     setInterval(updateVehicles, 10000);
                 });
             </script>
-
-
         {{/if}}
     </main>
     <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "35b2170be4824033bf6aeb1bd7d1938b"}'></script><!-- End Cloudflare Web Analytics -->
