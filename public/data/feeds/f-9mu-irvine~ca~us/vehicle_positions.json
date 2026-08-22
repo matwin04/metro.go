@@ -2,7 +2,7 @@
   "header": {
     "gtfsRealtimeVersion": "2.0",
     "incrementality": "FULL_DATASET",
-    "timestamp": "1783468112"
+    "timestamp": "1785525722"
   },
   "entity": [
     {
@@ -10,24 +10,24 @@
       "vehicle": {
         "trip": {
           "tripId": "919694",
-          "startTime": "16:44:00",
-          "startDate": "20260707",
+          "startTime": "10:36:00",
+          "startDate": "20260731",
           "routeId": "5956"
         },
         "position": {
-          "latitude": 33.655025482177734,
-          "longitude": -117.73617553710938,
-          "bearing": 44.79999923706055,
-          "speed": 13.684222221374512
+          "latitude": 33.67695999145508,
+          "longitude": -117.80367279052734,
+          "bearing": 39.5,
+          "speed": 1.6100000143051147
         },
-        "currentStopSequence": 94,
-        "timestamp": "1783468110",
-        "stopId": "157583",
+        "currentStopSequence": 2,
+        "timestamp": "1785525721",
+        "stopId": "157584",
         "vehicle": {
-          "id": "20322",
-          "label": "1835"
+          "id": "21068",
+          "label": "1831"
         },
-        "occupancyStatus": "STANDING_ROOM_ONLY"
+        "occupancyStatus": "MANY_SEATS_AVAILABLE"
       }
     },
     {
@@ -35,22 +35,21 @@
       "vehicle": {
         "trip": {
           "tripId": "919694",
-          "startTime": "15:58:00",
-          "startDate": "20260707",
+          "startTime": "10:59:00",
+          "startDate": "20260731",
           "routeId": "5956"
         },
         "position": {
-          "latitude": 33.677146911621094,
-          "longitude": -117.8063735961914,
-          "bearing": 303.70001220703125,
-          "speed": 12.809666633605957
+          "latitude": 33.68927001953125,
+          "longitude": -117.7853775024414,
+          "bearing": 220.10000610351562
         },
-        "currentStopSequence": 22,
-        "timestamp": "1783468111",
-        "stopId": "157648",
+        "currentStopSequence": 68,
+        "timestamp": "1785525720",
+        "stopId": "157667",
         "vehicle": {
-          "id": "20324",
-          "label": "1836"
+          "id": "20322",
+          "label": "1835"
         },
         "occupancyStatus": "FEW_SEATS_AVAILABLE"
       }
@@ -60,20 +59,21 @@
       "vehicle": {
         "trip": {
           "tripId": "919694",
+          "startTime": "11:22:00",
+          "startDate": "20260731",
           "routeId": "5956"
         },
         "position": {
-          "latitude": 33.71208190917969,
-          "longitude": -117.76337432861328,
-          "bearing": 217.89999389648438,
-          "speed": 14.815999984741211
+          "latitude": 33.72948455810547,
+          "longitude": -117.75176239013672,
+          "bearing": 299.6000061035156
         },
-        "currentStopSequence": 62,
-        "timestamp": "1783468108",
-        "stopId": "157627",
+        "currentStopSequence": 55,
+        "timestamp": "1785525717",
+        "stopId": "198260",
         "vehicle": {
-          "id": "20325",
-          "label": "1837"
+          "id": "20324",
+          "label": "1836"
         },
         "occupancyStatus": "FEW_SEATS_AVAILABLE"
       }
@@ -83,24 +83,24 @@
       "vehicle": {
         "trip": {
           "tripId": "919694",
-          "startTime": "15:52:00",
-          "startDate": "20260707",
+          "startTime": "11:45:00",
+          "startDate": "20260731",
           "routeId": "5956"
         },
         "position": {
-          "latitude": 33.66224670410156,
-          "longitude": -117.77308654785156,
-          "bearing": 37.5,
-          "speed": 5.916110992431641
+          "latitude": 33.70110321044922,
+          "longitude": -117.77417755126953,
+          "bearing": 56,
+          "speed": 7.04788875579834
         },
-        "currentStopSequence": 12,
-        "timestamp": "1783468109",
-        "stopId": "157680",
+        "currentStopSequence": 34,
+        "timestamp": "1785525722",
+        "stopId": "157658",
         "vehicle": {
-          "id": "20303",
-          "label": "1838"
+          "id": "20325",
+          "label": "1837"
         },
-        "occupancyStatus": "CRUSHED_STANDING_ROOM_ONLY"
+        "occupancyStatus": "FEW_SEATS_AVAILABLE"
       }
     },
     {
@@ -108,24 +108,23 @@
       "vehicle": {
         "trip": {
           "tripId": "919694",
-          "startTime": "14:49:00",
-          "startDate": "20260707",
+          "startTime": "11:22:00",
+          "startDate": "20260731",
           "routeId": "5956"
         },
         "position": {
-          "latitude": 33.7120361328125,
-          "longitude": -117.7577133178711,
-          "bearing": 128.8000030517578,
-          "speed": 14.404444694519043
+          "latitude": 33.65910720825195,
+          "longitude": -117.77320861816406,
+          "bearing": 314.3999938964844
         },
-        "currentStopSequence": 48,
-        "timestamp": "1783468107",
-        "stopId": "198254",
+        "currentStopSequence": 12,
+        "timestamp": "1785525719",
+        "stopId": "157680",
         "vehicle": {
           "id": "20326",
           "label": "1839"
         },
-        "occupancyStatus": "NOT_ACCEPTING_PASSENGERS"
+        "occupancyStatus": "MANY_SEATS_AVAILABLE"
       }
     },
     {
@@ -133,19 +132,16 @@
       "vehicle": {
         "trip": {
           "tripId": "919694",
-          "startTime": "14:49:00",
-          "startDate": "20260707",
           "routeId": "5956"
         },
         "position": {
-          "latitude": 33.67623519897461,
-          "longitude": -117.79349517822266,
-          "bearing": 88.80000305175781,
-          "speed": 16.30788803100586
+          "latitude": 33.656856536865234,
+          "longitude": -117.7328872680664,
+          "bearing": 323.3999938964844
         },
-        "currentStopSequence": 80,
-        "timestamp": "1783468109",
-        "stopId": "157645",
+        "currentStopSequence": 2,
+        "timestamp": "1785525721",
+        "stopId": "157584",
         "vehicle": {
           "id": "20321",
           "label": "1840"

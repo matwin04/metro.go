@@ -11,7 +11,7 @@
     <body>
         {{> navbar}}
         <header>
-            
+
             <script>
                 window.va =
                     window.va ||
@@ -23,28 +23,90 @@
         </header>
         <main>
             <div class="hero">
-                <h1>LA Metro Map / Resources</h1>
-                <p>This is not a offical LA Metro map but a transit advocates fun project</p>
-
+                API for Public Transportation Departure Widgets for iOS using Widgy
+                Converted from other apis to human readable and easier to use format
             </div>
-
-            <div class="cards">
-                <div class="card">
-                    <h3>Routes</h3>
-                    <p>Access sample JSON data through our REST API. Perfect for testing and development purposes.</p>
-                    <a href="/routes">Routes</a>
-                </div>
-                <div class="card">
-                    <h3>Maps</h3>
-                    <a href="/transit">Transit Map</a>
-                    <span class="mdi mdi-bikes"></span>
-                    <a href="/bikes">Bikeshare Map</a>
-                </div>
-            </div>
-
+            <a href="/departures/13156942550">LA Metro San Dimas</a>
+            <div class="route-group">
+                        <h2>Pages</h2>
+                        <ul class="route-list">
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/departures/:osm_station_id</code>
+                                <span class="desc">Departure board for a station</span>
+                                <a href="/departures/268547062">/departures/268547062</a>
+                            </li>
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/route/:chateau/:route_id</code>
+                                <span class="desc">Route info + map</span>
+                                <a href="/route/metro~losangeles/802">/route/metro~losangeles/802</a>
+                            </li>
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/maps</code>
+                                <span class="desc">Main map view</span>
+                                <a href="/maps">/maps</a>
+                            </li>
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/maps/bikemap</code>
+                                <span class="desc">GBFS bikeshare map</span>
+                                <a href="/maps/bikemap">/maps/bikemap</a>
+                            </li>
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/maps/transit</code>
+                                <span class="desc">Transitland vector tile map</span>
+                                <a href="/maps/transit">/maps/transit</a>
+                            </li>
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/departures</code>
+                                <span class="desc">Departure board (no station selected)</span>
+                                <a href="/departures">/departures</a>
+                            </li>
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/testing</code>
+                                <span class="desc">Raw GTFS testing page</span>
+                                <a href="/testing">/testing</a>
+                            </li>
+                            <li>
+                                <span class="method">GET</span>
+                                <code>/about</code>
+                                <span class="desc">About this project</span>
+                                <a href="/about">/about</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="route-group">
+                                <h2>Catenary Maps API</h2>
+                                <ul class="route-list">
+                                    <li>
+                                        <span class="method">GET</span>
+                                        <code>/api/catenarymaps/departures/:osm_station_id</code>
+                                        <span class="desc">All upcoming departures (JSON)</span>
+                                        <a href="/api/catenarymaps/departures/268547062">/api/catenarymaps/departures/268547062</a>
+                                    </li>
+                                    <li>
+                                        <span class="method">GET</span>
+                                        <code>/api/catenarymaps/departures/:osm_station_id/:n</code>
+                                        <span class="desc">Nth upcoming departure (1 = next)</span>
+                                        <a href="/api/catenarymaps/departures/268547062/1">/api/catenarymaps/departures/268547062/1</a>
+                                        <a href="/api/catenarymaps/departures/268547062/2">/2</a>
+                                        <a href="/api/catenarymaps/departures/268547062/3">/3</a>
+                                    </li>
+                                    <li>
+                                        <span class="method">GET</span>
+                                        <code>/api/catenarymaps/route_info/:chateau/:route_id</code>
+                                        <span class="desc">Route info (JSON)</span>
+                                        <a href="/api/catenarymaps/route_info/metro~losangeles/802">/api/catenarymaps/route_info/metro~losangeles/802</a>
+                                    </li>
+                                </ul>
+                            </div>
         </main>
-        <script type="module" src="/public/scripts/metro.js"></script>
-        <a href="/api/agencies">Agencies</a>
+
         <script>
             window.va =
                 window.va ||
@@ -53,5 +115,6 @@
                 };
         </script>
         <script defer src="/_vercel/insights/script.js"></script>
+        <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "35b2170be4824033bf6aeb1bd7d1938b"}'></script><!-- End Cloudflare Web Analytics -->
     </body>
 </html>
