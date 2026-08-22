@@ -191,7 +191,11 @@
                     map.on("mouseenter", "route-stops-circle", (e) => {
                         map.getCanvas().style.cursor = "pointer";
                         const f = e.features[0];
-                        stopPopup.setLngLat(f.geometry.coordinates).setHTML(`<strong>${f.properties.name}</strong>`).addTo(map);
+                        stopPopup.setLngLat(f.geometry.coordinates).setHTML(`
+                          <div class="popup">
+                          <strong>${f.properties.name}</strong>
+                          </div>
+                        `).addTo(map);
                     });
                     map.on("mouseleave", "route-stops-circle", () => {
                         map.getCanvas().style.cursor = "";

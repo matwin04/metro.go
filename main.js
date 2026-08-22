@@ -85,7 +85,7 @@ app.get("/departures_stop/:chateau_id/:stop_id", async (req, res) => {
             `https://birchdeparturesfromstop.catenarymaps.org/departures_at_stop` +
             `?stop_id=${encodeURIComponent(stop_id)}` +
             `&chateau_id=${encodeURIComponent(chateau_id)}` +
-            `&include_shapes=false`;
+            `&include_shapes=true`;
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Catenary API returned ${response.status}`);
@@ -110,7 +110,7 @@ app.get("/departures/:osm_station_id", async (req, res) => {
         const url =
             `https://birch.catenarymaps.org/departures_at_osm_station` +
             `?osm_station_id=${encodeURIComponent(osm_station_id)}` +
-            `&include_shapes=false`;
+            `&include_shapes=true`;
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Catenary API returned ${response.status}`);
