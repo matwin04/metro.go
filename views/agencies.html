@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/public/styles/main.css">
+
+</head>
+<body>
+{{> navbar}}
+<table class="table">
+    <thead></thead>
+    <tbody>
+    {{#each routes}}
+    <tr>
+        <td>{{route_id}}</td>
+        <td>{{short_name}}</td>
+        <td>{{long_name}}</td>
+        <td>{{agency_id}}</td>
+    </tr>
+
+    {{/each}}
+    </tbody>
+</table>
+<script>
+    window.va =
+        window.va ||
+        function () {
+            (window.vaq = window.vaq || []).push(arguments);
+        };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "35b2170be4824033bf6aeb1bd7d1938b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

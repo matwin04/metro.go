@@ -68,6 +68,23 @@ export async function getRealtimeVehiclesForRoute(chateau, routeId, lastUpdatedT
 
     return response.json();
 }
+export async function getAgencyRoutes(chateau) {
+    const url = `https://birch_routesfetch.catenarymaps.org/getroutesofchateauwithagency/${chateau}`;
+    const options = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: '{"agency_filter":null}'
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
 export async function getRouteInfo(chateau, routeId) {
   const url = `https://birch.catenarymaps.org/route_info_v2?chateau=${chateau}&route_id=${routeId}`;
   const options = { method: 'GET' };
