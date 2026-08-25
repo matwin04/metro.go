@@ -63,9 +63,13 @@
                     <tbody>
                         {{#each events}}
                         <tr class="{{#if this.trip_cancelled}}cancelled{{/if}}{{#if this.stop_cancelled}}cancelled{{/if}}">
+                            <td>
+                                <img class="icon" src="https://logos.metrogo.app/api/{{this.chateau}}/main.svg" alt=""/>
+                            </td>
                             <td class="route_row">
-                                <a href="/route/{{this.chateau}}/{{this.route_id}}">{{this.route_id}}</a>
-                                <img class="icon" src="https://logos.metrogo.app/api/{{this.chateau}}/routes/{{this.route_id}}.svg" alt="">
+                                <a href="/route/{{this.chateau}}/{{this.route_id}}">
+                                    <img class="icon" src="https://logos.metrogo.app/api/{{this.chateau}}/routes/{{this.route_id}}.svg" alt=""/>
+                                </a>
                             </td>
                             <td class="scheduled_row">
                                 <time
