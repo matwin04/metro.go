@@ -7,29 +7,29 @@
 ============================================= */
 :root {
     /* Surfaces */
-    --bg:            #14161d;
-    --surface:        #1a1d2a;
-    --surface-alt:    #1e2133;
+    --bg: #14161d;
+    --surface: #1a1d2a;
+    --surface-alt: #1e2133;
     --surface-raised: #20232f;
 
     /* Borders / dividers */
-    --border:      #262a3a;
+    --border: #262a3a;
     --border-soft: #1e2030;
 
     /* Text */
-    --text:      #e8eaf0;
-    --text-dim:  #8b90a8;
+    --text: #e8eaf0;
+    --text-dim: #8b90a8;
     --text-faint: #5a6080;
 
     /* Accent — signal blue, reads like a transit line color */
-    --accent:       #4f7fff;
+    --accent: #4f7fff;
     --accent-bright: #63b3ed;
 
     /* Delay-status semantics (also used for train/bus signal icons) */
-    --status-ontime:  #2e9e52;
-    --status-early:   #2f80d6;
-    --status-mild:    #e08a00;
-    --status-late:    #e0403f;
+    --status-ontime: #2e9e52;
+    --status-early: #2f80d6;
+    --status-mild: #e08a00;
+    --status-late: #e0403f;
     --status-extreme: #b0201f;
 
     /* Fallback route color — used when a route/agency doesn't supply its own
@@ -66,7 +66,9 @@
     font-display: swap;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -80,7 +82,8 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-a, button {
+a,
+button {
     font-family: inherit;
 }
 
@@ -95,11 +98,21 @@ a, button {
     font-size: 0.85rem;
     color: #000;
 }
-.depart-soon   { background-color: var(--status-ontime); }
-.depart-medium { color: var(--status-mild); }
-.depart-late   { color: var(--status-late); }
-.bike-popup strong { color: var(--accent-bright); }
-.route-icon { width: 36px; }
+.depart-soon {
+    background-color: var(--status-ontime);
+}
+.depart-medium {
+    color: var(--status-mild);
+}
+.depart-late {
+    color: var(--status-late);
+}
+.bike-popup strong {
+    color: var(--accent-bright);
+}
+.route-icon {
+    width: 36px;
+}
 
 /* --- Header & Navigation --- */
 header {
@@ -125,14 +138,18 @@ nav {
     text-decoration: none;
     transition: color 0.15s var(--ease);
 }
-.logo:hover { color: var(--accent-bright); }
+.logo:hover {
+    color: var(--accent-bright);
+}
 .nav-links a {
     color: var(--text-dim);
     text-decoration: none;
     padding: 8px 15px;
     margin-left: 6px;
     border-radius: var(--radius-sm);
-    transition: background-color 0.15s var(--ease), color 0.15s var(--ease);
+    transition:
+        background-color 0.15s var(--ease),
+        color 0.15s var(--ease);
     font-weight: 500;
     font-size: 0.9rem;
 }
@@ -181,12 +198,15 @@ table {
     border-collapse: collapse;
     font-size: 0.85rem;
 }
-th, td {
+th,
+td {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid var(--border-soft);
 }
-thead tr { background-color: var(--surface-alt); }
+thead tr {
+    background-color: var(--surface-alt);
+}
 th {
     color: var(--text-faint);
     font-weight: 600;
@@ -197,12 +217,22 @@ th {
 tbody tr {
     transition: background-color 0.12s var(--ease);
 }
-tbody tr:hover { background-color: var(--surface-raised); }
-tbody tr:nth-child(even) { background-color: rgba(255, 255, 255, 0.015); }
+tbody tr:hover {
+    background-color: var(--surface-raised);
+}
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.015);
+}
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(4px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* --- General map container (non-map pages) --- */
@@ -443,7 +473,9 @@ main .sidebar::-webkit-scrollbar-thumb {
 .departures-table tbody tr {
     transition: background-color 0.12s var(--ease);
 }
-.departures-table tbody tr:hover td { background: var(--surface-alt); }
+.departures-table tbody tr:hover td {
+    background: var(--surface-alt);
+}
 
 /* Line pill */
 .dep-line-pill {
@@ -493,7 +525,11 @@ main .sidebar::-webkit-scrollbar-thumb {
     vertical-align: middle;
     margin-right: 5px;
 }
-@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
 
 /* =============================================
    LEAFLET POPUP — dark theme override
@@ -533,7 +569,9 @@ main .sidebar::-webkit-scrollbar-thumb {
     z-index: 1;
     transition: color 0.15s var(--ease);
 }
-.leaflet-popup-close-button:hover { color: var(--text) !important; }
+.leaflet-popup-close-button:hover {
+    color: var(--text) !important;
+}
 
 /* Leaflet's own UI chrome (zoom controls, attribution) tuned to match the dark shell */
 .leaflet-control-zoom a {
@@ -548,7 +586,9 @@ main .sidebar::-webkit-scrollbar-thumb {
     background: rgba(20, 22, 29, 0.75) !important;
     color: var(--text-faint) !important;
 }
-.leaflet-control-attribution a { color: var(--text-dim) !important; }
+.leaflet-control-attribution a {
+    color: var(--text-dim) !important;
+}
 
 /* ── Popup shell ── */
 .popup {
@@ -605,7 +645,9 @@ main .sidebar::-webkit-scrollbar-thumb {
     font-size: 0.8rem;
     line-height: 1.3;
 }
-.popup-row-label { color: #000000; }
+.popup-row-label {
+    color: #000000;
+}
 .popup-row-value {
     color: #000000;
     font-weight: 600;
@@ -613,24 +655,58 @@ main .sidebar::-webkit-scrollbar-thumb {
 }
 
 /* Metrolink delay colours */
-.popup-body.On-Time .popup-status { color: var(--status-ontime); }
-.popup-body.Late    .popup-status { color: var(--status-late); }
-.popup-body.Early   .popup-status { color: var(--status-early); }
+.popup-body.On-Time .popup-status {
+    color: var(--status-ontime);
+}
+.popup-body.Late .popup-status {
+    color: var(--status-late);
+}
+.popup-body.Early .popup-status {
+    color: var(--status-early);
+}
 
 /* Delay Status Styling — icon + text share one semantic color per state */
-.ontime,  .ontime .mdi  { color: var(--status-ontime);  font-weight: 600; }
-.early,   .early .mdi   { color: var(--status-early);   font-weight: 600; }
-.mild,    .mild .mdi    { color: var(--status-mild);    font-weight: 600; }
-.late,    .late .mdi    { color: var(--status-late);    font-weight: 600; }
-.extreme, .extreme .mdi { color: var(--status-extreme); font-weight: 700; }
+.ontime,
+.ontime .mdi {
+    color: var(--status-ontime);
+    font-weight: 600;
+}
+.early,
+.early .mdi {
+    color: var(--status-early);
+    font-weight: 600;
+}
+.mild,
+.mild .mdi {
+    color: var(--status-mild);
+    font-weight: 600;
+}
+.late,
+.late .mdi {
+    color: var(--status-late);
+    font-weight: 600;
+}
+.extreme,
+.extreme .mdi {
+    color: var(--status-extreme);
+    font-weight: 700;
+}
 
 /* =============================================
    RESPONSIVE
 ============================================= */
 @media (max-width: 1024px) {
-    .content { flex-direction: column; }
-    .sidebar { width: 100%; max-height: 300px; }
-    #map { height: 60vh; min-height: 300px; }
+    .content {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        max-height: 300px;
+    }
+    #map {
+        height: 60vh;
+        min-height: 300px;
+    }
 }
 @media (max-width: 768px) {
     .map-shell {
@@ -638,7 +714,10 @@ main .sidebar::-webkit-scrollbar-thumb {
         grid-template-rows: 55vh 1fr;
         height: calc(100vh - 57px);
     }
-    .map-shell #map { order: 1; border-radius: 0; }
+    .map-shell #map {
+        order: 1;
+        border-radius: 0;
+    }
     .departures-panel,
     .map-shell .sidebar {
         order: 2;
@@ -650,7 +729,9 @@ main .sidebar::-webkit-scrollbar-thumb {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
         animation-duration: 0.001ms !important;
         transition-duration: 0.001ms !important;
     }
@@ -801,7 +882,9 @@ main.container section h2 {
     font-size: 0.75rem;
     color: var(--text-dim);
     font-variant-numeric: tabular-nums;
-    transition: border-color 0.15s var(--ease), color 0.15s var(--ease);
+    transition:
+        border-color 0.15s var(--ease),
+        color 0.15s var(--ease);
 }
 .route-chip:hover {
     border-color: var(--route-fallback);
@@ -932,7 +1015,9 @@ main.container section h2 {
     font-variant-numeric: tabular-nums;
     color: var(--text);
 }
-.realtime_row time { color: var(--status-ontime); }
+.realtime_row time {
+    color: var(--status-ontime);
+}
 
 .error {
     padding: 24px;
