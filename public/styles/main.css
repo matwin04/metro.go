@@ -71,7 +71,10 @@
 *::after {
     box-sizing: border-box;
 }
-
+icon {
+    width: 100px;
+    height: 100px;
+}
 body {
     font-family: "FF DIN Pro", sans-serif;
     background-color: var(--bg);
