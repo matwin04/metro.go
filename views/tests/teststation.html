@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{#if station}} {{station.name}} Departures {{else}} Departures {{/if}}</title>
+        <link rel="stylesheet" href="/public/styles/main.css" />
+        <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    </head>
+    <body>
+        <main class="container">
+            <section class="error">
+                <h1>Error</h1>
+                <p>{{error}}</p>
+            </section>
+            <header class="station-header">
+                <div>
+                    <h1>7th Street/Metro Center</h1>
+                    <p class="subtitle">Departures</p>
+                </div>
+                <div class="station-info">
+                    {{#if station.mode_type}}
+                    <span> {{station.mode_type}} </span>
+                    {{/if}} {{#if station.lat}}
+                    <span> {{station.lat}}, {{station.lon}} </span>
+                    {{/if}}
+                </div>
+            </header>
+
+            {{#if station.lat}}
+            <div id="station-map"></div>
+            {{/if}}
+
+            <section class="departures">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Route</th>
+                            <th>Scheduled</th>
+                            <th>Realtime</th>
+                            <th>Destination</th>
+                            <th>Platform</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each events}}
+                        <tr>
+                            <td class="route_row">
+                                <a href="/route/{{this.chateau}}/{{route_id}}">{{this.route_id}}</a>
+                            </td>
+                            <td class="scheduled_row">
+                                <time
+                                    class="format-time"
+                                    datetime="{{this.scheduled_departure}}"
+                                    data-timestamp="{{this.scheduled_departure}}"></time>
+                            </td>
+                            <td class="realtime_row">
+                                {{#if this.realtime_departure}}
+                                <time
+                                    class="format-time"
+                                    datetime="{{this.realtime_departure}}"
+                                    data-timestamp="{{this.realtime_departure}}"></time>
+                                {{else}} — {{/if}}
+                            </td>
+                            <td>{{this.headsign}}</td>
+                            <td>
+                                {{#if this.platform_string_realtime}} {{this.platform_string_realtime}} {{else}} —
+                                {{/if}}
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </section>
+            {{/if}}
+        </main>
+        <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+        <script>
+            function formatTime(timestamp) {
+                if (!timestamp) return "—";
+                return new Date(Number(timestamp) * 1000).toLocaleTimeString(undefined, {
+                    hour: "numeric",
+                    minute: "2-digit"
+                });
+            }
+            document.querySelectorAll(".format-time").forEach((element) => {
+                element.textContent = formatTime(element.dataset.timestamp);
+            });
+        </script>
+        {{#if station.lat}}
+        <script>
+            const stationLat = {{station.lat}};
+            const stationLon = {{station.lon}};
+            const stationName = "{{station.name}}";
+
+            const map = new maplibregl.Map({
+                container: "station-map",
+                style: "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
+                center: [stationLon, stationLat],
+                zoom: 15
+            });
+
+            map.on("load", () => {
+                const el = document.createElement("div");
+                el.style.width = "18px";
+                el.style.height = "18px";
+                el.style.borderRadius = "50%";
+                el.style.background = "var(--accent-bright, #63b3ed)";
+                el.style.border = "3px solid #ffffff";
+                el.style.boxShadow = "0 0 6px rgba(0,0,0,0.5)";
+
+                new maplibregl.Marker({ element: el })
+                    .setLngLat([stationLon, stationLat])
+                    .setPopup(new maplibregl.Popup({ offset: 12 }).setText(stationName))
+                    .addTo(map);
+            });
+        </script>
+        {{/if}}
+        <script>
+            window.va =
+                window.va ||
+                function () {
+                    (window.vaq = window.vaq || []).push(arguments);
+                };
+        </script>
+        <script defer src="/_vercel/insights/script.js"></script>
+        <!-- Cloudflare Web Analytics -->
+        <script
+            type="module"
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "35b2170be4824033bf6aeb1bd7d1938b"}'></script>
+        <!-- End Cloudflare Web Analytics -->
+    </body>
+</html>

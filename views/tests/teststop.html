@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>
+        {{#if stop}}
+            {{stop.name}} Departures
+        {{else}}
+            Departures
+        {{/if}}
+    </title>
+    <link
+        rel="stylesheet"
+        href="/public/styles/main.css"
+    >
+</head>
+<body>
+    <main class="container">
+        {{#if error}}
+            <section class="error">
+                <h1>Error</h1>
+                <p>{{error}}</p>
+            </section>
+        {{else}}
+            <header class="station-header">
+                <div>
+                    <h1>
+                        {{stop.name}}
+                    </h1>
+                    <p class="subtitle">
+                        Departures
+                    </p>
+                </div>
+                <div class="station-info">
+                    {{#if stop.chateau}}
+                        <span>
+                            {{stop.chateau}}
+                        </span>
+                    {{/if}}
+                    {{#if stop.id}}
+                        <span>
+                            Stop {{stop.id}}
+                        </span>
+                    {{/if}}
+                </div>
+            </header>
+
+            <section class="departures">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Route</th>
+                            <th>Scheduled</th>
+                            <th>Realtime</th>
+                            <th>Destination</th>
+                            <th>Platform</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each events}}
+                        <tr class="{{#if this.trip_cancelled}}cancelled{{/if}}{{#if this.stop_cancelled}}cancelled{{/if}}">
+                            <td>
+                                <img class="icon" src="https://logos.metrogo.app/api/{{this.chateau}}/main.svg" alt=""/>
+                            </td>
+                            <td class="route_row">
+                                <a href="/route/{{this.chateau}}/{{this.route_id}}">
+                                    <img class="icon" src="https://logos.metrogo.app/api/{{this.chateau}}/routes/{{this.route_id}}.svg" alt=""/>
+                                </a>
+                            </td>
+                            <td class="scheduled_row">
+                                <time
+                                    class="format-time"
+                                    datetime="{{this.scheduled_departure}}"
+                                    data-timestamp="{{this.scheduled_departure}}"
+                                ></time>
+                            </td>
+                            <td class="realtime_row">
+                                {{#if this.realtime_departure}}
+                                <time
+                                    class="format-time"
+                                    datetime="{{this.realtime_departure}}"
+                                    data-timestamp="{{this.realtime_departure}}"
+                                ></time>
+                                {{else}}
+                                    —
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{this.headsign}}
+                                {{#if this.trip_cancelled}}<span class="tag tag-cancelled">Cancelled</span>{{/if}}
+                                {{#if this.trip_modified}}<span class="tag tag-modified">Modified</span>{{/if}}
+                            </td>
+                            <td>{{this.trip_id}}</td>
+                            <td>
+                                {{#if this.platform_string_realtime}}
+                                    {{this.platform_string_realtime}}
+                                {{else}}
+                                    {{#if this.platform_code}}
+                                        {{this.platform_code}}
+                                    {{else}}
+                                        —
+                                    {{/if}}
+                                {{/if}}
+                            </td>
+                        </tr>
+                        {{else}}
+                        <tr>
+                            <td colspan="5" class="no-departures">No upcoming departures.</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </section>
+        {{/if}}
+    </main>
+    <script>
+        function formatTime(timestamp) {
+            if (!timestamp) return "—";
+            return new Date(Number(timestamp) * 1000).toLocaleTimeString(
+                undefined,
+                {
+                    hour: "numeric",
+                    minute: "2-digit"
+                }
+            );
+        }
+        document.querySelectorAll(".format-time").forEach(element => {
+            element.textContent = formatTime(
+                element.dataset.timestamp
+            );
+        });
+    </script>
+    <script>
+        window.va =
+            window.va ||
+            function () {
+                (window.vaq = window.vaq || []).push(arguments);
+            };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js'
+      data-cf-beacon='{"token": "35b2170be4824033bf6aeb1bd7d1938b"}'
+      crossorigin="anonymous"
+      onerror="console.debug('CF beacon blocked, likely by an extension')"></script>
+</body>
+</html>
