@@ -1,150 +1,149 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{#if route}}{{route.long_name}}{{else}}Route Info{{/if}} — MattMaps</title>
-    <link rel="stylesheet" href="/public/styles/main.css" />
-    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{#if route}}{{route.long_name}}{{else}}Route Info{{/if}} — MattMaps</title>
+        <link rel="stylesheet" href="/public/styles/main.css" />
+        <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
 
-    {{#unless error}}
-    <style>
-        /*
-          Route-specific theme, driven by this route's GTFS route_color /
-          route_text_color. Falls back to a neutral slate if the feed
-          doesn't supply one. Scoped as CSS vars so it composes with
-          main.css instead of ovsderriding it wholesale.
-        */
-        :root {
-            --route-color: {{#if route.color}}{{route.color}}{{else}}444444{{/if}};
-            --route-text-color: {{#if route.text_color}}{{route.text_color}}{{else}}FFFFFF{{/if}};
-            --route-color-dark: color-mix(in srgb, var(--route-color) 70%, black);
-            --route-color-soft: color-mix(in srgb, var(--route-color) 15%, white);
-        }
+        {{#unless error}}
+        <style>
+            /*
+              Route-specific theme, driven by this route's GTFS route_color /
+              route_text_color. Falls back to a neutral slate if the feed
+              doesn't supply one. Scoped as CSS vars so it composes with
+              main.css instead of ovsderriding it wholesale.
+            */
+            :root {
+                --route-color: {{#if route.color}}{{route.color}}{{else}}444444{{/if}};
+                --route-text-color: {{#if route.text_color}}{{route.text_color}}{{else}}FFFFFF{{/if}};
+                --route-color-dark: color-mix(in srgb, var(--route-color) 70%, black);
+                --route-color-soft: color-mix(in srgb, var(--route-color) 15%, white);
+            }
 
-        .route-banner {
-            background: linear-gradient(135deg, var(--route-color), var(--route-color-dark));
-            color: var(--route-text-color);
-            border-radius: 10px;
-            padding: 1.25rem 1.5rem;
-        }
+            .route-banner {
+                background: linear-gradient(135deg, var(--route-color), var(--route-color-dark));
+                color: var(--route-text-color);
+                border-radius: 10px;
+                padding: 1.25rem 1.5rem;
+            }
 
-        .route-banner .badge {
-            background: var(--route-text-color);
-            color: var(--route-color-dark);
-            border: 2px solid var(--route-text-color);
-        }
+            .route-banner .badge {
+                background: var(--route-text-color);
+                color: var(--route-color-dark);
+                border: 2px solid var(--route-text-color);
+            }
 
-        .route-banner .names p {
-            color: var(--route-text-color);
-            opacity: 0.85;
-        }
+            .route-banner .names p {
+                color: var(--route-text-color);
+                opacity: 0.85;
+            }
 
-        .route-meta .stat label {
-            color: var(--route-color-dark);
-        }
+            .route-meta .stat label {
+                color: var(--route-color-dark);
+            }
 
-        .route-meta .stat {
-            border-left: 3px solid var(--route-color);
-            padding-left: 0.6rem;
-        }
+            .route-meta .stat {
+                border-left: 3px solid var(--route-color);
+                padding-left: 0.6rem;
+            }
 
-        section h2 {
-            display: inline-block;
-            border-bottom: 3px solid var(--route-color);
-            padding-bottom: 0.2rem;
-        }
+            section h2 {
+                display: inline-block;
+                border-bottom: 3px solid var(--route-color);
+                padding-bottom: 0.2rem;
+            }
 
-        .stop-list .stop-id a {
-            color: var(--route-color-dark);
-            font-weight: 600;
-        }
+            .stop-list .stop-id a {
+                color: var(--route-color-dark);
+                font-weight: 600;
+            }
 
-        .stop-list .stop-id a:hover {
-            color: var(--route-color);
-        }
+            .stop-list .stop-id a:hover {
+                color: var(--route-color);
+            }
 
-        .route-chip {
-            display: inline-block;
-            background: var(--route-color-soft);
-            color: var(--route-color-dark);
-            border: 1px solid var(--route-color);
-            border-radius: 999px;
-            padding: 0.1rem 0.6rem;
-            margin: 0.15rem;
-            font-size: 0.85rem;
-            text-decoration: none;
-        }
+            .route-chip {
+                display: inline-block;
+                background: var(--route-color-soft);
+                color: var(--route-color-dark);
+                border: 1px solid var(--route-color);
+                border-radius: 999px;
+                padding: 0.1rem 0.6rem;
+                margin: 0.15rem;
+                font-size: 0.85rem;
+                text-decoration: none;
+            }
 
-        .route-chip:hover {
-            background: var(--route-color);
-            color: var(--route-text-color);
-        }
+            .route-chip:hover {
+                background: var(--route-color);
+                color: var(--route-text-color);
+            }
 
-        /* Active vehicles table */
-        .vehicle-table-wrap {
-            overflow-x: auto;
-        }
+            /* Active vehicles table */
+            .vehicle-table-wrap {
+                overflow-x: auto;
+            }
 
-        table.vehicle-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }
+            table.vehicle-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.9rem;
+            }
 
-        table.vehicle-table caption {
-            text-align: left;
-            font-size: 0.8rem;
-            opacity: 0.7;
-            margin-bottom: 0.4rem;
-        }
+            table.vehicle-table caption {
+                text-align: left;
+                font-size: 0.8rem;
+                opacity: 0.7;
+                margin-bottom: 0.4rem;
+            }
 
-        table.vehicle-table th {
-            text-align: left;
-            border-bottom: 2px solid var(--route-color);
-            padding: 0.4rem 0.6rem;
-            color: var(--route-color-dark);
-        }
+            table.vehicle-table th {
+                text-align: left;
+                border-bottom: 2px solid var(--route-color);
+                padding: 0.4rem 0.6rem;
+                color: var(--route-color-dark);
+            }
 
-        table.vehicle-table td {
-            padding: 0.4rem 0.6rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            vertical-align: middle;
-        }
+            table.vehicle-table td {
+                padding: 0.4rem 0.6rem;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+                vertical-align: middle;
+            }
 
-        table.vehicle-table tr:last-child td {
-            border-bottom: none;
-        }
+            table.vehicle-table tr:last-child td {
+                border-bottom: none;
+            }
 
-        .vehicle-dot {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            border: 2px solid #ffffff;
-            box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
-            vertical-align: middle;
-            margin-right: 0.4rem;
-        }
+            .vehicle-dot {
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                border: 2px solid #ffffff;
+                box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+                vertical-align: middle;
+                margin-right: 0.4rem;
+            }
 
-        .vehicle-table-empty {
-            padding: 0.75rem 0.6rem;
-            opacity: 0.7;
-            font-style: italic;
-        }
-    </style>
-    {{/unless}}
-</head>
-<body>
-    <main class="container">
-        {{#if error}}
-            <div class="error-box">
-                <strong>Couldn't load route info:</strong> {{error}}
-            </div>
-        {{else}}
+            .vehicle-table-empty {
+                padding: 0.75rem 0.6rem;
+                opacity: 0.7;
+                font-style: italic;
+            }
+        </style>
+        {{/unless}}
+    </head>
+    <body>
+        <main class="container">
+            {{#if error}}
+            <div class="error-box"><strong>Couldn't load route info:</strong> {{error}}</div>
+            {{else}}
+            
             <div class="route-banner">
-                <img class="icon" src="https://logos.metrogo.app/api/{{chateau}}/main.svg" alt=""/>
-                <img class="icon" src="https://logos.metrogo.app/api/{{chateau}}/routes/{{route_id}}.svg" alt=""/>
+                <img class="icon" src="https://logos.metrogo.app/api/metro~losangeles/main.svg" alt="ALT" />
+                <img class="icon" src="https://logos.metrogo.app/api/metro~losangeles/routes/801.svg" alt="" />
                 <div class="badge">{{route.short_name}}</div>
                 <div class="names">
                     <h1>{{route.long_name}}</h1>
@@ -171,8 +170,9 @@
                 <h2>Stops</h2>
                 <ul class="stop-list">
                     {{#each route.stops}}
-                    <li><span class="stop-id"><a href="/departures_stop/{{../chateau}}/{{id}}">{{id}}</a></span>{{this.name}}
-
+                    <li>
+                        <span class="stop-id"><a href="/departures_stop/{{../chateau}}/{{id}}">{{id}}</a></span
+                        >{{this.name}}
                     </li>
                     {{/each}}
                 </ul>
@@ -187,7 +187,7 @@
                         <li>
                             <strong>{{agency}}:</strong>
                             {{#each routeIds}}
-                                <a class="route-chip" href="/route/{{agency}}/{{this}}">{{this}}</a>
+                            <a class="route-chip" href="/route/{{agency}}/{{this}}">{{this}}</a>
                             {{/each}}
                         </li>
                         {{/each}}
@@ -200,7 +200,9 @@
                 <h2>Active Vehicles</h2>
                 <div class="vehicle-table-wrap">
                     <table class="vehicle-table" id="vehicle-table">
-                        <caption>Live positions, refreshed every 10 seconds</caption>
+                        <caption>
+                            Live positions, refreshed every 10 seconds
+                        </caption>
                         <thead>
                             <tr>
                                 <th></th>
@@ -295,10 +297,10 @@
 
                 function delayColor(delaySeconds) {
                     if (delaySeconds === null || delaySeconds === undefined) return "#888888";
-                    if (delaySeconds < 60) return "#2e7d32";      // on time / early
-                    if (delaySeconds < 300) return "#f9a825";     // mild delay
-                    if (delaySeconds < 600) return "#ef6c00";     // late
-                    return "#c62828";                              // extreme delay
+                    if (delaySeconds < 60) return "#2e7d32"; // on time / early
+                    if (delaySeconds < 300) return "#f9a825"; // mild delay
+                    if (delaySeconds < 600) return "#ef6c00"; // late
+                    return "#c62828"; // extreme delay
                 }
 
                 function formatDelay(delaySeconds) {
@@ -327,16 +329,17 @@
                         return;
                     }
 
-                    tbody.innerHTML = entries.map(([vehicleId, v]) => {
-                        const pos = v.position || {};
-                        const label = (v.vehicle && v.vehicle.label) || vehicleId;
-                        const headsign = (v.trip && v.trip.trip_headsign) ? v.trip.trip_headsign.trim() : "—";
-                        const delay = v.trip ? v.trip.delay : null;
-                        const color = delayColor(delay);
-                        const lat = pos.latitude !== undefined ? pos.latitude.toFixed(4) : "—";
-                        const lon = pos.longitude !== undefined ? pos.longitude.toFixed(4) : "—";
+                    tbody.innerHTML = entries
+                        .map(([vehicleId, v]) => {
+                            const pos = v.position || {};
+                            const label = (v.vehicle && v.vehicle.label) || vehicleId;
+                            const headsign = v.trip && v.trip.trip_headsign ? v.trip.trip_headsign.trim() : "—";
+                            const delay = v.trip ? v.trip.delay : null;
+                            const color = delayColor(delay);
+                            const lat = pos.latitude !== undefined ? pos.latitude.toFixed(4) : "—";
+                            const lon = pos.longitude !== undefined ? pos.longitude.toFixed(4) : "—";
 
-                        return `
+                            return `
                             <tr>
                                 <td><span class="vehicle-dot" style="background:${color}"></span></td>
                                 <td>${escapeHtml(label)}</td>
@@ -345,18 +348,21 @@
                                 <td>${lat}, ${lon}</td>
                             </tr>
                         `;
-                    }).join("");
+                        })
+                        .join("");
                 }
 
                 async function updateVehicles() {
                     try {
-                        const res = await fetch(`/api/catenarymaps/vehicles/${encodeURIComponent(chateau)}/${encodeURIComponent(routeId)}`);
+                        const res = await fetch(
+                            `/api/catenarymaps/vehicles/${encodeURIComponent(chateau)}/${encodeURIComponent(routeId)}`
+                        );
                         if (!res.ok) return;
                         const data = await res.json();
 
                         const vehiclePositions = data.vehicle_positions || {};
 
-                        vehicleMarkers.forEach(m => m.remove());
+                        vehicleMarkers.forEach((m) => m.remove());
                         vehicleMarkers = [];
 
                         Object.entries(vehiclePositions).forEach(([vehicleId, v]) => {
@@ -364,7 +370,7 @@
                             if (!pos || pos.latitude === undefined || pos.longitude === undefined) return;
 
                             const label = (v.vehicle && v.vehicle.label) || vehicleId;
-                            const headsign = (v.trip && v.trip.trip_headsign) ? v.trip.trip_headsign.trim() : "";
+                            const headsign = v.trip && v.trip.trip_headsign ? v.trip.trip_headsign.trim() : "";
                             const delay = v.trip ? v.trip.delay : null;
 
                             const el = document.createElement("div");
@@ -382,7 +388,9 @@
                                     new maplibregl.Popup({ offset: 12 }).setHTML(
                                         `<div class="popup">
                                           <strong>${label}</strong>${headsign ? `<br>${headsign}` : ""}</div>` +
-                                        (delay !== null ? `<br>${delay >= 0 ? "+" : ""}${Math.round(delay / 60)} min` : "")
+                                            (delay !== null
+                                                ? `<br>${delay >= 0 ? "+" : ""}${Math.round(delay / 60)} min`
+                                                : "")
                                     )
                                 )
                                 .addTo(map);
@@ -401,8 +409,13 @@
                     setInterval(updateVehicles, 10000);
                 });
             </script>
-        {{/if}}
-    </main>
-    <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "35b2170be4824033bf6aeb1bd7d1938b"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
+            {{/if}}
+        </main>
+        <!-- Cloudflare Web Analytics -->
+        <script
+            type="module"
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "35b2170be4824033bf6aeb1bd7d1938b"}'></script>
+        <!-- End Cloudflare Web Analytics -->
+    </body>
 </html>
