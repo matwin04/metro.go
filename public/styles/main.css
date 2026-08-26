@@ -71,7 +71,7 @@
 *::after {
     box-sizing: border-box;
 }
-icon {
+.icon {
     width: 100px;
     height: 100px;
 }
