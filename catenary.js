@@ -101,3 +101,18 @@ export async function getRouteInfo(chateau, routeId) {
     throw error; // re-throw so your route's catch block still fires and renders the error page
   }
 }
+export async function getOSMIdFromGTFS(chateau, stationId) {
+  const url = `https://birch.catenarymaps.org/osm_station_lookup?chateau_id=${chateau}&gtfs_stop_id=${stationId}`;
+  const options = { method: 'GET' };
+  try {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+      throw new Error(`Catenary API returned ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+}
