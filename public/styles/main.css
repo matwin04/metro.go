@@ -50,21 +50,6 @@
     --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
 }
 
-/* --- Base & Typography --- */
-@font-face {
-    font-family: "FF DIN Pro";
-    src: url("/public/fonts/D-DIN-PRO-400-Regular.otf") format("opentype");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: "FF DIN Pro";
-    src: url("/public/fonts/D-DIN-PRO-600-SemiBold.otf") format("opentype");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
 
 *,
 *::before,
