@@ -1,35 +1,38 @@
-*/ :root {
+/* =========================
+   TOKENS
+========================= */
+
+:root {
   --bg: #e5e7eb;
   --panel: rgba(255, 255, 255, 0.92);
   --panel-solid: #ffffff;
   --border: rgba(17, 24, 39, 0.08);
+  --border-strong: rgba(17, 24, 39, 0.14);
+  --hover: rgba(17, 24, 39, 0.05);
   --text: #111827;
   --text-muted: #6b7280;
   --text-faint: #9ca3af;
   --accent: #e16710; /* Metro orange */
   --live: #16a34a;
+  --on-time: #15803d;
+  --early: #1d4ed8;
+  --late: #b45309;
+  --very-late: #b91c1c;
   --radius: 14px;
+  --gap: 16px;
+  --panel-width: 320px;
   --shadow: 0 8px 24px rgba(17, 24, 39, 0.12), 0 1px 3px rgba(17, 24, 39, 0.08);
   --font: "IBM Plex Sans", Arial, Helvetica, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
 }
 
-#sidebar {
-  width: var(--sidebar-width);
+/* =========================
+   BASE
+========================= */
 
-  min-width: var(--sidebar-width);
-
-  display: flex;
-
-  flex-direction: column;
-
-  background: var(--surface);
-
-  border-right: 1px solid var(--border);
-
-  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.05);
-}
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -41,12 +44,22 @@ body {
   padding: 0;
 }
 
+/* Navbar on top, map fills whatever is left — no 100vh overflow */
 body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
   -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* =========================
@@ -55,10 +68,12 @@ body {
 
 #app {
   position: relative;
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
+  /* shield from the Metro design-system's global type styles */
+  font-family: var(--font);
+  color: var(--text);
 }
 
 #map {
@@ -68,10 +83,11 @@ body {
 }
 
 /* =========================
-   PANEL
+   PANELS
 ========================= */
 
-.panel {
+.panel,
+#sidebar {
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -82,10 +98,10 @@ body {
 
 #header {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: var(--gap);
+  left: var(--gap);
   z-index: 2;
-  width: 300px;
+  width: var(--panel-width);
   padding: 14px 16px;
 }
 
@@ -137,6 +153,7 @@ body {
 
 .status-dot {
   position: relative;
+  flex: none;
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -211,8 +228,180 @@ body {
 }
 
 .legend img {
+  flex: none;
   width: 18px;
   height: 18px;
+}
+
+/* =========================
+   SIDEBAR (stop departures)
+   Floats under the header on the left.
+========================= */
+
+#sidebar {
+  position: absolute;
+  left: var(--gap);
+  bottom: var(--gap);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: var(--panel-width);
+  max-height: calc(100% - 200px); /* clears the header */
+  overflow: hidden;
+}
+
+#selected-stop {
+  flex: none;
+  margin: 0;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.table-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* nothing loaded yet → just the title bar */
+.table-scroll:has(.departure-list:empty) {
+  display: none;
+}
+
+.departure-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.departure-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.departure-row:last-child {
+  border-bottom: 0;
+}
+
+.departure-row:hover {
+  background: var(--hover);
+}
+
+.departure-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.route-pill {
+  flex: none;
+  min-width: 32px;
+  padding: 3px 7px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.departure-info {
+  min-width: 0;
+}
+
+.departure-headsign {
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.departure-sub {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+  overflow: hidden;
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.mode-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--marker-color, var(--text-muted));
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.mode-badge .mdi {
+  font-size: 13px;
+}
+
+.departure-agency {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.departure-time {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.time-scheduled {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.time-scheduled--adjusted {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-faint);
+  text-decoration: line-through;
+}
+
+.time-realtime {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--live);
+}
+
+.time-realtime .mdi {
+  margin-left: -4px;
+}
+
+.status-on-time {
+  color: var(--on-time);
+}
+.status-early {
+  color: var(--early);
+}
+.status-late {
+  color: var(--late);
+}
+.status-very-late {
+  color: var(--very-late);
 }
 
 /* =========================
@@ -225,33 +414,45 @@ body {
     height 0.15s ease;
 }
 
+.marker.is-selected {
+  outline: 3px solid var(--text);
+  outline-offset: 2px;
+}
+
 /* =========================
-   POPUP
+   POPUPS
 ========================= */
 
-.vehicle-popup .maplibregl-popup-content {
-  padding: 0;
+.maplibregl-popup-content {
+  padding: 10px 14px;
   border-radius: 12px;
-  overflow: hidden;
   box-shadow: var(--shadow);
   font-family: var(--font);
+  font-size: 13px;
+  line-height: 1.4;
   color: var(--text);
 }
 
-.vehicle-popup .maplibregl-popup-close-button {
-  top: 8px;
-  right: 8px;
-  width: 24px;
-  height: 24px;
+.maplibregl-popup-close-button {
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
   border-radius: 6px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
   color: var(--text-muted);
 }
 
-.vehicle-popup .maplibregl-popup-close-button:hover {
-  background: rgba(17, 24, 39, 0.06);
+.maplibregl-popup-close-button:hover {
+  background: var(--hover);
   color: var(--text);
+}
+
+/* richer popup — opt in with new maplibregl.Popup({ className: "vehicle-popup" }) */
+.vehicle-popup .maplibregl-popup-content {
+  padding: 0;
+  overflow: hidden;
 }
 
 .vp {
@@ -334,10 +535,10 @@ body {
 
 .vp-grid dd {
   margin: 2px 0 0;
+  overflow: hidden;
   font-size: 13px;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -348,13 +549,13 @@ body {
 
 #trippanel {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  z-index: 2;
+  top: var(--gap);
+  right: var(--gap);
+  z-index: 3;
   display: flex;
   flex-direction: column;
-  width: 320px;
-  max-height: calc(100% - 32px);
+  width: var(--panel-width);
+  max-height: calc(100% - var(--gap) * 2);
   overflow: hidden;
   border-top: 4px solid var(--route, var(--accent));
 }
@@ -404,7 +605,7 @@ body {
 }
 
 .tp-close:hover {
-  background: rgba(17, 24, 39, 0.06);
+  background: var(--hover);
   color: var(--text);
 }
 
@@ -454,10 +655,7 @@ body {
   --status-bg: #fef3c7;
   --status-fg: #92400e;
 }
-.tp-status.very-late {
-  --status-bg: #fee2e2;
-  --status-fg: #991b1b;
-}
+.tp-status.very-late,
 .tp-status.canceled {
   --status-bg: #fee2e2;
   --status-fg: #991b1b;
@@ -486,12 +684,12 @@ body {
 
 .tp-meta dd {
   margin: 2px 0 0;
+  overflow: hidden;
   font-size: 13px;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .tp-stops {
@@ -500,6 +698,7 @@ body {
   margin: 0;
   padding: 8px 16px 16px;
   overflow-y: auto;
+  overscroll-behavior: contain;
   list-style: none;
 }
 
@@ -532,6 +731,10 @@ body {
   bottom: 50%;
 }
 
+.tp-stop:only-child::before {
+  display: none;
+}
+
 .tp-dot {
   position: relative;
   z-index: 1;
@@ -550,6 +753,7 @@ body {
 
 .tp-stop-id {
   flex: 1;
+  min-width: 0;
   font-family: var(--mono);
   font-size: 13px;
 }
@@ -563,6 +767,7 @@ body {
   flex-direction: column;
   align-items: flex-end;
   line-height: 1.15;
+  font-variant-numeric: tabular-nums;
 }
 
 .tp-stop-time strong {
@@ -585,11 +790,11 @@ body {
 }
 
 .tp-stop-delay.late {
-  color: #b45309;
+  color: var(--late);
 }
 
 .tp-stop-delay.early {
-  color: #1d4ed8;
+  color: var(--early);
 }
 
 .tp-stop.is-skipped .tp-stop-id,
@@ -606,15 +811,16 @@ body {
   color: var(--text-muted);
 }
 
-/* selected train on the map */
-.marker.is-selected {
-  outline: 3px solid #111827;
-  outline-offset: 2px;
-}
-
 /* =========================
    MAP CONTROLS
+   Header covers top-left, so move controls out of its way.
 ========================= */
+
+.maplibregl-ctrl-top-left {
+  top: auto;
+  bottom: var(--gap);
+  left: calc(var(--panel-width) + var(--gap) * 2);
+}
 
 .maplibregl-ctrl-group {
   border-radius: 10px !important;
@@ -627,10 +833,12 @@ body {
 ========================= */
 
 @media (max-width: 600px) {
+  :root {
+    --gap: 12px;
+  }
+
   #header {
-    top: 12px;
-    left: 12px;
-    right: 12px;
+    right: var(--gap);
     width: auto;
     padding: 12px 14px;
   }
@@ -641,18 +849,7 @@ body {
     gap: 4px;
   }
 
-  /* trip panel becomes a bottom sheet */
-  #trippanel {
-    top: auto;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: auto;
-    max-height: 55%;
-    border-radius: var(--radius) var(--radius) 0 0;
-  }
-
-  /* icons only on small screens */
+  /* icons only */
   .legend li {
     font-size: 0;
   }
@@ -660,5 +857,39 @@ body {
   .legend img {
     width: 22px;
     height: 22px;
+  }
+
+  /* sidebar + trip panel become bottom sheets; trip panel sits on top */
+  #sidebar,
+  #trippanel {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    max-height: 50%;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+
+  /* below the header, right edge */
+  .maplibregl-ctrl-top-left {
+    top: 150px;
+    bottom: auto;
+    left: auto;
+    right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-dot::after {
+    animation: none;
+  }
+
+  .marker,
+  .departure-row {
+    transition: none;
   }
 }

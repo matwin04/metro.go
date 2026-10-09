@@ -363,7 +363,7 @@ async function loadStopTimes(stop) {
 function addLaxLayer() {
   map.addSource("lax", {
     type: "geojson",
-    data: "/data/LAX.geojson" // served from /public/data/LAX.geojson
+    data: "/public/data/LAX.geojson" // served from /public/data/LAX.geojson
   });
 
   // Polygons (terminals, airfield, etc.)
