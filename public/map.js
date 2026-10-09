@@ -14,16 +14,14 @@ const ROUTES = {
   807: { name: "K Line", letter: "K", color: "#E56DB1", icon: ICON_BASE + "Service_KLine.svg" }
 };
 
-const POSITIONS_URL = "wss://api.metro.net/ws/LACMTA_Rail/vehicle_positions";
-const TRIP_UPDATES_URL = "wss://api.metro.net/ws/LACMTA_Rail/trip_updates";
+const WS_URL = "wss://api.metro.net/ws/LACMTA_Rail/vehicle_positions";
 const STALE_SECONDS = 120; // ignore positions older than this
-const REMOVE_AFTER_MS = 3 * 60000; // drop trains / trip updates not heard from in this long
+const REMOVE_AFTER_MS = 3 * 60000; // drop trains not heard from in this long
 const ANIMATION_MS = 1000; // marker glide duration
 const RECONNECT_MS = 5000;
 const PING_MS = 30000;
 
-const vehicles = {}; // vehicle id -> { marker, el, popup, routeCode, timestamp, lastSeen, data, anim }
-const tripUpdates = {}; // vehicle id -> { tripId, routeId, directionId, startTime, relationship, stops, lastSeen }
+const vehicles = {}; // id -> { marker, el, popup, routeCode, timestamp, lastSeen, data, anim }
 let selectedId = null;
 
 // =========================
@@ -39,7 +37,7 @@ function initMap() {
     minZoom: 8
   });
 
-  map.addControl(new maplibregl.NavigationControl(), "bottom-right");
+  map.addControl(new maplibregl.NavigationControl(), "top-left");
   map.on("zoom", resizeMarkers);
 
   return map;
@@ -71,6 +69,24 @@ function styleMarker(el, route) {
   el.style.cursor = "pointer";
 }
 
+function popupHtml(id, route, data) {
+  const v = data.vehicle;
+  const speed = v.position?.speed != null ? `${Math.round(v.position.speed * 2.23694)} mph` : "—";
+  const time = v.timestamp ? new Date(parseInt(v.timestamp, 10) * 1000).toLocaleTimeString() : "—";
+
+  return `
+    <div style="display:flex;align-items:center;justify-content:center;gap:6px;">
+      <img src="${route.icon}" style="width:24px;height:24px;border-radius:50%;">
+      <strong>${route.name}</strong>
+    </div>
+    <div style="text-align:center;margin-top:4px;">
+      Train Car #${id}<br>
+      Stop: ${v.stopId ?? "—"}<br>
+      Speed: ${speed}<br>
+      Data from ${time}
+    </div>`;
+}
+
 function createVehicle(id, route, data, lngLat, ts) {
   const el = document.createElement("div");
   el.className = "marker";
@@ -78,63 +94,14 @@ function createVehicle(id, route, data, lngLat, ts) {
   el.dataset.route = data.route_code;
   styleMarker(el, route);
 
-  const popup = new maplibregl.Popup({ offset: 14, className: "vehicle-popup", maxWidth: "none" });
-
-  // Popup content is built when it opens, so it always shows the latest
-  // position + trip update data.
-  popup.on("open", () => {
-    const vehicle = vehicles[id];
-    if (!vehicle) return;
-
-    const r = ROUTES[vehicle.routeCode];
-    const v = vehicle.data.vehicle;
-    const speed = v.position?.speed != null ? `${Math.round(v.position.speed * 2.23694)} mph` : "—";
-    const time = v.timestamp ? new Date(parseInt(v.timestamp, 10) * 1000).toLocaleTimeString() : "—";
-
-    // Next stop from the trip update: first stop whose arrival hasn't passed yet.
-    let nextStop = "—";
-    let eta = "";
-    let arrives = "—";
-    const tu = tripUpdates[id];
-    if (tu && (!v.trip?.tripId || tu.tripId === v.trip.tripId)) {
-      const now = Date.now() / 1000;
-      const next = tu.stops.find((s) => s.time >= now - 30);
-      if (next) {
-        const mins = Math.max(0, Math.round((next.time - now) / 60));
-        nextStop = next.stopId;
-        eta = mins <= 0 ? "Now" : `${mins} min`;
-        arrives = new Date(next.time * 1000).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
-      }
-    }
-
-    popup.setHTML(`
-      <div class="vp" style="--route:${r.color}">
-        <div class="vp-head">
-          <img class="vp-icon" src="${r.icon}" alt="">
-          <div>
-            <div class="vp-title">${r.name}</div>
-            <div class="vp-sub">Car ${id}</div>
-          </div>
-        </div>
-        <div class="vp-next">
-          <div>
-            <span class="vp-next-label">Next stop</span>
-            <span class="vp-next-stop">${nextStop}</span>
-          </div>
-          <span class="vp-eta">${eta}</span>
-        </div>
-        <dl class="vp-grid">
-          <div><dt>Arrives</dt><dd>${arrives}</dd></div>
-          <div><dt>Speed</dt><dd>${speed}</dd></div>
-          <div><dt>Trip</dt><dd>${v.trip?.tripId ?? "—"}</dd></div>
-          <div><dt>Updated</dt><dd>${time}</dd></div>
-        </dl>
-      </div>`);
-  });
+  const popup = new maplibregl.Popup({ offset: 12 }).setHTML(popupHtml(id, route, data));
 
   const marker = new maplibregl.Marker({ element: el, anchor: "center" }).setLngLat(lngLat).setPopup(popup).addTo(map);
 
-  el.addEventListener("click", () => selectVehicle(id));
+  el.addEventListener("click", () => {
+    selectedId = id;
+    updateCard(id);
+  });
 
   vehicles[id] = {
     marker,
@@ -177,31 +144,26 @@ function removeVehicle(id) {
   if (v.anim) cancelAnimationFrame(v.anim);
   v.marker.remove();
   delete vehicles[id];
-  if (selectedId === id) closeTripPanel();
+  if (selectedId === id) selectedId = null;
 }
 
-function prune() {
+function pruneVehicles() {
   const now = Date.now();
   for (const id in vehicles) {
     if (now - vehicles[id].lastSeen > REMOVE_AFTER_MS) removeVehicle(id);
   }
-  for (const id in tripUpdates) {
-    if (now - tripUpdates[id].lastSeen > REMOVE_AFTER_MS) delete tripUpdates[id];
-  }
-  // keep "x min" countdowns fresh even if no new message arrived
-  if (selectedId) renderTripPanel();
 }
 
 // =========================
-// DATA — VEHICLE POSITIONS
+// DATA
 // =========================
 
-function handlePosition(data) {
+function handleMessage(data) {
   const v = data?.vehicle;
   if (!v || !v.position || !v.trip) return;
 
   const route = ROUTES[data.route_code];
-  if (!route) return; // skip unknown routes — no grey dots
+  if (!route) return; // skip unknown routes — no more grey dots
 
   const id = v.vehicle?.id || data.id;
   const lat = Number(v.position.latitude);
@@ -229,230 +191,236 @@ function handlePosition(data) {
     }
 
     animateTo(existing, [lng, lat]);
+    existing.popup.setHTML(popupHtml(id, route, data));
   }
 
-  if (id === selectedId) renderTripPanel();
+  if (selectedId === id) updateCard(id);
   setUpdateTime();
 }
 
-// =========================
-// DATA — TRIP UPDATES
-// =========================
-
-function handleTripUpdate(data) {
-  const tu = data?.tripUpdate;
-  const vehicleId = tu?.vehicle?.id;
-  if (!tu || !vehicleId) return;
-
-  // route_code comes through empty on this feed — use trip.routeId instead.
-  const routeId = tu.trip?.routeId || data.route_code;
-  if (!ROUTES[routeId]) return;
-
-  const stops = (tu.stopTimeUpdate || [])
-    .map((s) => {
-      const rawDelay = s.arrival?.delay ?? s.departure?.delay;
-      const delay = rawDelay != null ? parseInt(rawDelay, 10) : null;
-      return {
-        stopId: s.stopId,
-        stopSequence: s.stopSequence,
-        time: parseInt(s.arrival?.time || s.departure?.time, 10),
-        delay: Number.isFinite(delay) ? delay : null, // seconds, + late / - early
-        relationship: s.scheduleRelationship || "SCHEDULED"
-      };
-    })
-    .filter((s) => Number.isFinite(s.time))
-    .sort((a, b) => a.stopSequence - b.stopSequence);
-
-  tripUpdates[vehicleId] = {
-    tripId: tu.trip?.tripId,
-    routeId,
-    directionId: tu.trip?.directionId,
-    startTime: tu.trip?.startTime,
-    relationship: tu.trip?.scheduleRelationship || "SCHEDULED",
-    stops,
-    lastSeen: Date.now()
-  };
-
-  if (vehicleId === selectedId) renderTripPanel();
-}
-
-// =========================
-// TRIP PANEL
-// =========================
-
-function selectVehicle(id) {
-  if (selectedId && vehicles[selectedId]) vehicles[selectedId].el.classList.remove("is-selected");
-  selectedId = id;
-  vehicles[id]?.el.classList.add("is-selected");
-  renderTripPanel(true);
-}
-
-function closeTripPanel() {
-  if (selectedId && vehicles[selectedId]) vehicles[selectedId].el.classList.remove("is-selected");
-  selectedId = null;
-  const panel = document.getElementById("trippanel");
-  if (panel) {
-    panel.hidden = true;
-    panel.innerHTML = "";
-  }
-}
-
-// Overall delay = delay at the next upcoming stop that reports one.
-function delayStatus(trip, stops) {
-  if (trip?.relationship === "CANCELED") return { cls: "canceled", label: "Canceled", detail: "" };
-
-  const withDelay = stops.find((s) => s.delay != null);
-  if (!withDelay) {
-    return { cls: "unknown", label: "Delay unknown", detail: "Feed has predicted times only" };
-  }
-
-  const d = withDelay.delay;
-  const mins = Math.round(Math.abs(d) / 60);
-  if (Math.abs(d) < 60) return { cls: "on-time", label: "On time", detail: "" };
-  if (d > 0) return { cls: mins >= 5 ? "very-late" : "late", label: `${mins} min late`, detail: `at ${withDelay.stopId}` };
-  return { cls: "early", label: `${mins} min early`, detail: `at ${withDelay.stopId}` };
-}
-
-function renderTripPanel(resetScroll = false) {
-  const panel = document.getElementById("trippanel");
-  if (!panel) return;
-
-  const vehicle = vehicles[selectedId];
-  if (!vehicle) {
-    closeTripPanel();
-    return;
-  }
-
-  const r = ROUTES[vehicle.routeCode];
-  const v = vehicle.data.vehicle;
-  const tripId = v.trip?.tripId;
-  const tu = tripUpdates[selectedId];
-  const hasTrip = tu && (!tripId || tu.tripId === tripId);
-
-  const now = Date.now() / 1000;
-  const stops = hasTrip ? tu.stops.filter((s) => s.time >= now - 30) : [];
-  const status = delayStatus(hasTrip ? tu : null, stops);
-  const fmt = (t) => new Date(t * 1000).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
-  const speed = v.position?.speed != null ? `${Math.round(v.position.speed * 2.23694)} mph` : "—";
-
-  const list = stops.length
-    ? `<ol class="tp-stops">${stops
-        .map((s, i) => {
-          const mins = Math.max(0, Math.round((s.time - now) / 60));
-          const skipped = s.relationship === "SKIPPED";
-          let delay = "";
-          if (s.delay != null && Math.abs(s.delay) >= 60) {
-            const m = Math.round(Math.abs(s.delay) / 60);
-            delay = `<span class="tp-stop-delay ${s.delay > 0 ? "late" : "early"}">${s.delay > 0 ? "+" : "−"}${m} min</span>`;
-          }
-          return `
-            <li class="tp-stop${i === 0 ? " is-next" : ""}${skipped ? " is-skipped" : ""}">
-              <span class="tp-dot"></span>
-              <span class="tp-stop-id">${s.stopId}</span>
-              <span class="tp-stop-time">
-                <strong>${skipped ? "Skipped" : mins <= 0 ? "Now" : `${mins} min`}</strong>
-                <small>${fmt(s.time)}</small>
-                ${delay}
-              </span>
-            </li>`;
-        })
-        .join("")}</ol>`
-    : `<p class="tp-empty">${hasTrip ? "No upcoming stops reported." : "Waiting for trip updates…"}</p>`;
-
-  // keep the list's scroll position across live re-renders
-  const prevScroll = resetScroll ? 0 : panel.querySelector(".tp-stops")?.scrollTop || 0;
-
-  panel.style.setProperty("--route", r.color);
-  panel.innerHTML = `
-    <div class="tp-head">
-      <img class="tp-icon" src="${r.icon}" alt="">
-      <div>
-        <div class="tp-title">${r.name}</div>
-        <div class="tp-sub">Car ${selectedId}${tripId ? ` · Trip ${tripId}` : ""}</div>
-      </div>
-      <button class="tp-close" type="button" aria-label="Close trip panel">×</button>
-    </div>
-
-    <div class="tp-status ${status.cls}">
-      <span class="tp-status-label">${status.label}</span>
-      <span class="tp-status-detail">${status.detail}</span>
-    </div>
-
-    <dl class="tp-meta">
-      <div><dt>Speed</dt><dd>${speed}</dd></div>
-      <div><dt>Direction</dt><dd>${hasTrip && tu.directionId != null ? tu.directionId : "—"}</dd></div>
-      <div><dt>Started</dt><dd>${hasTrip && tu.startTime ? tu.startTime.slice(0, 5) : "—"}</dd></div>
-    </dl>
-
-    ${list}`;
-
-  panel.hidden = false;
-  panel.querySelector(".tp-close").addEventListener("click", closeTripPanel);
-
-  const listEl = panel.querySelector(".tp-stops");
-  if (listEl) listEl.scrollTop = prevScroll;
-}
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && selectedId) closeTripPanel();
-});
-
 function setUpdateTime() {
   const div = document.getElementById("update-time");
-  if (div) div.textContent = `Live · ${new Date().toLocaleTimeString()}`;
+  if (!div) return;
+  div.textContent = `Updated at ${new Date().toLocaleTimeString()}`;
+  div.style.fontSize = "12px";
+}
 
-  const count = document.getElementById("vehicle-count");
-  if (count) count.textContent = Object.keys(vehicles).length;
+// =========================
+// TRAIN CARD
+// =========================
+
+function setText(id, text) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = text;
+}
+
+function updateCard(id) {
+  const vehicle = vehicles[id];
+  if (!vehicle) return;
+
+  const route = ROUTES[vehicle.routeCode];
+  const v = vehicle.data.vehicle;
+
+  setText("trainId", id);
+  setText("train-headsign", `Metro ${route.name}`);
+  setText("train-route", `Trip ${v.trip?.tripId ?? "—"}`);
+  setText("nextStop", v.stopId ?? "—");
+  setText("trainSpeed", v.position?.speed != null ? `${Math.round(v.position.speed * 2.23694)} mph` : "—");
+  setText("trainSchedule", v.trip?.scheduleRelationship ?? "—");
+  setText("trainAdherence", "—");
+
+  const badge = document.querySelector("#trainInfoCard .route-badge");
+  if (badge) {
+    badge.textContent = route.letter;
+    badge.style.background = route.color;
+  }
 }
 
 // =========================
 // WEBSOCKET
 // =========================
 
-function connectFeed(url, onData) {
+function connectVehicleFeed(url) {
   const ws = new WebSocket(url);
   let pingTimer = null;
 
   ws.onopen = () => {
-    console.log(`WebSocket connected: ${url}`);
+    console.log("WebSocket connected");
     pingTimer = setInterval(() => {
       if (ws.readyState === WebSocket.OPEN) ws.send("ping");
     }, PING_MS);
   };
 
   ws.onmessage = (event) => {
-    let data;
     try {
-      data = JSON.parse(event.data);
-    } catch {
-      return; // non-JSON frames (e.g. pong)
-    }
-    try {
-      onData(data);
+      handleMessage(JSON.parse(event.data));
     } catch (err) {
-      console.error(`Error handling message from ${url}:`, err);
+      // non-JSON frames (e.g. pong) land here; ignore them
     }
   };
 
-  ws.onerror = (err) => console.error(`WebSocket error: ${url}`, err);
+  ws.onerror = (err) => console.error("WebSocket error:", err);
 
   ws.onclose = () => {
-    console.log(`WebSocket closed — reconnecting: ${url}`);
+    console.log("WebSocket closed — reconnecting");
     clearInterval(pingTimer);
-    setTimeout(() => connectFeed(url, onData), RECONNECT_MS);
+    setTimeout(() => connectVehicleFeed(url), RECONNECT_MS);
   };
 
   return ws;
 }
+// Predictions
 
+async function loadStopTimes(stop) {
+  const now = new Date().toISOString();
+  const url = `https://api.goswift.ly/real-time/lametro-rail/predictions` + `?stop=80214`;
+
+  console.log(url);
+  lastStop = stop;
+  document.getElementById("selected-stop").textContent = `${stop.name} (${stop.id})`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    const list = document.getElementById("stopTimesTable_body");
+
+    list.innerHTML = "";
+
+    const stopTimes = data.stopTimes || [];
+    stopTimes.forEach((item) => {
+      const scheduled = item.place?.scheduledDeparture;
+      const realtime = item.place?.departure;
+      const scheduledTime = scheduled
+        ? new Date(scheduled).toLocaleTimeString([], {
+            hour: "numeric",
+            minute: "2-digit"
+          })
+        : "";
+
+      const realtimeTime = realtime
+        ? new Date(realtime).toLocaleTimeString([], {
+            hour: "numeric",
+            minute: "2-digit"
+          })
+        : "";
+
+      const delayInfo = item.realTime ? getDelayInfo(scheduled, realtime) : null;
+
+      const row = document.createElement("div");
+      row.className = "departure-row";
+
+      const routeColor = routeOrModeColor(item.routeColor, item.mode);
+
+      const modeMeta = MODE_META[item.mode] || DEFAULT_MODE_META;
+
+      row.innerHTML = `
+                <div class="departure-main">
+                    <span class="route-pill" style="
+                        background:${routeColor};
+                        color:#${item.routeTextColor || "ffffff"};
+                    ">
+                        ${item.routeShortName || item.displayName}
+                    </span>
+
+                    <div class="departure-info">
+                        <div class="departure-headsign">${item.headsign || ""}</div>
+                        <div class="departure-sub">
+                            <span class="mode-badge" style="--marker-color:${routeOrModeColor(item.routeColor, item.mode)}">
+                                <i class="mdi ${modeMeta.icon}"></i>
+                                ${item.mode ? item.mode.replaceAll("_", " ") : ""}
+                            </span>
+                            <span class="departure-agency">${item.agencyName || ""}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="departure-time">
+                    <span class="time-scheduled${delayInfo && delayInfo.diffMin !== 0 ? " time-scheduled--adjusted" : ""}">${scheduledTime}</span>
+                    ${
+                      item.realTime
+                        ? `<span class="time-realtime status-${delayInfo.status}">
+                                    <i class="mdi mdi-circle-medium"></i>
+                                    ${realtimeTime} · ${delayInfo.label}
+                               </span>`
+                        : ""
+                    }
+                </div>
+            `;
+
+      row.addEventListener("click", () => loadTripDetails(item.tripId));
+
+      list.appendChild(row);
+    });
+  } catch (error) {
+    console.error("Stop times error:", error);
+  }
+}
+// =========================
+// LAX OVERLAY
+// =========================
+
+function addLaxLayer() {
+  map.addSource("lax", {
+    type: "geojson",
+    data: "/data/LAX.geojson" // served from /public/data/LAX.geojson
+  });
+
+  // Polygons (terminals, airfield, etc.)
+  map.addLayer({
+    id: "lax-fill",
+    type: "fill",
+    source: "lax",
+    filter: ["==", ["geometry-type"], "Polygon"],
+    paint: {
+      "fill-color": ["coalesce", ["get", "fill"], "#6b7280"],
+      "fill-opacity": 0.25
+    }
+  });
+
+  map.addLayer({
+    id: "lax-outline",
+    type: "line",
+    source: "lax",
+    filter: ["in", ["geometry-type"], ["literal", ["Polygon", "LineString"]]],
+    paint: {
+      "line-color": ["coalesce", ["get", "stroke"], "#374151"],
+      "line-width": ["interpolate", ["linear"], ["zoom"], 10, 1, 15, 3]
+    }
+  });
+
+  // Points (stops, labels, etc.)
+  map.addLayer({
+    id: "lax-points",
+    type: "circle",
+    source: "lax",
+    filter: ["==", ["geometry-type"], "Point"],
+    paint: {
+      "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 3, 15, 6],
+      "circle-color": ["coalesce", ["get", "marker-color"], "#111827"],
+      "circle-stroke-color": "#fff",
+      "circle-stroke-width": 1.5
+    }
+  });
+
+  // Popup with the feature's name on click
+  map.on("click", "lax-points", (e) => {
+    const p = e.features[0].properties;
+    new maplibregl.Popup({ offset: 8 })
+      .setLngLat(e.lngLat)
+      .setHTML(`<strong>${p.name ?? p.Name ?? "LAX"}</strong>`)
+      .addTo(map);
+  });
+  map.on("mouseenter", "lax-points", () => (map.getCanvas().style.cursor = "pointer"));
+  map.on("mouseleave", "lax-points", () => (map.getCanvas().style.cursor = ""));
+}
 // =========================
 // START
 // =========================
 
 const map = initMap();
-
 map.on("load", () => {
-  connectFeed(POSITIONS_URL, handlePosition);
-  connectFeed(TRIP_UPDATES_URL, handleTripUpdate);
-  setInterval(prune, 15000);
+  connectVehicleFeed(WS_URL);
+  addLaxLayer();
+  setInterval(pruneVehicles, 15000);
 });

@@ -1,6 +1,4 @@
- */
-
-:root {
+*/ :root {
   --bg: #e5e7eb;
   --panel: rgba(255, 255, 255, 0.92);
   --panel-solid: #ffffff;
@@ -16,6 +14,21 @@
   --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
 }
 
+#sidebar {
+  width: var(--sidebar-width);
+
+  min-width: var(--sidebar-width);
+
+  display: flex;
+
+  flex-direction: column;
+
+  background: var(--surface);
+
+  border-right: 1px solid var(--border);
+
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.05);
+}
 * {
   box-sizing: border-box;
 }

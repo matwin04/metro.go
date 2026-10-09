@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>MetroGO! Transit Map</title>
-        <link rel="icon" type="image/svg+xml" href="/public/icons/favicon.ico" />
-        <link rel="stylesheet" href="https://lacmta.github.io/design-system/dist/css/styles.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MetroGO! Transit Map</title>
+    <link rel="icon" type="image/svg+xml" href="/public/icons/favicon.ico" />
+    <link rel="stylesheet" href="https://lacmta.github.io/design-system/dist/css/styles.css" />
     <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,24 +14,21 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" />
     <link rel="stylesheet" href="/public/styles/main.css" />
 
-        <!-- End Cloudflare Web Analytics -->
-        <script defer
-        data-domain="metrogo.app"
-        src="https://clickport.io/tracker.js">
-        </script>
-        <!-- Vercel Web Analytics -->
-        <script>
-            window.va =
-                window.va ||
-                function () {
-                    (window.vaq = window.vaq || []).push(arguments);
-                };
-        </script>
-        <script defer src="/_vercel/insights/script.js"></script>
-        <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-    </head>
-    <body>
-        {{> navbar}}
+    <!-- End Cloudflare Web Analytics -->
+    <script defer data-domain="metrogo.app" src="https://clickport.io/tracker.js"></script>
+    <!-- Vercel Web Analytics -->
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  </head>
+  <body>
+    {{> navbar}}
     <main id="app">
       <section id="map" aria-label="Map of live Metro Rail trains"></section>
 
@@ -63,10 +60,14 @@
           <li><img src="https://lacmta.github.io/metro-iconography/Service_KLine.svg" alt="" />K Line</li>
         </ul>
       </header>
-
-      <aside id="trippanel" class="panel" hidden aria-live="polite"></aside>
+      <aside id="sidebar">
+        <h2 id="selected-stop">Click a stop</h2>
+        <div class="table-scroll">
+          <div id="stopTimesTable_body" class="departure-list"></div>
+        </div>
+      </aside>
     </main>
 
     <script src="/public/map.js"></script>
-    </body>
+  </body>
 </html>
