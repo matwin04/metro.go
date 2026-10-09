@@ -27,14 +27,47 @@
     <body>
         {{> navbar}}
 
-        <main>
-            <div class="hero">
-                Frontend for <a href="https://maps.catenary.org">Catenary Maps</a> for slower devices with less RAM or
-                Power.
-            </div>
+        <link rel="stylesheet" href="main.css" />
 
-            Search For Station or Route <input />
-            <a href="/departures/13156942550">LA Metro San Dimas</a>
-        </main>
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  </head>
+
+  <body>
+    <main id="app">
+      <section id="map" aria-label="Map of live Metro Rail trains"></section>
+
+      <header class="panel" id="header">
+        <div class="header-top">
+          <div class="brand">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <div>
+              <h1 class="brand-title">Metro Rail Live</h1>
+              <p class="brand-status">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span id="update-time">Connecting…</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="stat" title="Trains currently on the map">
+            <span class="stat-value" id="vehicle-count">0</span>
+            <span class="stat-label">trains</span>
+          </div>
+        </div>
+
+        <ul class="legend" aria-label="Lines">
+          <li><img src="https://lacmta.github.io/metro-iconography/Service_ALine.svg" alt="" />A Line</li>
+          <li><img src="https://lacmta.github.io/metro-iconography/Service_BLine.svg" alt="" />B Line</li>
+          <li><img src="https://lacmta.github.io/metro-iconography/Service_CLine.svg" alt="" />C Line</li>
+          <li><img src="https://lacmta.github.io/metro-iconography/Service_DLine.svg" alt="" />D Line</li>
+          <li><img src="https://lacmta.github.io/metro-iconography/Service_ELine2.svg" alt="" />E Line</li>
+          <li><img src="https://lacmta.github.io/metro-iconography/Service_KLine.svg" alt="" />K Line</li>
+        </ul>
+      </header>
+
+      <aside id="trippanel" class="panel" hidden aria-live="polite"></aside>
+    </main>
+
+    <script src="map.js"></script>
     </body>
 </html>
